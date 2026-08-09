@@ -67,6 +67,13 @@ struct RestaurantDetailView: View {
                         }
                     }
 
+                    if let foodingURL = URL(string: restaurant.foodingURL), !restaurant.foodingURL.isEmpty {
+                        Link(destination: foodingURL) {
+                            Label("Voir la fiche sur Le Fooding", systemImage: "fork.knife.circle")
+                        }
+                        .tint(.indigo)
+                    }
+
                     if let phoneURL = phoneURL {
                         Link(destination: phoneURL) {
                             Label(restaurant.phone, systemImage: "phone.fill")

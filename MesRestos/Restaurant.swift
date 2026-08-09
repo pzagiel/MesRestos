@@ -9,6 +9,7 @@ final class Restaurant {
     var cuisine: String
     var comment: String = ""
     var website: String = ""
+    var foodingURL: String = ""
     var phone: String = ""
     var status: String = "À tester"
     var latitude: Double?
@@ -22,6 +23,7 @@ final class Restaurant {
         cuisine: String,
         comment: String = "",
         website: String = "",
+        foodingURL: String = "",
         phone: String = "",
         status: String = "À tester",
         latitude: Double? = nil,
@@ -34,6 +36,7 @@ final class Restaurant {
         self.cuisine = cuisine
         self.comment = comment
         self.website = website
+        self.foodingURL = foodingURL
         self.phone = phone
         self.status = status
         self.latitude = latitude
