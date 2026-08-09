@@ -34,12 +34,20 @@ struct ContentView: View {
         restaurants.filter { restaurant in
             let matchesCuisine = selectedCuisine == "Toutes" || restaurant.cuisine == selectedCuisine
             let matchesSearch = searchText.isEmpty
-                || restaurant.name.localizedCaseInsensitiveContains(searchText)
-                || restaurant.address.localizedCaseInsensitiveContains(searchText)
-                || restaurant.cuisine.localizedCaseInsensitiveContains(searchText)
-                || restaurant.comment.localizedCaseInsensitiveContains(searchText)
+                || containsSearchText(restaurant.name)
+                || containsSearchText(restaurant.address)
+                || containsSearchText(restaurant.cuisine)
+                || containsSearchText(restaurant.comment)
             return matchesCuisine && matchesSearch
         }
+    }
+
+    private func containsSearchText(_ value: String) -> Bool {
+        value.range(
+            of: searchText,
+            options: [.caseInsensitive, .diacriticInsensitive],
+            locale: .current
+        ) != nil
     }
 
     var body: some View {

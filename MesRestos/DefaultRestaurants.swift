@@ -4,7 +4,7 @@ import SwiftData
 
 @MainActor
 enum DefaultRestaurants {
-    private static let seedKey = "hasSeededFoodingRestaurantsV8"
+    private static let seedKey = "hasSeededFoodingRestaurantsV9"
 
     private struct Seed {
         let name: String
@@ -52,6 +52,14 @@ enum DefaultRestaurants {
             comment: "La brasserie du chef Alexandre Cardoso.",
             website: "https://www.leguepard.be/",
             phone: "+32 2 751 30 16"
+        ),
+        Seed(
+            name: "Môme",
+            address: "Rue Veydt 41, 1050 Ixelles, Belgique",
+            cuisine: "Bistronomie",
+            comment: "Bistrot de quartier — sélection Le Fooding.",
+            website: "https://www.instagram.com/momebrussels/",
+            phone: "+32 492 44 91 74"
         )
     ]
 
