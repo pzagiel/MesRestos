@@ -1,5 +1,6 @@
 import Foundation
 import MapKit
+import CoreLocation
 import SwiftData
 
 @MainActor
@@ -284,8 +285,7 @@ enum DefaultRestaurants {
             if let latitude = seed.latitude, let longitude = seed.longitude {
                 restaurant.latitude = latitude
                 restaurant.longitude = longitude
-            } else if let request = MKGeocodingRequest(addressString: seed.address),
-               let coordinate = try? await request.mapItems.first?.location.coordinate {
+            } else if let coordinate = await coordinates(for: seed.address) {
                 restaurant.latitude = coordinate.latitude
                 restaurant.longitude = coordinate.longitude
             }
@@ -297,6 +297,21 @@ enum DefaultRestaurants {
         await findMissingPhones(in: allRestaurants.filter { curatedNames.contains(normalized($0.name)) })
 
         try? modelContext.save()
+    }
+
+    private static func coordinates(for address: String) async -> CLLocationCoordinate2D? {
+        do {
+            if #available(iOS 26.0, *) {
+                guard let request = MKGeocodingRequest(addressString: address) else { return nil }
+                return try await request.mapItems.first?.location.coordinate
+            } else {
+                return try await CLGeocoder()
+                    .geocodeAddressString(address)
+                    .first?.location?.coordinate
+            }
+        } catch {
+            return nil
+        }
     }
 
     private static func updateKnownPhones(in existingRestaurants: [Restaurant]) {

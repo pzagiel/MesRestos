@@ -1,6 +1,7 @@
 import SwiftUI
 import SwiftData
 import MapKit
+import CoreLocation
 
 struct RestaurantFormView: View {
     @Environment(\.dismiss) private var dismiss
@@ -193,9 +194,15 @@ struct RestaurantFormView: View {
     }
 
     private func coordinates(for address: String) async -> CLLocationCoordinate2D? {
-        guard let request = MKGeocodingRequest(addressString: address) else { return nil }
         do {
-            return try await request.mapItems.first?.location.coordinate
+            if #available(iOS 26.0, *) {
+                guard let request = MKGeocodingRequest(addressString: address) else { return nil }
+                return try await request.mapItems.first?.location.coordinate
+            } else {
+                return try await CLGeocoder()
+                    .geocodeAddressString(address)
+                    .first?.location?.coordinate
+            }
         } catch {
             return nil
         }

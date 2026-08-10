@@ -117,8 +117,15 @@ struct RestaurantDetailView: View {
 
     private func openInMaps() {
         guard let coordinate else { return }
-        let item = MKMapItem(location: CLLocation(latitude: coordinate.latitude, longitude: coordinate.longitude),
-                             address: nil)
+        let item: MKMapItem
+        if #available(iOS 26.0, *) {
+            item = MKMapItem(
+                location: CLLocation(latitude: coordinate.latitude, longitude: coordinate.longitude),
+                address: nil
+            )
+        } else {
+            item = MKMapItem(placemark: MKPlacemark(coordinate: coordinate))
+        }
         item.name = restaurant.name
         item.openInMaps(launchOptions: [MKLaunchOptionsDirectionsModeKey: MKLaunchOptionsDirectionsModeDriving])
     }
