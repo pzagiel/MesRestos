@@ -14,6 +14,7 @@ struct ContentView: View {
     @State private var searchText = ""
     @State private var selectedCuisine = "Toutes"
     @State private var showingAddRestaurant = false
+    @State private var showingJSONImport = false
     @State private var viewMode: RestaurantViewMode = .list
     @State private var mapPosition: MapCameraPosition = .region(MKCoordinateRegion(
         center: CLLocationCoordinate2D(latitude: 50.8503, longitude: 4.3517),
@@ -88,8 +89,18 @@ struct ContentView: View {
             .searchable(text: $searchText, prompt: "Nom, adresse ou cuisine")
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
-                    Button {
-                        showingAddRestaurant = true
+                    Menu {
+                        Button {
+                            showingAddRestaurant = true
+                        } label: {
+                            Label("Ajouter manuellement", systemImage: "square.and.pencil")
+                        }
+
+                        Button {
+                            showingJSONImport = true
+                        } label: {
+                            Label("Importer un JSON", systemImage: "doc.on.clipboard")
+                        }
                     } label: {
                         Label("Ajouter", systemImage: "plus")
                     }
@@ -97,6 +108,9 @@ struct ContentView: View {
             }
             .sheet(isPresented: $showingAddRestaurant) {
                 RestaurantFormView()
+            }
+            .sheet(isPresented: $showingJSONImport) {
+                RestaurantJSONImportView()
             }
             .task {
                 await DefaultRestaurants.insertIfNeeded(in: modelContext)
