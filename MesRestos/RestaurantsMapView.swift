@@ -19,7 +19,7 @@ struct RestaurantsMapView: View {
         )
         let region = MKCoordinateRegion(
             center: center,
-            span: MKCoordinateSpan(latitudeDelta: 0.015, longitudeDelta: 0.015)
+            span: MKCoordinateSpan(latitudeDelta: 0.006, longitudeDelta: 0.006)
         )
         _mapPosition = State(initialValue: .region(region))
         _visibleMapRegion = State(initialValue: region)
@@ -29,8 +29,9 @@ struct RestaurantsMapView: View {
         Map(position: $mapPosition) {
             UserAnnotation()
 
-            ForEach(restaurants) { restaurant in
+            ForEach(orderedRestaurants) { restaurant in
                 if let latitude = restaurant.latitude, let longitude = restaurant.longitude {
+                    let isFocused = restaurant.persistentModelID == focusedRestaurant.persistentModelID
                     Annotation(
                         restaurant.name,
                         coordinate: CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
@@ -39,20 +40,22 @@ struct RestaurantsMapView: View {
                             RestaurantDetailView(restaurant: restaurant)
                         } label: {
                             Image(systemName: "fork.knife")
-                                .font(.caption.bold())
+                                .font(isFocused ? .body.bold() : .caption.bold())
                                 .foregroundStyle(.white)
-                                .frame(width: 36, height: 36)
+                                .frame(
+                                    width: isFocused ? 44 : 36,
+                                    height: isFocused ? 44 : 36
+                                )
                                 .background(.indigo.gradient, in: Circle())
                                 .overlay(
                                     Circle().stroke(
-                                        restaurant.persistentModelID == focusedRestaurant.persistentModelID
-                                            ? .orange
-                                            : .white,
-                                        lineWidth: 3
+                                        isFocused ? .orange : .white,
+                                        lineWidth: isFocused ? 4 : 3
                                     )
                                 )
-                                .shadow(radius: 3, y: 2)
+                                .shadow(radius: isFocused ? 6 : 3, y: 2)
                         }
+                        .zIndex(isFocused ? 1 : 0)
                         .accessibilityLabel(restaurant.name)
                     }
                 }
@@ -89,6 +92,17 @@ struct RestaurantsMapView: View {
             .font(.caption.bold())
             .buttonStyle(.plain)
             .padding(12)
+        }
+    }
+
+    private var orderedRestaurants: [Restaurant] {
+        restaurants.sorted { first, second in
+            let firstIsFocused = first.persistentModelID == focusedRestaurant.persistentModelID
+            let secondIsFocused = second.persistentModelID == focusedRestaurant.persistentModelID
+            if firstIsFocused != secondIsFocused {
+                return !firstIsFocused
+            }
+            return first.name.localizedCaseInsensitiveCompare(second.name) == .orderedAscending
         }
     }
 
