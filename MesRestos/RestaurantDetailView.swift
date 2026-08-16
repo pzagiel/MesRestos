@@ -1,9 +1,11 @@
 import SwiftUI
 import MapKit
+import UIKit
 
 struct RestaurantDetailView: View {
     let restaurant: Restaurant
     @State private var showingEditRestaurant = false
+    @State private var showingNavigationOptions = false
 
     private var coordinate: CLLocationCoordinate2D? {
         guard let latitude = restaurant.latitude, let longitude = restaurant.longitude else { return nil }
@@ -54,7 +56,24 @@ struct RestaurantDetailView: View {
                     }
 
                     Label(restaurant.cuisine, systemImage: "fork.knife")
-                    Label(restaurant.address, systemImage: "mappin.and.ellipse")
+                    if coordinate != nil {
+                        Button {
+                            showingNavigationOptions = true
+                        } label: {
+                            HStack {
+                                Label(restaurant.address, systemImage: "mappin.and.ellipse")
+                                    .multilineTextAlignment(.leading)
+                                Spacer()
+                                Image(systemName: "chevron.right")
+                                    .font(.caption.bold())
+                                    .foregroundStyle(.tertiary)
+                            }
+                            .contentShape(Rectangle())
+                        }
+                        .buttonStyle(.plain)
+                    } else {
+                        Label(restaurant.address, systemImage: "mappin.and.ellipse")
+                    }
                     Label(
                         restaurant.status,
                         systemImage: restaurant.status == "Favori" ? "heart.fill" : "bookmark"
@@ -93,8 +112,10 @@ struct RestaurantDetailView: View {
                     }
 
                     if coordinate != nil {
-                        Button(action: openInMaps) {
-                            Label("Itinéraire dans Plans", systemImage: "arrow.triangle.turn.up.right.diamond.fill")
+                        Button {
+                            showingNavigationOptions = true
+                        } label: {
+                            Label("Itinéraire", systemImage: "arrow.triangle.turn.up.right.diamond.fill")
                                 .frame(maxWidth: .infinity)
                         }
                         .buttonStyle(.borderedProminent)
@@ -113,9 +134,21 @@ struct RestaurantDetailView: View {
         .sheet(isPresented: $showingEditRestaurant) {
             RestaurantFormView(restaurant: restaurant)
         }
+        .confirmationDialog(
+            "Choisir une application d’itinéraire",
+            isPresented: $showingNavigationOptions,
+            titleVisibility: .visible
+        ) {
+            Button("Plans") { openInAppleMaps() }
+            Button("Google Maps") { openInGoogleMaps() }
+            Button("Waze") { openInWaze() }
+            Button("Annuler", role: .cancel) { }
+        } message: {
+            Text(restaurant.name)
+        }
     }
 
-    private func openInMaps() {
+    private func openInAppleMaps() {
         guard let coordinate else { return }
         let item: MKMapItem
         if #available(iOS 26.0, *) {
@@ -128,6 +161,30 @@ struct RestaurantDetailView: View {
         }
         item.name = restaurant.name
         item.openInMaps(launchOptions: [MKLaunchOptionsDirectionsModeKey: MKLaunchOptionsDirectionsModeDriving])
+    }
+
+    private func openInGoogleMaps() {
+        guard let coordinate else { return }
+        let destination = "\(coordinate.latitude),\(coordinate.longitude)"
+        guard let appURL = URL(string: "comgooglemaps://?daddr=\(destination)&directionsmode=driving"),
+              let webURL = URL(string: "https://www.google.com/maps/dir/?api=1&destination=\(destination)&travelmode=driving") else { return }
+        open(appURL, fallback: webURL)
+    }
+
+    private func openInWaze() {
+        guard let coordinate else { return }
+        let destination = "\(coordinate.latitude),\(coordinate.longitude)"
+        guard let appURL = URL(string: "waze://?ll=\(destination)&navigate=yes"),
+              let webURL = URL(string: "https://waze.com/ul?ll=\(destination)&navigate=yes") else { return }
+        open(appURL, fallback: webURL)
+    }
+
+    private func open(_ appURL: URL, fallback webURL: URL) {
+        UIApplication.shared.open(appURL, options: [:]) { opened in
+            if !opened {
+                UIApplication.shared.open(webURL)
+            }
+        }
     }
 
     private var phoneURL: URL? {
