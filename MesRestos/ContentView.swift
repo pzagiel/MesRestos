@@ -7,6 +7,12 @@ private enum RestaurantViewMode: String, CaseIterable {
     case map = "Carte"
 }
 
+private struct RestaurantImportRequest: Identifiable {
+    let id = UUID()
+    let jsonText: String
+    let sourceName: String?
+}
+
 struct ContentView: View {
     @Environment(\.modelContext) private var modelContext
     @Query(sort: \Restaurant.name) private var restaurants: [Restaurant]
@@ -14,7 +20,8 @@ struct ContentView: View {
     @State private var searchText = ""
     @State private var selectedCuisine = "Toutes"
     @State private var showingAddRestaurant = false
-    @State private var showingJSONImport = false
+    @State private var importRequest: RestaurantImportRequest?
+    @State private var fileImportError: String?
     @State private var viewMode: RestaurantViewMode = .list
     @State private var mapPosition: MapCameraPosition = .region(MKCoordinateRegion(
         center: CLLocationCoordinate2D(latitude: 50.8503, longitude: 4.3517),
@@ -97,9 +104,9 @@ struct ContentView: View {
                         }
 
                         Button {
-                            showingJSONImport = true
+                            importRequest = RestaurantImportRequest(jsonText: "", sourceName: nil)
                         } label: {
-                            Label("Importer un JSON", systemImage: "doc.on.clipboard")
+                            Label("Importer une sélection", systemImage: "doc.badge.plus")
                         }
                     } label: {
                         Label("Ajouter", systemImage: "plus")
@@ -109,8 +116,20 @@ struct ContentView: View {
             .sheet(isPresented: $showingAddRestaurant) {
                 RestaurantFormView()
             }
-            .sheet(isPresented: $showingJSONImport) {
-                RestaurantJSONImportView()
+            .sheet(item: $importRequest) { request in
+                RestaurantJSONImportView(
+                    initialJSON: request.jsonText,
+                    sourceName: request.sourceName
+                )
+            }
+            .onOpenURL(perform: openRestaurantDocument)
+            .alert("Fichier impossible à ouvrir", isPresented: Binding(
+                get: { fileImportError != nil },
+                set: { if !$0 { fileImportError = nil } }
+            )) {
+                Button("OK", role: .cancel) { fileImportError = nil }
+            } message: {
+                Text(fileImportError ?? "Erreur inconnue")
             }
             .task {
                 await DefaultRestaurants.insertIfNeeded(in: modelContext)
@@ -133,6 +152,41 @@ struct ContentView: View {
                     span: MKCoordinateSpan(latitudeDelta: 0.12, longitudeDelta: 0.12)
                 ))
             }
+        }
+    }
+
+    private func openRestaurantDocument(_ url: URL) {
+        guard url.isFileURL else {
+            fileImportError = "Le lien reçu ne correspond pas à un fichier Mes Restos."
+            return
+        }
+
+        let hasSecurityAccess = url.startAccessingSecurityScopedResource()
+        defer {
+            if hasSecurityAccess {
+                url.stopAccessingSecurityScopedResource()
+            }
+        }
+
+        do {
+            let resourceValues = try url.resourceValues(forKeys: [.fileSizeKey])
+            if let fileSize = resourceValues.fileSize, fileSize > 5_000_000 {
+                throw RestaurantDocumentError.fileTooLarge
+            }
+
+            let data = try Data(contentsOf: url)
+            guard let jsonText = String(data: data, encoding: .utf8) else {
+                throw RestaurantDocumentError.invalidEncoding
+            }
+
+            _ = try RestaurantJSONImporter.parse(jsonText)
+            importRequest = RestaurantImportRequest(
+                jsonText: jsonText,
+                sourceName: url.deletingPathExtension().lastPathComponent
+            )
+        } catch {
+            fileImportError = (error as? LocalizedError)?.errorDescription
+                ?? "Le contenu de ce fichier n’est pas compatible avec Mes Restos."
         }
     }
 
@@ -270,6 +324,20 @@ struct ContentView: View {
     private func deleteRestaurants(at offsets: IndexSet) {
         for index in offsets {
             modelContext.delete(filteredRestaurants[index])
+        }
+    }
+}
+
+private enum RestaurantDocumentError: LocalizedError {
+    case fileTooLarge
+    case invalidEncoding
+
+    var errorDescription: String? {
+        switch self {
+        case .fileTooLarge:
+            return "Le fichier dépasse la taille maximale autorisée de 5 Mo."
+        case .invalidEncoding:
+            return "Le fichier doit contenir du texte JSON encodé en UTF-8."
         }
     }
 }

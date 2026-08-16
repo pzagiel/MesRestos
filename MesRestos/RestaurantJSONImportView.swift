@@ -197,6 +197,13 @@ struct RestaurantJSONImportView: View {
     @State private var saveError: String?
     @FocusState private var jsonEditorIsFocused: Bool
 
+    private let sourceName: String?
+
+    init(initialJSON: String = "", sourceName: String? = nil) {
+        _jsonText = State(initialValue: initialJSON)
+        self.sourceName = sourceName
+    }
+
     private var duplicateIDs: Set<UUID> {
         let existingNames = Set(existingRestaurants.map { normalized($0.name) })
         let existingAddresses = Set(existingRestaurants.map { normalized($0.address) })
@@ -270,7 +277,7 @@ struct RestaurantJSONImportView: View {
                 }
             }
             .scrollDismissesKeyboard(.interactively)
-            .navigationTitle("Importer un JSON")
+            .navigationTitle(sourceName ?? "Importer une sélection")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .cancellationAction) {
@@ -301,6 +308,12 @@ struct RestaurantJSONImportView: View {
                 Button("OK", role: .cancel) { saveError = nil }
             } message: {
                 Text(saveError ?? "Erreur inconnue")
+            }
+            .task {
+                if !jsonText.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty,
+                   candidates.isEmpty {
+                    validate()
+                }
             }
         }
     }
