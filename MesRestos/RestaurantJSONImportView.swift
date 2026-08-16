@@ -204,6 +204,10 @@ struct RestaurantJSONImportView: View {
         self.sourceName = sourceName
     }
 
+    private var isFileImport: Bool {
+        sourceName != nil
+    }
+
     private var duplicateIDs: Set<UUID> {
         let existingNames = Set(existingRestaurants.map { normalized($0.name) })
         let existingAddresses = Set(existingRestaurants.map { normalized($0.address) })
@@ -223,31 +227,33 @@ struct RestaurantJSONImportView: View {
     var body: some View {
         NavigationStack {
             Form {
-                Section("Données JSON") {
-                    TextEditor(text: $jsonText)
-                        .font(.system(.footnote, design: .monospaced))
-                        .frame(height: 220)
-                        .focused($jsonEditorIsFocused)
-                        .accessibilityLabel("Données JSON à importer")
+                if !isFileImport {
+                    Section("Données JSON") {
+                        TextEditor(text: $jsonText)
+                            .font(.system(.footnote, design: .monospaced))
+                            .frame(height: 220)
+                            .focused($jsonEditorIsFocused)
+                            .accessibilityLabel("Données JSON à importer")
 
-                    HStack {
-                        Button("Coller", systemImage: "doc.on.clipboard") {
-                            jsonText = UIPasteboard.general.string ?? ""
+                        HStack {
+                            Button("Coller", systemImage: "doc.on.clipboard") {
+                                jsonText = UIPasteboard.general.string ?? ""
+                                validateAndDismissKeyboard()
+                            }
+                            Spacer()
+                            Button("Exemple") { jsonText = Self.exampleJSON }
+                            Button("Effacer", role: .destructive) {
+                                jsonText = ""
+                                candidates = []
+                                errorMessage = nil
+                            }
+                        }
+
+                        Button("Vérifier les données", systemImage: "checkmark.circle") {
                             validateAndDismissKeyboard()
                         }
-                        Spacer()
-                        Button("Exemple") { jsonText = Self.exampleJSON }
-                        Button("Effacer", role: .destructive) {
-                            jsonText = ""
-                            candidates = []
-                            errorMessage = nil
-                        }
+                        .buttonStyle(.borderedProminent)
                     }
-
-                    Button("Vérifier les données", systemImage: "checkmark.circle") {
-                        validateAndDismissKeyboard()
-                    }
-                    .buttonStyle(.borderedProminent)
                 }
 
                 if let errorMessage {
@@ -285,8 +291,10 @@ struct RestaurantJSONImportView: View {
                 }
                 ToolbarItem(placement: .confirmationAction) {
                     if candidates.isEmpty {
-                        Button("Vérifier") { validateAndDismissKeyboard() }
-                            .disabled(jsonText.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty)
+                        if !isFileImport {
+                            Button("Vérifier") { validateAndDismissKeyboard() }
+                                .disabled(jsonText.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty)
+                        }
                     } else {
                         Button("Importer") {
                             jsonEditorIsFocused = false
@@ -295,10 +303,12 @@ struct RestaurantJSONImportView: View {
                         .disabled(importableCandidates.isEmpty)
                     }
                 }
-                ToolbarItemGroup(placement: .keyboard) {
-                    Button("Vérifier") { validateAndDismissKeyboard() }
-                    Spacer()
-                    Button("Terminé") { jsonEditorIsFocused = false }
+                if !isFileImport {
+                    ToolbarItemGroup(placement: .keyboard) {
+                        Button("Vérifier") { validateAndDismissKeyboard() }
+                        Spacer()
+                        Button("Terminé") { jsonEditorIsFocused = false }
+                    }
                 }
             }
             .alert("Import impossible", isPresented: Binding(
