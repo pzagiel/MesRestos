@@ -1,0 +1,2525 @@
+{
+  "version": 1,
+  "restaurants": [
+    {
+      "nom": "Ristorante La Tavernetta",
+      "adresse": "Via Roma, 15, 52046 Lucignano AR, Italie",
+      "cuisine": "Italienne",
+      "statut": "À tester",
+      "note": 4.6,
+      "commentaire": "Restaurant italien; excellent retour Google (4.6/5, 1346 avis au 15/08/2026). Spécialité : cuisine italienne et spécialités locales.",
+      "telephone": "+39 339 889 0016",
+      "site_web": "http://www.latavernetta.com/",
+      "lien_fooding": "",
+      "localisation": {
+        "latitude": 43.2744499,
+        "longitude": 11.744877299999999
+      }
+    },
+    {
+      "nom": "Scroccazucche",
+      "adresse": "Via Maestà dei Mori 37, 52046 Lucignano AR, Italie",
+      "cuisine": "Italienne",
+      "statut": "À tester",
+      "note": 4.6,
+      "commentaire": "Restaurant italien; excellent retour Google (4.6/5, 1280 avis au 15/08/2026). Spécialité : cuisine italienne et spécialités locales.",
+      "telephone": "+39 333 766 0481",
+      "site_web": "",
+      "lien_fooding": "",
+      "localisation": {
+        "latitude": 43.268485299999995,
+        "longitude": 11.723947299999999
+      }
+    },
+    {
+      "nom": "Zenzero Restaurant",
+      "adresse": "Via di Circonvallazione, 7B, 52046 Lucignano AR, Italie",
+      "cuisine": "Italienne",
+      "statut": "À tester",
+      "note": 4.7,
+      "commentaire": "Restaurant italien; excellent retour Google (4.7/5, 203 avis au 15/08/2026). Spécialité : cuisine italienne et spécialités locales.",
+      "telephone": "+39 380 469 3221",
+      "site_web": "https://www.zenzerorestaurant.it/",
+      "lien_fooding": "",
+      "localisation": {
+        "latitude": 43.2732848,
+        "longitude": 11.745598699999999
+      }
+    },
+    {
+      "nom": "Il Baraccotto",
+      "adresse": "Via Mario Luzi, 1, 52046 Lucignano AR, Italie",
+      "cuisine": "Italienne",
+      "statut": "À tester",
+      "note": 4.6,
+      "commentaire": "Restaurant italien; excellent retour Google (4.6/5, 796 avis au 15/08/2026). Spécialité : cuisine italienne et spécialités locales.",
+      "telephone": "+39 0575 836264",
+      "site_web": "https://www.ilbaraccotto.it/",
+      "lien_fooding": "",
+      "localisation": {
+        "latitude": 43.2707561,
+        "longitude": 11.7472844
+      }
+    },
+    {
+      "nom": "Vizi e Virtù",
+      "adresse": "Via Giacomo Matteotti, 90, 52046 Lucignano AR, Italie",
+      "cuisine": "Italienne",
+      "statut": "À tester",
+      "note": 4.6,
+      "commentaire": "Restaurant italien; excellent retour Google (4.6/5, 441 avis au 15/08/2026). Spécialité : cuisine italienne et spécialités locales.",
+      "telephone": "+39 338 346 6280",
+      "site_web": "https://vizievirtu.it/",
+      "lien_fooding": "",
+      "localisation": {
+        "latitude": 43.2745372,
+        "longitude": 11.7473461
+      }
+    },
+    {
+      "nom": "AGRITURISMO PODERE LA VILLETTA",
+      "adresse": "LOCALITA' VILLETTA, 93, 52046 Lucignano AR, Italie",
+      "cuisine": "Italienne",
+      "statut": "À tester",
+      "note": 4.7,
+      "commentaire": "Restaurant italien; excellent retour Google (4.7/5, 43 avis au 15/08/2026). Spécialité : cuisine italienne et spécialités locales.",
+      "telephone": "+39 339 360 0245",
+      "site_web": "https://www.poderelavilletta.it/",
+      "lien_fooding": "",
+      "localisation": {
+        "latitude": 43.2654949,
+        "longitude": 11.7412894
+      }
+    },
+    {
+      "nom": "Il Goccino",
+      "adresse": "Via Giacomo Matteotti, 90, 52046 Lucignano AR, Italie",
+      "cuisine": "Italienne",
+      "statut": "À tester",
+      "note": 4.5,
+      "commentaire": "Restaurant italien; très bien noté sur Google (4.5/5, 327 avis au 15/08/2026). Spécialité : cuisine italienne et spécialités locales.",
+      "telephone": "+39 0575 836707",
+      "site_web": "http://www.ilgoccino.it/",
+      "lien_fooding": "",
+      "localisation": {
+        "latitude": 43.27451,
+        "longitude": 11.747330999999999
+      }
+    },
+    {
+      "nom": "Pezzi Pizza",
+      "adresse": "Via Prato, 13, 52046 Lucignano AR, Italie",
+      "cuisine": "Italienne",
+      "statut": "À tester",
+      "note": 4.6,
+      "commentaire": "Restaurant italien; excellent retour Google (4.6/5, 37 avis au 15/08/2026). Spécialité : cuisine italienne et spécialités locales.",
+      "telephone": "+39 392 388 9820",
+      "site_web": "",
+      "lien_fooding": "",
+      "localisation": {
+        "latitude": 43.2731651,
+        "longitude": 11.7438355
+      }
+    },
+    {
+      "nom": "Osteria Le Botti",
+      "adresse": "Via Giacomo Matteotti, 15/17, 52046 Lucignano AR, Italie",
+      "cuisine": "Italienne",
+      "statut": "À tester",
+      "note": 4.4,
+      "commentaire": "Restaurant italien; très bien noté sur Google (4.4/5, 564 avis au 15/08/2026). Spécialité : cuisine italienne et spécialités locales.",
+      "telephone": "+39 0575 836513",
+      "site_web": "",
+      "lien_fooding": "",
+      "localisation": {
+        "latitude": 43.2735176,
+        "longitude": 11.7455769
+      }
+    },
+    {
+      "nom": "Trattoria Del Gallo Di Noli Davide",
+      "adresse": "Via Toti A., 2, 52046 Lucignano AR, Italie",
+      "cuisine": "Italienne",
+      "statut": "À tester",
+      "note": 4.4,
+      "commentaire": "Restaurant italien; très bien noté sur Google (4.4/5, 271 avis au 15/08/2026). Spécialité : cuisine italienne et spécialités locales.",
+      "telephone": "+39 0575 165 7223",
+      "site_web": "",
+      "lien_fooding": "",
+      "localisation": {
+        "latitude": 43.274781,
+        "longitude": 11.7434924
+      }
+    },
+    {
+      "nom": "Pizzeria \"La bella 'mbriana\"",
+      "adresse": "Via Porta S. Giovanni, 2, 52046 Lucignano AR, Italie",
+      "cuisine": "Italienne",
+      "statut": "À tester",
+      "note": 4.5,
+      "commentaire": "Restaurant italien; très bien noté sur Google (4.5/5, 53 avis au 15/08/2026). Spécialité : cuisine italienne et spécialités locales.",
+      "telephone": "+39 392 554 0904",
+      "site_web": "",
+      "lien_fooding": "",
+      "localisation": {
+        "latitude": 43.275152399999996,
+        "longitude": 11.7483699
+      }
+    },
+    {
+      "nom": "Stay Manzo - Food and Drinks",
+      "adresse": "località Pianello, 2, 52046 Lucignano AR, Italie",
+      "cuisine": "Italienne",
+      "statut": "À tester",
+      "note": 4.5,
+      "commentaire": "Pizzeria; très bien noté sur Google (4.5/5, 33 avis au 15/08/2026). Spécialité : pizzas.",
+      "telephone": "+39 351 586 9961",
+      "site_web": "https://www.facebook.com/staymanzolucignano",
+      "lien_fooding": "",
+      "localisation": {
+        "latitude": 43.245536699999995,
+        "longitude": 11.7461837
+      }
+    },
+    {
+      "nom": "La Rocca Gourmet",
+      "adresse": "Piazza Ser Vanni, 1, 52046 Lucignano AR, Italie",
+      "cuisine": "Italienne",
+      "statut": "À tester",
+      "note": 4.3,
+      "commentaire": "Restaurant italien; très bien noté sur Google (4.3/5, 499 avis au 15/08/2026). Spécialité : cuisine italienne et spécialités locales.",
+      "telephone": "+39 338 770 7885",
+      "site_web": "https://laroccagourmet.com/",
+      "lien_fooding": "",
+      "localisation": {
+        "latitude": 43.275111599999995,
+        "longitude": 11.7475357
+      }
+    },
+    {
+      "nom": "Ristorante Pizzeria Lo Schicchero",
+      "adresse": "Via Giacomo Matteotti, 64, 52046 Lucignano AR, Italie",
+      "cuisine": "Italienne",
+      "statut": "À tester",
+      "note": 4.3,
+      "commentaire": "Restaurant italien; très bien noté sur Google (4.3/5, 338 avis au 15/08/2026). Spécialité : cuisine italienne et spécialités locales.",
+      "telephone": "+39 0575 837366",
+      "site_web": "https://www.facebook.com/newschicchero/?locale=it_IT",
+      "lien_fooding": "",
+      "localisation": {
+        "latitude": 43.2741514,
+        "longitude": 11.7468202
+      }
+    },
+    {
+      "nom": "Bar Bistrot Fuoriporta",
+      "adresse": "Via di Circonvallazione, 65, 52046 Lucignano AR, Italie",
+      "cuisine": "Italienne",
+      "statut": "À tester",
+      "note": 4.3,
+      "commentaire": "Restaurant italien; très bien noté sur Google (4.3/5, 148 avis au 15/08/2026). Spécialité : cuisine italienne et spécialités locales.",
+      "telephone": "+39 339 795 9100",
+      "site_web": "https://www.instagram.com/barbistrotfuoriporta?igsh=c2hubWZtd3JtZXd0",
+      "lien_fooding": "",
+      "localisation": {
+        "latitude": 43.273468699999995,
+        "longitude": 11.7449707
+      }
+    },
+    {
+      "nom": "Le Bindi - Bottega di cuoco",
+      "adresse": "Via Roma, 23, 52048 Monte San Savino AR, Italie",
+      "cuisine": "Italienne",
+      "statut": "À tester",
+      "note": 4.8,
+      "commentaire": "Restaurant italien; excellent retour Google (4.8/5, 456 avis au 15/08/2026). Spécialité : cuisine italienne et spécialités locales.",
+      "telephone": "+39 338 672 6591",
+      "site_web": "http://www.lebindi.it/",
+      "lien_fooding": "",
+      "localisation": {
+        "latitude": 43.330675,
+        "longitude": 11.726329
+      }
+    },
+    {
+      "nom": "Toscanissima - Ristorante Pizzeria Toscana",
+      "adresse": "Piazza Vittorio Veneto, 5/6, 52048 Monte San Savino AR, Italie",
+      "cuisine": "Italienne",
+      "statut": "À tester",
+      "note": 4.8,
+      "commentaire": "Pizzeria; excellent retour Google (4.8/5, 382 avis au 15/08/2026). Spécialité : pizzas.",
+      "telephone": "+39 0575 849247",
+      "site_web": "http://www.toscanissima.restaurant/",
+      "lien_fooding": "",
+      "localisation": {
+        "latitude": 43.3329059,
+        "longitude": 11.7249476
+      }
+    },
+    {
+      "nom": "Le delizie di aldo",
+      "adresse": "Piazza Francesco Gamurrini, 27, 52048 Monte San Savino AR, Italie",
+      "cuisine": "Italienne",
+      "statut": "À tester",
+      "note": 4.7,
+      "commentaire": "Restaurant italien; excellent retour Google (4.7/5, 840 avis au 15/08/2026). Spécialité : cuisine italienne et spécialités locales.",
+      "telephone": "+39 0575 849383",
+      "site_web": "http://www.macelleriaiacomonialdo.it/",
+      "lien_fooding": "",
+      "localisation": {
+        "latitude": 43.3319255,
+        "longitude": 11.7246864
+      }
+    },
+    {
+      "nom": "Trattoria del Forno",
+      "adresse": "Via Conte Cungi, 22, 52048 Monte San Savino AR, Italie",
+      "cuisine": "Italienne",
+      "statut": "À tester",
+      "note": 4.6,
+      "commentaire": "Restaurant italien; excellent retour Google (4.6/5, 1628 avis au 15/08/2026). Spécialité : cuisine italienne et spécialités locales.",
+      "telephone": "",
+      "site_web": "http://www.trattoriadelforno.com/",
+      "lien_fooding": "",
+      "localisation": {
+        "latitude": 43.330833299999995,
+        "longitude": 11.7272222
+      }
+    },
+    {
+      "nom": "La Taverna del Sansovino",
+      "adresse": "Via Sansovino, 34, 52048 Monte San Savino AR, Italie",
+      "cuisine": "Italienne",
+      "statut": "À tester",
+      "note": 4.7,
+      "commentaire": "Restaurant italien; excellent retour Google (4.7/5, 185 avis au 15/08/2026). Spécialité : cuisine italienne et spécialités locales.",
+      "telephone": "+39 333 266 5226",
+      "site_web": "",
+      "lien_fooding": "",
+      "localisation": {
+        "latitude": 43.330989599999995,
+        "longitude": 11.7262112
+      }
+    },
+    {
+      "nom": "Qui Ciccia Ristorante Griglieria",
+      "adresse": "Corso Sangallo, 22, 52048 Monte San Savino AR, Italie",
+      "cuisine": "Italienne",
+      "statut": "À tester",
+      "note": 4.6,
+      "commentaire": "Restaurant italien; excellent retour Google (4.6/5, 631 avis au 15/08/2026). Spécialité : cuisine italienne et spécialités locales.",
+      "telephone": "+39 334 750 8300",
+      "site_web": "http://www.macelleriaiacomonialdo.it/",
+      "lien_fooding": "",
+      "localisation": {
+        "latitude": 43.331807,
+        "longitude": 11.7249311
+      }
+    },
+    {
+      "nom": "Il Cassero Ristorante Pizzeria",
+      "adresse": "Via della Riconoscenza, 13/15, 52048 Monte San Savino AR, Italie",
+      "cuisine": "Italienne",
+      "statut": "À tester",
+      "note": 4.6,
+      "commentaire": "Restaurant italien; excellent retour Google (4.6/5, 560 avis au 15/08/2026). Spécialité : cuisine italienne et spécialités locales.",
+      "telephone": "+39 0575 844241",
+      "site_web": "https://www.ristorantimontesansavino.com/",
+      "lien_fooding": "",
+      "localisation": {
+        "latitude": 43.332212399999996,
+        "longitude": 11.7242625
+      }
+    },
+    {
+      "nom": "Verdilogge Garden Pub",
+      "adresse": "Via Sansovino, 37, 52048 Monte San Savino AR, Italie",
+      "cuisine": "Italienne",
+      "statut": "À tester",
+      "note": 4.8,
+      "commentaire": "Restaurant italien; excellent retour Google (4.8/5, 27 avis au 15/08/2026). Spécialité : cuisine italienne et spécialités locales.",
+      "telephone": "+39 345 265 0928",
+      "site_web": "",
+      "lien_fooding": "",
+      "localisation": {
+        "latitude": 43.331638,
+        "longitude": 11.725385
+      }
+    },
+    {
+      "nom": "Ristorante \"L'Altruista\"",
+      "adresse": "P.zza Gamurrini, 20, 52048 Monte San Savino AR, Italie",
+      "cuisine": "Italienne",
+      "statut": "À tester",
+      "note": 4.6,
+      "commentaire": "Restaurant italien; excellent retour Google (4.6/5, 413 avis au 15/08/2026). Spécialité : cuisine italienne et spécialités locales.",
+      "telephone": "+39 0575 816736",
+      "site_web": "http://www.sangallohotel.it/ristorante-l-altruista-monte-san-savino",
+      "lien_fooding": "",
+      "localisation": {
+        "latitude": 43.331659699999996,
+        "longitude": 11.724352
+      }
+    },
+    {
+      "nom": "Vini di Toscana S.r.l.",
+      "adresse": "SP25, 52048 Monte San Savino AR, Italie",
+      "cuisine": "Italienne",
+      "statut": "À tester",
+      "note": 4.5,
+      "commentaire": "Restaurant italien; très bien noté sur Google (4.5/5, 672 avis au 15/08/2026). Spécialité : cuisine italienne et spécialités locales.",
+      "telephone": "+39 346 690 8938",
+      "site_web": "http://tuscanywines.it/",
+      "lien_fooding": "",
+      "localisation": {
+        "latitude": 43.3337748,
+        "longitude": 11.728936299999999
+      }
+    },
+    {
+      "nom": "Ostematto - pizzeria contemporanea",
+      "adresse": "Via Fiorenzuola, 7, 52048 Monte San Savino AR, Italie",
+      "cuisine": "Italienne",
+      "statut": "À tester",
+      "note": 4.5,
+      "commentaire": "Restaurant italien; très bien noté sur Google (4.5/5, 604 avis au 15/08/2026). Spécialité : cuisine italienne et spécialités locales.",
+      "telephone": "+39 333 877 2247",
+      "site_web": "https://www.instagram.com/ostemattopizzeria",
+      "lien_fooding": "",
+      "localisation": {
+        "latitude": 43.3307925,
+        "longitude": 11.7256398
+      }
+    },
+    {
+      "nom": "Ristorante La Terrasse",
+      "adresse": "Via Giuseppe Di Vittorio, 2/4, 52048 Monte San Savino AR, Italie",
+      "cuisine": "Italienne",
+      "statut": "À tester",
+      "note": 4.5,
+      "commentaire": "Restaurant italien; très bien noté sur Google (4.5/5, 585 avis au 15/08/2026). Spécialité : cuisine italienne et spécialités locales.",
+      "telephone": "+39 0575 844111",
+      "site_web": "http://www.ristorantelaterrasse.it/it/index.php",
+      "lien_fooding": "",
+      "localisation": {
+        "latitude": 43.3325829,
+        "longitude": 11.723913999999999
+      }
+    },
+    {
+      "nom": "La Scuderia Ristorante Bar",
+      "adresse": "Località Palazzuolo, 14/a, SS73, 52048 Monte San Savino AR, Italie",
+      "cuisine": "Italienne",
+      "statut": "À tester",
+      "note": 4.5,
+      "commentaire": "Restaurant italien; très bien noté sur Google (4.5/5, 278 avis au 15/08/2026). Spécialité : cuisine italienne et spécialités locales.",
+      "telephone": "+39 0575 847014",
+      "site_web": "https://www.scuderiariaristorantebar.com/",
+      "lien_fooding": "",
+      "localisation": {
+        "latitude": 43.3551181,
+        "longitude": 11.6439118
+      }
+    },
+    {
+      "nom": "Pici & Co. - Pastificio con Sala Degustazione",
+      "adresse": "Via delle Farniole, 2/b, 52045 Foiano della Chiana AR, Italie",
+      "cuisine": "Italienne",
+      "statut": "À tester",
+      "note": 5.0,
+      "commentaire": "Restaurant italien; excellent retour Google (5.0/5, 588 avis au 15/08/2026). Spécialité : cuisine italienne et spécialités locales.",
+      "telephone": "+39 351 831 8867",
+      "site_web": "",
+      "lien_fooding": "",
+      "localisation": {
+        "latitude": 43.227716699999995,
+        "longitude": 11.797943499999999
+      }
+    },
+    {
+      "nom": "Az. Agrituristica Poggio San Piero",
+      "adresse": "Via S. Piero, 1/A, 52045 Foiano della Chiana AR, Italie",
+      "cuisine": "Italienne",
+      "statut": "À tester",
+      "note": 4.9,
+      "commentaire": "Restaurant italien; excellent retour Google (4.9/5, 856 avis au 15/08/2026). Spécialité : cuisine italienne et spécialités locales.",
+      "telephone": "+39 327 046 6526",
+      "site_web": "https://poggiosanpiero.webnode.it/",
+      "lien_fooding": "",
+      "localisation": {
+        "latitude": 43.269036199999995,
+        "longitude": 11.8055839
+      }
+    },
+    {
+      "nom": "Palazzo Del Soldato Home restaurant",
+      "adresse": "Via Cesare Battisti, 14, 52045 Foiano della Chiana AR, Italie",
+      "cuisine": "Italienne",
+      "statut": "À tester",
+      "note": 4.9,
+      "commentaire": "Restaurant italien; excellent retour Google (4.9/5, 65 avis au 15/08/2026). Spécialité : cuisine italienne et spécialités locales.",
+      "telephone": "+39 353 343 5254",
+      "site_web": "https://www.espertitalia.it/esperto/palazzo-del-soldato/",
+      "lien_fooding": "",
+      "localisation": {
+        "latitude": 43.2528751,
+        "longitude": 11.8172584
+      }
+    },
+    {
+      "nom": "Ristorante Braceria Valdichiana da Settimio",
+      "adresse": "Via delle Farniole, 32, 52045 Foiano della Chiana AR, Italie",
+      "cuisine": "Italienne",
+      "statut": "À tester",
+      "note": 4.7,
+      "commentaire": "Restaurant italien; excellent retour Google (4.7/5, 321 avis au 15/08/2026). Spécialité : cuisine italienne et spécialités locales.",
+      "telephone": "+39 376 255 3440",
+      "site_web": "https://www.ristorantevaldichiana.it/",
+      "lien_fooding": "",
+      "localisation": {
+        "latitude": 43.2233428,
+        "longitude": 11.8094313
+      }
+    },
+    {
+      "nom": "Baccaleria e non solo Street food",
+      "adresse": "Via delle Farniole, 37, 52045 Foiano della Chiana AR, Italie",
+      "cuisine": "Italienne",
+      "statut": "À tester",
+      "note": 4.7,
+      "commentaire": "Restaurant italien; excellent retour Google (4.7/5, 316 avis au 15/08/2026). Spécialité : cuisine italienne et spécialités locales.",
+      "telephone": "+39 351 714 5140",
+      "site_web": "",
+      "lien_fooding": "",
+      "localisation": {
+        "latitude": 43.2231514,
+        "longitude": 11.8107232
+      }
+    },
+    {
+      "nom": "Emporio di Ines",
+      "adresse": "Corner with, Via Ponte al Ramo, Via Casacce, 69, 52045 Foiano della Chiana AR, Italie",
+      "cuisine": "Italienne",
+      "statut": "À tester",
+      "note": 4.7,
+      "commentaire": "Restaurant italien; excellent retour Google (4.7/5, 270 avis au 15/08/2026). Spécialité : cuisine italienne et spécialités locales.",
+      "telephone": "+39 0575 660410",
+      "site_web": "https://emporiodiines.com/",
+      "lien_fooding": "",
+      "localisation": {
+        "latitude": 43.2940775,
+        "longitude": 11.8033659
+      }
+    },
+    {
+      "nom": "La Piccina-Valdichiana Designer Village",
+      "adresse": "Via Enzo Ferrari, 93, 52045 Foiano della Chiana AR, Italie",
+      "cuisine": "Italienne",
+      "statut": "À tester",
+      "note": 4.9,
+      "commentaire": "Restaurant italien; excellent retour Google (4.9/5, 7 avis au 15/08/2026). Spécialité : cuisine italienne et spécialités locales.",
+      "telephone": "+39 353 403 9459",
+      "site_web": "",
+      "lien_fooding": "",
+      "localisation": {
+        "latitude": 43.2263794,
+        "longitude": 11.8000151
+      }
+    },
+    {
+      "nom": "Valdichiana Bistrò | Vino & Gin & Spirits & Gelateria",
+      "adresse": "Via del Duca, 167, 52045 Farniole AR, Italie",
+      "cuisine": "Italienne",
+      "statut": "À tester",
+      "note": 4.8,
+      "commentaire": "Restaurant italien; excellent retour Google (4.8/5, 15 avis au 15/08/2026). Spécialité : cuisine italienne et spécialités locales.",
+      "telephone": "",
+      "site_web": "https://www.valdichianabistrot.it/",
+      "lien_fooding": "",
+      "localisation": {
+        "latitude": 43.2215822,
+        "longitude": 11.8115955
+      }
+    },
+    {
+      "nom": "AB food club",
+      "adresse": "Viale della Resistenza, 7, 52045 Foiano della Chiana AR, Italie",
+      "cuisine": "Italienne",
+      "statut": "À tester",
+      "note": 4.8,
+      "commentaire": "Restaurant italien; excellent retour Google (4.8/5, 10 avis au 15/08/2026). Spécialité : cuisine italienne et spécialités locales.",
+      "telephone": "+39 392 260 0051",
+      "site_web": "https://www.abfoodclub.com/",
+      "lien_fooding": "",
+      "localisation": {
+        "latitude": 43.250842999999996,
+        "longitude": 11.817658999999999
+      }
+    },
+    {
+      "nom": "Braceria Spizzichi e Bocconi",
+      "adresse": "Loc. Renzino, Via Luciano Lama, 2/a, 52045 Foiano della Chiana AR, Italie",
+      "cuisine": "Italienne",
+      "statut": "À tester",
+      "note": 4.5,
+      "commentaire": "Restaurant italien; très bien noté sur Google (4.5/5, 436 avis au 15/08/2026). Spécialité : cuisine italienne et spécialités locales.",
+      "telephone": "+39 0575 643037",
+      "site_web": "",
+      "lien_fooding": "",
+      "localisation": {
+        "latitude": 43.2718169,
+        "longitude": 11.8238573
+      }
+    },
+    {
+      "nom": "Lupaia",
+      "adresse": "Località Lupaia, 74, 53049 Torrita di Siena SI, Italie",
+      "cuisine": "Italienne",
+      "statut": "À tester",
+      "note": 4.8,
+      "commentaire": "Restaurant italien; excellent retour Google (4.8/5, 1370 avis au 15/08/2026). Spécialité : cuisine italienne et spécialités locales.",
+      "telephone": "+39 0577 191 7066",
+      "site_web": "http://www.lupaia.com/",
+      "lien_fooding": "",
+      "localisation": {
+        "latitude": 43.1129518,
+        "longitude": 11.7503051
+      }
+    },
+    {
+      "nom": "Trattoria Grill House",
+      "adresse": "Via Pasquale Moscadelli, snc, 53048 Sinalunga SI, Italie",
+      "cuisine": "Italienne",
+      "statut": "À tester",
+      "note": 4.8,
+      "commentaire": "Restaurant italien; excellent retour Google (4.8/5, 1255 avis au 15/08/2026). Spécialité : cuisine italienne et spécialités locales.",
+      "telephone": "+39 328 126 1281",
+      "site_web": "",
+      "lien_fooding": "",
+      "localisation": {
+        "latitude": 43.2205134,
+        "longitude": 11.754966399999999
+      }
+    },
+    {
+      "nom": "Birrificio Saragiolino",
+      "adresse": "Loc. Saragiolino, 50, 53049 Torrita di Siena SI, Italie",
+      "cuisine": "Italienne",
+      "statut": "À tester",
+      "note": 4.9,
+      "commentaire": "Restaurant italien; excellent retour Google (4.9/5, 209 avis au 15/08/2026). Spécialité : cuisine italienne et spécialités locales.",
+      "telephone": "+39 347 334 2038",
+      "site_web": "http://www.saragiolino.it/",
+      "lien_fooding": "",
+      "localisation": {
+        "latitude": 43.1550629,
+        "longitude": 11.78877
+      }
+    },
+    {
+      "nom": "Osteria della Fratta",
+      "adresse": "Località La Fratta 11, 53048 Sinalunga SI, Italie",
+      "cuisine": "Italienne",
+      "statut": "À tester",
+      "note": 5.0,
+      "commentaire": "Restaurant italien; excellent retour Google (5.0/5, 47 avis au 15/08/2026). Spécialité : cuisine italienne et spécialités locales.",
+      "telephone": "+39 0577 678204",
+      "site_web": "https://www.tenutalafratta.it/",
+      "lien_fooding": "",
+      "localisation": {
+        "latitude": 43.190988999999995,
+        "longitude": 11.7678655
+      }
+    },
+    {
+      "nom": "L'Olivo Cucina Toscana Contemporanea",
+      "adresse": "Località Le Rotelle 15, 53049 Torrita di Siena SI, Italie",
+      "cuisine": "Italienne",
+      "statut": "À tester",
+      "note": 4.9,
+      "commentaire": "Restaurant italien; excellent retour Google (4.9/5, 165 avis au 15/08/2026). Spécialité : cuisine italienne et spécialités locales.",
+      "telephone": "+39 338 521 1390",
+      "site_web": "https://www.poggioparadisoresort.com/restaurant",
+      "lien_fooding": "",
+      "localisation": {
+        "latitude": 43.1537569,
+        "longitude": 11.740881199999999
+      }
+    },
+    {
+      "nom": "Agriturismo La Chiusa Tuscany",
+      "adresse": "Via della Madonnina, 88, 53049 Montefollonico SI, Italie",
+      "cuisine": "Italienne",
+      "statut": "À tester",
+      "note": 4.7,
+      "commentaire": "Restaurant italien; excellent retour Google (4.7/5, 2299 avis au 15/08/2026). Spécialité : cuisine italienne et spécialités locales.",
+      "telephone": "+39 0577 669668",
+      "site_web": "https://lachiusatuscany.com/",
+      "lien_fooding": "",
+      "localisation": {
+        "latitude": 43.1235867,
+        "longitude": 11.7445135
+      }
+    },
+    {
+      "nom": "PASTA FRESCA \"I Cotti Impasta\"",
+      "adresse": "V. Piave, 55/E, 53048 Sinalunga SI, Italie",
+      "cuisine": "Italienne",
+      "statut": "À tester",
+      "note": 5.0,
+      "commentaire": "Restaurant italien; excellent retour Google (5.0/5, 27 avis au 15/08/2026). Spécialité : cuisine italienne et spécialités locales.",
+      "telephone": "+39 392 093 1060",
+      "site_web": "https://www.facebook.com/icottiimpastapastafresca/",
+      "lien_fooding": "",
+      "localisation": {
+        "latitude": 43.2193532,
+        "longitude": 11.75061
+      }
+    },
+    {
+      "nom": "Alle Volte | Ristorante Sinalunga",
+      "adresse": "Via Giacomo Matteotti, 5, 53048 Sinalunga SI, Italie",
+      "cuisine": "Italienne",
+      "statut": "À tester",
+      "note": 4.8,
+      "commentaire": "Restaurant italien; excellent retour Google (4.8/5, 457 avis au 15/08/2026). Spécialité : cuisine italienne et spécialités locales.",
+      "telephone": "+39 347 586 5729",
+      "site_web": "https://www.facebook.com/ristoranteAlleVolte",
+      "lien_fooding": "",
+      "localisation": {
+        "latitude": 43.2114701,
+        "longitude": 11.7366952
+      }
+    },
+    {
+      "nom": "\"Gio'Steria \" da Nonno Gio'",
+      "adresse": "Via Lauretana Sud, 67/71, 53049 Torrita di Siena SI, Italie",
+      "cuisine": "Italienne",
+      "statut": "À tester",
+      "note": 4.8,
+      "commentaire": "Restaurant italien; excellent retour Google (4.8/5, 265 avis au 15/08/2026). Spécialité : cuisine italienne et spécialités locales.",
+      "telephone": "+39 0577 174 2386",
+      "site_web": "https://www.giosteria.it/",
+      "lien_fooding": "",
+      "localisation": {
+        "latitude": 43.168145599999995,
+        "longitude": 11.783984499999999
+      }
+    },
+    {
+      "nom": "Agriturismo Belagaggio",
+      "adresse": "Località Belagaggio, 19, 53049 Montefollonico SI, Italie",
+      "cuisine": "Italienne",
+      "statut": "À tester",
+      "note": 4.7,
+      "commentaire": "Restaurant italien; excellent retour Google (4.7/5, 1060 avis au 15/08/2026). Spécialité : cuisine italienne et spécialités locales.",
+      "telephone": "+39 0577 669733",
+      "site_web": "https://belagaggio.it/",
+      "lien_fooding": "",
+      "localisation": {
+        "latitude": 43.134688999999995,
+        "longitude": 11.734212999999999
+      }
+    },
+    {
+      "nom": "Ristorante Birrificio Maleducato",
+      "adresse": "Via Filippo Turati, 12, 53048 Sinalunga SI, Italie",
+      "cuisine": "Italienne",
+      "statut": "À tester",
+      "note": 4.8,
+      "commentaire": "Restaurant italien; excellent retour Google (4.8/5, 208 avis au 15/08/2026). Spécialité : cuisine italienne et spécialités locales.",
+      "telephone": "+39 338 703 8914",
+      "site_web": "https://www.maleducatobeerfood.it/",
+      "lien_fooding": "",
+      "localisation": {
+        "latitude": 43.2176252,
+        "longitude": 11.7526838
+      }
+    },
+    {
+      "nom": "Taj Mahal Ristorante",
+      "adresse": "Via Trento, 210, 53048 Sinalunga SI, Italie",
+      "cuisine": "Italienne",
+      "statut": "À tester",
+      "note": 5.0,
+      "commentaire": "Restaurant italien; excellent retour Google (5.0/5, 8 avis au 15/08/2026). Spécialité : cuisine italienne et spécialités locales.",
+      "telephone": "+39 327 537 7868",
+      "site_web": "",
+      "lien_fooding": "",
+      "localisation": {
+        "latitude": 43.213279799999995,
+        "longitude": 11.7585286
+      }
+    },
+    {
+      "nom": "MAX Food & Music",
+      "adresse": "Loc, Località Guardavalle, 61, 53049 Torrita di Siena SI, Italie",
+      "cuisine": "Italienne",
+      "statut": "À tester",
+      "note": 4.7,
+      "commentaire": "Restaurant italien; excellent retour Google (4.7/5, 483 avis au 15/08/2026). Spécialité : cuisine italienne et spécialités locales.",
+      "telephone": "+39 0577 686069",
+      "site_web": "",
+      "lien_fooding": "",
+      "localisation": {
+        "latitude": 43.1808166,
+        "longitude": 11.7704753
+      }
+    },
+    {
+      "nom": "Ristorante @ La Chiusa Hotel",
+      "adresse": "Via della Madonnina, 88, 53049 Montefollonico SI, Italie",
+      "cuisine": "Italienne",
+      "statut": "À tester",
+      "note": 4.8,
+      "commentaire": "Restaurant italien; excellent retour Google (4.8/5, 91 avis au 15/08/2026). Spécialité : cuisine italienne et spécialités locales.",
+      "telephone": "+39 0577 669668",
+      "site_web": "http://www.lachiusatuscany.com/",
+      "lien_fooding": "",
+      "localisation": {
+        "latitude": 43.1235746,
+        "longitude": 11.7445072
+      }
+    },
+    {
+      "nom": "Faizaan pizzeria kebab",
+      "adresse": "Via Giuseppe Mazzini, 162, 53049 Torrita di Siena SI, Italie",
+      "cuisine": "Italienne",
+      "statut": "À tester",
+      "note": 4.8,
+      "commentaire": "Restaurant italien; excellent retour Google (4.8/5, 80 avis au 15/08/2026). Spécialité : cuisine italienne et spécialités locales.",
+      "telephone": "+39 353 313 4810",
+      "site_web": "",
+      "lien_fooding": "",
+      "localisation": {
+        "latitude": 43.172536,
+        "longitude": 11.784529
+      }
+    },
+    {
+      "nom": "Cucineria L'Ortica Dolce",
+      "adresse": "Piazza Giuseppe Garibaldi, 45, 53048 Sinalunga SI, Italie",
+      "cuisine": "Italienne",
+      "statut": "À tester",
+      "note": 4.7,
+      "commentaire": "Restaurant italien; excellent retour Google (4.7/5, 204 avis au 15/08/2026). Spécialité : cuisine italienne et spécialités locales.",
+      "telephone": "+39 328 931 6953",
+      "site_web": "https://www.leggimenu.it/menu/orticadolce",
+      "lien_fooding": "",
+      "localisation": {
+        "latitude": 43.211893599999996,
+        "longitude": 11.7369262
+      }
+    },
+    {
+      "nom": "Ristorante Sailors Sinalunga",
+      "adresse": "Via Trento, 212/5, 53048 Sinalunga SI, Italie",
+      "cuisine": "Italienne",
+      "statut": "À tester",
+      "note": 4.7,
+      "commentaire": "Restaurant italien; excellent retour Google (4.7/5, 166 avis au 15/08/2026). Spécialité : cuisine italienne et spécialités locales.",
+      "telephone": "+39 0577 555515",
+      "site_web": "https://www.ristorantesailors.it/",
+      "lien_fooding": "",
+      "localisation": {
+        "latitude": 43.212851699999995,
+        "longitude": 11.7587043
+      }
+    },
+    {
+      "nom": "ENOTECA",
+      "adresse": "Via Giacomo Matteotti, 1, 53048 Sinalunga SI, Italie",
+      "cuisine": "Italienne",
+      "statut": "À tester",
+      "note": 5.0,
+      "commentaire": "Restaurant italien; excellent retour Google (5.0/5, 2 avis au 15/08/2026). Spécialité : cuisine italienne et spécialités locales.",
+      "telephone": "",
+      "site_web": "",
+      "lien_fooding": "",
+      "localisation": {
+        "latitude": 43.2111576,
+        "longitude": 11.7360981
+      }
+    },
+    {
+      "nom": "L' Ortino di Cortona",
+      "adresse": "Via del Marzocco, 14, 52044 Cortona AR, Italie",
+      "cuisine": "Italienne",
+      "statut": "À tester",
+      "note": 5.0,
+      "commentaire": "Restaurant italien; excellent retour Google (5.0/5, 443 avis au 15/08/2026). Spécialité : cuisine italienne et spécialités locales.",
+      "telephone": "+39 339 755 7663",
+      "site_web": "http://www.ortino.net/",
+      "lien_fooding": "",
+      "localisation": {
+        "latitude": 43.274296299999996,
+        "longitude": 11.9842076
+      }
+    },
+    {
+      "nom": "Ristorante al Tocco",
+      "adresse": "Via Benedetti, 24, 52044 Cortona AR, Italie",
+      "cuisine": "Italienne",
+      "statut": "À tester",
+      "note": 4.9,
+      "commentaire": "Restaurant italien; excellent retour Google (4.9/5, 290 avis au 15/08/2026). Spécialité : cuisine italienne et spécialités locales.",
+      "telephone": "+39 333 502 1605",
+      "site_web": "https://www.ristorantealtocco.it/",
+      "lien_fooding": "",
+      "localisation": {
+        "latitude": 43.275676,
+        "longitude": 11.985574
+      }
+    },
+    {
+      "nom": "Scara e Beo",
+      "adresse": "Vicolo Fierli, 7, 52044 Cortona AR, Italie",
+      "cuisine": "Italienne",
+      "statut": "À tester",
+      "note": 4.9,
+      "commentaire": "Restaurant italien; excellent retour Google (4.9/5, 250 avis au 15/08/2026). Spécialité : cuisine italienne et spécialités locales.",
+      "telephone": "+39 0575 958046",
+      "site_web": "http://www.scaraebeo.it/",
+      "lien_fooding": "",
+      "localisation": {
+        "latitude": 43.274111999999995,
+        "longitude": 11.987034999999999
+      }
+    },
+    {
+      "nom": "Organika",
+      "adresse": "Via Santa Maria Nuova, 115, 52044 Cortona AR, Italie",
+      "cuisine": "Italienne",
+      "statut": "À tester",
+      "note": 4.9,
+      "commentaire": "Restaurant italien; excellent retour Google (4.9/5, 207 avis au 15/08/2026). Spécialité : cuisine italienne et spécialités locales.",
+      "telephone": "+39 351 944 7192",
+      "site_web": "https://www.organika.restaurant/",
+      "lien_fooding": "",
+      "localisation": {
+        "latitude": 43.280310199999995,
+        "longitude": 11.9900059
+      }
+    },
+    {
+      "nom": "Cortona Bistrot",
+      "adresse": "Via S. Margherita, 13, 52044 Cortona AR, Italie",
+      "cuisine": "Italienne",
+      "statut": "À tester",
+      "note": 4.8,
+      "commentaire": "Restaurant italien; excellent retour Google (4.8/5, 684 avis au 15/08/2026). Spécialité : cuisine italienne et spécialités locales.",
+      "telephone": "+39 0575 62957",
+      "site_web": "https://www.facebook.com/Cortona-Bistrot-851004704993083/",
+      "lien_fooding": "",
+      "localisation": {
+        "latitude": 43.274211799999996,
+        "longitude": 11.9882637
+      }
+    },
+    {
+      "nom": "La Dispensa del Preludio",
+      "adresse": "Via Guelfa, 7, 52044 Cortona AR, Italie",
+      "cuisine": "Italienne",
+      "statut": "À tester",
+      "note": 4.8,
+      "commentaire": "Restaurant italien; excellent retour Google (4.8/5, 660 avis au 15/08/2026). Spécialité : cuisine italienne et spécialités locales.",
+      "telephone": "+39 0575 348722",
+      "site_web": "https://ladispensa.it/?utm_source=gbp",
+      "lien_fooding": "",
+      "localisation": {
+        "latitude": 43.274814299999996,
+        "longitude": 11.985103899999999
+      }
+    },
+    {
+      "nom": "Le Terre dei Cavalieri",
+      "adresse": "Loc. Fratta Santa Caterina, 46, 52044 Cortona AR, Italie",
+      "cuisine": "Italienne",
+      "statut": "À tester",
+      "note": 4.8,
+      "commentaire": "Restaurant italien; excellent retour Google (4.8/5, 617 avis au 15/08/2026). Spécialité : cuisine italienne et spécialités locales.",
+      "telephone": "+39 0575 617603",
+      "site_web": "http://www.terredeicavalieri.com/",
+      "lien_fooding": "",
+      "localisation": {
+        "latitude": 43.2866731,
+        "longitude": 11.9180111
+      }
+    },
+    {
+      "nom": "Osteria del Teatro",
+      "adresse": "Via Giuseppe Maffei, 2, 52044 Cortona AR, Italie",
+      "cuisine": "Italienne",
+      "statut": "À tester",
+      "note": 4.7,
+      "commentaire": "Restaurant italien; excellent retour Google (4.7/5, 2413 avis au 15/08/2026). Spécialité : cuisine italienne et spécialités locales.",
+      "telephone": "+39 0575 630556",
+      "site_web": "http://www.osteria-del-teatro.it/",
+      "lien_fooding": "",
+      "localisation": {
+        "latitude": 43.2758316,
+        "longitude": 11.985753299999999
+      }
+    },
+    {
+      "nom": "Osteria Le Rughe di Cortona",
+      "adresse": "Vicolo Mancini, 10, 52044 Cortona AR, Italie",
+      "cuisine": "Italienne",
+      "statut": "À tester",
+      "note": 4.8,
+      "commentaire": "Restaurant italien; excellent retour Google (4.8/5, 351 avis au 15/08/2026). Spécialité : cuisine italienne et spécialités locales.",
+      "telephone": "+39 0575 453803",
+      "site_web": "http://lerughedicortona.it/",
+      "lien_fooding": "",
+      "localisation": {
+        "latitude": 43.276771499999995,
+        "longitude": 11.9858627
+      }
+    },
+    {
+      "nom": "Quanto Basta Cortona",
+      "adresse": "Via Nazionale, 78, 52044 Cortona AR, Italie",
+      "cuisine": "Italienne",
+      "statut": "À tester",
+      "note": 4.8,
+      "commentaire": "Restaurant italien; excellent retour Google (4.8/5, 283 avis au 15/08/2026). Spécialité : cuisine italienne et spécialités locales.",
+      "telephone": "+39 0575 494512",
+      "site_web": "https://quantobastacortona.eatbu.com/",
+      "lien_fooding": "",
+      "localisation": {
+        "latitude": 43.2740898,
+        "longitude": 11.9876692
+      }
+    },
+    {
+      "nom": "Preludio Restaurant",
+      "adresse": "Via Guelfa, 11, 52044 Cortona AR, Italie",
+      "cuisine": "Italienne",
+      "statut": "À tester",
+      "note": 4.7,
+      "commentaire": "Restaurant italien; excellent retour Google (4.7/5, 1075 avis au 15/08/2026). Spécialité : cuisine italienne et spécialités locales.",
+      "telephone": "+39 0575 630104",
+      "site_web": "http://www.ilpreludio.net/",
+      "lien_fooding": "",
+      "localisation": {
+        "latitude": 43.2746991,
+        "longitude": 11.985053899999999
+      }
+    },
+    {
+      "nom": "Pizzeria Trattoria",
+      "adresse": "52044 Cortona, Province of Arezzo, Italie",
+      "cuisine": "Italienne",
+      "statut": "À tester",
+      "note": 4.9,
+      "commentaire": "Restaurant italien; excellent retour Google (4.9/5, 36 avis au 15/08/2026). Spécialité : cuisine italienne et spécialités locales.",
+      "telephone": "",
+      "site_web": "",
+      "lien_fooding": "",
+      "localisation": {
+        "latitude": 43.3433485,
+        "longitude": 12.1001818
+      }
+    },
+    {
+      "nom": "La Bucaccia - Da Romano",
+      "adresse": "Via Ghibellina, 17, 52044 Cortona AR, Italie",
+      "cuisine": "Italienne",
+      "statut": "À tester",
+      "note": 4.6,
+      "commentaire": "Restaurant italien; excellent retour Google (4.6/5, 2069 avis au 15/08/2026). Spécialité : cuisine italienne et spécialités locales.",
+      "telephone": "+39 0575 606039",
+      "site_web": "http://www.labucaccia.it/",
+      "lien_fooding": "",
+      "localisation": {
+        "latitude": 43.275000899999995,
+        "longitude": 11.984110099999999
+      }
+    },
+    {
+      "nom": "Ambrosia",
+      "adresse": "Via Dardano, 40, 52044 Cortona AR, Italie",
+      "cuisine": "Italienne",
+      "statut": "À tester",
+      "note": 4.7,
+      "commentaire": "Restaurant italien; excellent retour Google (4.7/5, 472 avis au 15/08/2026). Spécialité : cuisine italienne et spécialités locales.",
+      "telephone": "+39 0575 604715",
+      "site_web": "https://www.ambrosiacortona.it/",
+      "lien_fooding": "",
+      "localisation": {
+        "latitude": 43.2766276,
+        "longitude": 11.9860805
+      }
+    },
+    {
+      "nom": "Ristorante La Loggetta Cortona",
+      "adresse": "Piazza Pescheria, 3, 52044 Cortona AR, Italie",
+      "cuisine": "Italienne",
+      "statut": "À tester",
+      "note": 4.6,
+      "commentaire": "Restaurant italien; excellent retour Google (4.6/5, 1647 avis au 15/08/2026). Spécialité : cuisine italienne et spécialités locales.",
+      "telephone": "+39 0575 630575",
+      "site_web": "https://www.laloggetta.com/",
+      "lien_fooding": "",
+      "localisation": {
+        "latitude": 43.2749665,
+        "longitude": 11.9858544
+      }
+    },
+    {
+      "nom": "Sartù",
+      "adresse": "Vicolo Baldacchini, 2, 52044 Cortona AR, Italie",
+      "cuisine": "Italienne",
+      "statut": "À tester",
+      "note": 4.7,
+      "commentaire": "Restaurant italien; excellent retour Google (4.7/5, 272 avis au 15/08/2026). Spécialité : cuisine italienne et spécialités locales.",
+      "telephone": "+39 0575 601708",
+      "site_web": "",
+      "lien_fooding": "",
+      "localisation": {
+        "latitude": 43.2744001,
+        "longitude": 11.986225099999999
+      }
+    },
+    {
+      "nom": "Trattoria Toscana",
+      "adresse": "Via Dardano, 12, 52044 Cortona AR, Italie",
+      "cuisine": "Italienne",
+      "statut": "À tester",
+      "note": 4.6,
+      "commentaire": "Restaurant italien; excellent retour Google (4.6/5, 1095 avis au 15/08/2026). Spécialité : cuisine italienne et spécialités locales.",
+      "telephone": "+39 0575 604192",
+      "site_web": "http://www.trattoriatoscana.eu/",
+      "lien_fooding": "",
+      "localisation": {
+        "latitude": 43.276216999999995,
+        "longitude": 11.985603999999999
+      }
+    },
+    {
+      "nom": "Locanda Del Molino",
+      "adresse": "Località Montanare 10, 52044 Cortona AR, Italie",
+      "cuisine": "Italienne",
+      "statut": "À tester",
+      "note": 4.6,
+      "commentaire": "Restaurant italien; excellent retour Google (4.6/5, 876 avis au 15/08/2026). Spécialité : cuisine italienne et spécialités locales.",
+      "telephone": "+39 0575 614016",
+      "site_web": "http://www.locandadelmolino.com/",
+      "lien_fooding": "",
+      "localisation": {
+        "latitude": 43.254529999999995,
+        "longitude": 12.0657192
+      }
+    },
+    {
+      "nom": "La Vineria di Cortona",
+      "adresse": "Piazza Luca Signorelli, 28, 52044 Cortona AR, Italie",
+      "cuisine": "Italienne",
+      "statut": "À tester",
+      "note": 4.7,
+      "commentaire": "Restaurant italien; excellent retour Google (4.7/5, 195 avis au 15/08/2026). Spécialité : cuisine italienne et spécialités locales.",
+      "telephone": "+39 0575 189 0158",
+      "site_web": "https://lavineriadimontepulciano.it/",
+      "lien_fooding": "",
+      "localisation": {
+        "latitude": 43.275464799999995,
+        "longitude": 11.9852998
+      }
+    },
+    {
+      "nom": "Ristorante Cantanapoli",
+      "adresse": "Località Le Piagge, 33/A, 52044 Cortona AR, Italie",
+      "cuisine": "Italienne",
+      "statut": "À tester",
+      "note": 4.6,
+      "commentaire": "Restaurant italien; excellent retour Google (4.6/5, 735 avis au 15/08/2026). Spécialité : cuisine italienne et spécialités locales.",
+      "telephone": "+39 0575 62996",
+      "site_web": "https://cantanapoli.net/",
+      "lien_fooding": "",
+      "localisation": {
+        "latitude": 43.2725248,
+        "longitude": 11.9719759
+      }
+    },
+    {
+      "nom": "Locanda al Pozzo Antico",
+      "adresse": "Via Luca, Via Ghini, 14, 52044 Cortona AR, Italie",
+      "cuisine": "Italienne",
+      "statut": "À tester",
+      "note": 4.7,
+      "commentaire": "Restaurant italien; excellent retour Google (4.7/5, 172 avis au 15/08/2026). Spécialité : cuisine italienne et spécialités locales.",
+      "telephone": "+39 0575 601577",
+      "site_web": "http://www.cortonastorica.com/",
+      "lien_fooding": "",
+      "localisation": {
+        "latitude": 43.2749026,
+        "longitude": 11.984363499999999
+      }
+    },
+    {
+      "nom": "L'oasi della pizza",
+      "adresse": "Località Pergo Dogana, 22N, 52044 La Dogana AR, Italie",
+      "cuisine": "Italienne",
+      "statut": "À tester",
+      "note": 4.7,
+      "commentaire": "Restaurant italien; excellent retour Google (4.7/5, 64 avis au 15/08/2026). Spécialité : cuisine italienne et spécialités locales.",
+      "telephone": "+39 0575 614424",
+      "site_web": "",
+      "lien_fooding": "",
+      "localisation": {
+        "latitude": 43.2535934,
+        "longitude": 12.028303099999999
+      }
+    },
+    {
+      "nom": "La Grotta",
+      "adresse": "Piazza Baldelli, 3, 52044 Cortona AR, Italie",
+      "cuisine": "Italienne",
+      "statut": "À tester",
+      "note": 4.5,
+      "commentaire": "Restaurant italien; très bien noté sur Google (4.5/5, 692 avis au 15/08/2026). Spécialité : cuisine italienne et spécialités locales.",
+      "telephone": "+39 0575 802575",
+      "site_web": "http://www.lagrottacortona.com/",
+      "lien_fooding": "",
+      "localisation": {
+        "latitude": 43.2746954,
+        "longitude": 11.9852555
+      }
+    },
+    {
+      "nom": "Ristorante ai 4 Venti",
+      "adresse": "Piazza Grande, 2, 53045 Montepulciano SI, Italie",
+      "cuisine": "Italienne",
+      "statut": "À tester",
+      "note": 4.8,
+      "commentaire": "Restaurant italien; excellent retour Google (4.8/5, 1300 avis au 15/08/2026). Spécialité : cuisine italienne et spécialités locales.",
+      "telephone": "+39 0578 717231",
+      "site_web": "",
+      "lien_fooding": "",
+      "localisation": {
+        "latitude": 43.092641,
+        "longitude": 11.7805853
+      }
+    },
+    {
+      "nom": "OSTERIA ACQUACHETA BISTECCA FIORENTINA ALLA BRACE APERTA PRANZO E CENA NO MARTEDI e MERCOLEDÌ, BUONA VITA A TUTTI ‼️",
+      "adresse": "Via del Teatro, 22, 53045 Montepulciano SI, Italie",
+      "cuisine": "Italienne",
+      "statut": "À tester",
+      "note": 4.7,
+      "commentaire": "Grill et restaurant de viandes; excellent retour Google (4.7/5, 3605 avis au 15/08/2026). Spécialité : viandes grillées.",
+      "telephone": "+39 0578 717086",
+      "site_web": "",
+      "lien_fooding": "",
+      "localisation": {
+        "latitude": 43.091404,
+        "longitude": 11.781265999999999
+      }
+    },
+    {
+      "nom": "La Vineria di Montepulciano",
+      "adresse": "Via di Gracciano nel Corso, 101, 53045 Montepulciano SI, Italie",
+      "cuisine": "Italienne",
+      "statut": "À tester",
+      "note": 4.7,
+      "commentaire": "Restaurant italien; excellent retour Google (4.7/5, 3454 avis au 15/08/2026). Spécialité : cuisine italienne et spécialités locales.",
+      "telephone": "+39 0578 850153",
+      "site_web": "https://lavineriadimontepulciano.it/",
+      "lien_fooding": "",
+      "localisation": {
+        "latitude": 43.096571499999996,
+        "longitude": 11.7851123
+      }
+    },
+    {
+      "nom": "L'Altro Cantuccio Ristorante",
+      "adresse": "Via delle Cantine, 1, 53045 Montepulciano SI, Italie",
+      "cuisine": "Italienne",
+      "statut": "À tester",
+      "note": 4.7,
+      "commentaire": "Restaurant italien; excellent retour Google (4.7/5, 2951 avis au 15/08/2026). Spécialité : cuisine italienne et spécialités locales.",
+      "telephone": "+39 0578 758364",
+      "site_web": "http://www.laltrocantuccio.it/",
+      "lien_fooding": "",
+      "localisation": {
+        "latitude": 43.0958313,
+        "longitude": 11.7842115
+      }
+    },
+    {
+      "nom": "Ristorante L'Oliveto - Agriturismo Nobile Montepulciano",
+      "adresse": "Str. per Chianciano, 19, 53045 Montepulciano SI, Italie",
+      "cuisine": "Italienne",
+      "statut": "À tester",
+      "note": 4.8,
+      "commentaire": "Restaurant italien; excellent retour Google (4.8/5, 666 avis au 15/08/2026). Spécialité : cuisine italienne et spécialités locales.",
+      "telephone": "+39 0578 757398",
+      "site_web": "https://www.ristoranteloliveto.it/",
+      "lien_fooding": "",
+      "localisation": {
+        "latitude": 43.082445199999995,
+        "longitude": 11.7797713
+      }
+    },
+    {
+      "nom": "Baccano Hostarìa Montepulciano",
+      "adresse": "Via di Voltaia Nel Corso, 96, 53045 Montepulciano SI, Italie",
+      "cuisine": "Italienne",
+      "statut": "À tester",
+      "note": 4.8,
+      "commentaire": "Restaurant italien; excellent retour Google (4.8/5, 651 avis au 15/08/2026). Spécialité : cuisine italienne et spécialités locales.",
+      "telephone": "+39 333 440 0829",
+      "site_web": "",
+      "lien_fooding": "",
+      "localisation": {
+        "latitude": 43.0929443,
+        "longitude": 11.7822225
+      }
+    },
+    {
+      "nom": "Cucina Fattoria San Martino",
+      "adresse": "Di, Via di Martiena, 3, 53045 Montepulciano SI, Italie",
+      "cuisine": "Italienne",
+      "statut": "À tester",
+      "note": 4.9,
+      "commentaire": "Restaurant italien; excellent retour Google (4.9/5, 148 avis au 15/08/2026). Spécialité : cuisine italienne et spécialités locales.",
+      "telephone": "+39 353 467 7072",
+      "site_web": "https://www.fattoriasanmartino.it/our-restaurant/",
+      "lien_fooding": "",
+      "localisation": {
+        "latitude": 43.0951168,
+        "longitude": 11.7965722
+      }
+    },
+    {
+      "nom": "Rosso Rubino Trattoria",
+      "adresse": "Via dell'Opio Nel Corso, 34, 53045 Montepulciano SI, Italie",
+      "cuisine": "Italienne",
+      "statut": "À tester",
+      "note": 4.8,
+      "commentaire": "Restaurant italien; excellent retour Google (4.8/5, 594 avis au 15/08/2026). Spécialité : cuisine italienne et spécialités locales.",
+      "telephone": "+39 0578 716373",
+      "site_web": "",
+      "lien_fooding": "",
+      "localisation": {
+        "latitude": 43.0921363,
+        "longitude": 11.7817248
+      }
+    },
+    {
+      "nom": "La Bottega del Vino Food&Drinks",
+      "adresse": "Via del Teatro, 19, 53045 Montepulciano SI, Italie",
+      "cuisine": "Italienne",
+      "statut": "À tester",
+      "note": 4.8,
+      "commentaire": "Restaurant italien; excellent retour Google (4.8/5, 406 avis au 15/08/2026). Spécialité : cuisine italienne et spécialités locales.",
+      "telephone": "+39 0578 440767",
+      "site_web": "https://allmylinks.com/labottegadelvino",
+      "lien_fooding": "",
+      "localisation": {
+        "latitude": 43.09162,
+        "longitude": 11.781350699999999
+      }
+    },
+    {
+      "nom": "La Pentolaccia",
+      "adresse": "Via di Voltaia Nel Corso, 86, 53045 Montepulciano SI, Italie",
+      "cuisine": "Italienne",
+      "statut": "À tester",
+      "note": 4.7,
+      "commentaire": "Restaurant italien; excellent retour Google (4.7/5, 1446 avis au 15/08/2026). Spécialité : cuisine italienne et spécialités locales.",
+      "telephone": "+39 0578 757582",
+      "site_web": "https://m.facebook.com/ristorantelapentolaccia/",
+      "lien_fooding": "",
+      "localisation": {
+        "latitude": 43.093039999999995,
+        "longitude": 11.7821568
+      }
+    },
+    {
+      "nom": "Taverna di fucile",
+      "adresse": "SP135, 53045 Montepulciano SI, Italie",
+      "cuisine": "Italienne",
+      "statut": "À tester",
+      "note": 4.8,
+      "commentaire": "Restaurant italien; excellent retour Google (4.8/5, 331 avis au 15/08/2026). Spécialité : cuisine italienne et spécialités locales.",
+      "telephone": "+39 339 777 9419",
+      "site_web": "http://www.poderefucile.com/",
+      "lien_fooding": "",
+      "localisation": {
+        "latitude": 43.1143485,
+        "longitude": 11.7906175
+      }
+    },
+    {
+      "nom": "Ristorante La Grotta",
+      "adresse": "Via di S. Biagio, 15, 53045 Montepulciano SI, Italie",
+      "cuisine": "Italienne",
+      "statut": "À tester",
+      "note": 4.7,
+      "commentaire": "Restaurant italien; excellent retour Google (4.7/5, 1132 avis au 15/08/2026). Spécialité : cuisine italienne et spécialités locales.",
+      "telephone": "+39 0578 757479",
+      "site_web": "http://www.lagrottamontepulciano.com/",
+      "lien_fooding": "",
+      "localisation": {
+        "latitude": 43.090940499999995,
+        "longitude": 11.775221799999999
+      }
+    },
+    {
+      "nom": "Osteria del Borgo",
+      "adresse": "Via Ricci, 5, 53045 Montepulciano SI, Italie",
+      "cuisine": "Italienne",
+      "statut": "À tester",
+      "note": 4.6,
+      "commentaire": "Restaurant italien; excellent retour Google (4.6/5, 2521 avis au 15/08/2026). Spécialité : cuisine italienne et spécialités locales.",
+      "telephone": "+39 0578 716799",
+      "site_web": "http://www.osteriadelborgo.it/",
+      "lien_fooding": "",
+      "localisation": {
+        "latitude": 43.09315,
+        "longitude": 11.780736099999999
+      }
+    },
+    {
+      "nom": "Porta di Bacco | Ristorante Montepulciano | Osteria",
+      "adresse": "Via di Gracciano nel Corso, 94/96, 53045 Montepulciano SI, Italie",
+      "cuisine": "Italienne",
+      "statut": "À tester",
+      "note": 4.6,
+      "commentaire": "Restaurant italien; excellent retour Google (4.6/5, 1671 avis au 15/08/2026). Spécialité : cuisine italienne et spécialités locales.",
+      "telephone": "+39 0578 757948",
+      "site_web": "https://www.portadibacco.it/",
+      "lien_fooding": "",
+      "localisation": {
+        "latitude": 43.0967643,
+        "longitude": 11.7852496
+      }
+    },
+    {
+      "nom": "Le Logge del Vignola",
+      "adresse": "Via dell'Erbe, 6, 53045 Montepulciano SI, Italie",
+      "cuisine": "Italienne",
+      "statut": "À tester",
+      "note": 4.6,
+      "commentaire": "Restaurant italien; excellent retour Google (4.6/5, 1464 avis au 15/08/2026). Spécialité : cuisine italienne et spécialités locales.",
+      "telephone": "+39 0578 717290",
+      "site_web": "http://www.leloggedelvignola.com/",
+      "lien_fooding": "",
+      "localisation": {
+        "latitude": 43.095071499999996,
+        "longitude": 11.7827152
+      }
+    },
+    {
+      "nom": "La Bottega del Nobile",
+      "adresse": "Via di Gracciano nel Corso, 95, 53045 Montepulciano SI, Italie",
+      "cuisine": "Italienne",
+      "statut": "À tester",
+      "note": 4.6,
+      "commentaire": "Restaurant italien; excellent retour Google (4.6/5, 1393 avis au 15/08/2026). Spécialité : cuisine italienne et spécialités locales.",
+      "telephone": "+39 0578 757016",
+      "site_web": "https://www.labottegadelnobile.it/",
+      "lien_fooding": "",
+      "localisation": {
+        "latitude": 43.096271,
+        "longitude": 11.785098
+      }
+    },
+    {
+      "nom": "Il Teatro Cucina Toscana",
+      "adresse": "Piazzetta del Teatro, 5, 53045 Montepulciano SI, Italie",
+      "cuisine": "Italienne",
+      "statut": "À tester",
+      "note": 4.6,
+      "commentaire": "Restaurant italien; excellent retour Google (4.6/5, 903 avis au 15/08/2026). Spécialité : cuisine italienne et spécialités locales.",
+      "telephone": "+39 0578 440368",
+      "site_web": "http://www.ilteatrocucinatoscana.com/",
+      "lien_fooding": "",
+      "localisation": {
+        "latitude": 43.0919296,
+        "longitude": 11.7811706
+      }
+    },
+    {
+      "nom": "BoccaUnta Bisteccheria Ristorante Pizzeria - Montepulciano",
+      "adresse": "Via Milazzo, 21, 53045 Montepulciano Stazione SI, Italie",
+      "cuisine": "Italienne",
+      "statut": "À tester",
+      "note": 4.7,
+      "commentaire": "Pizzeria; excellent retour Google (4.7/5, 210 avis au 15/08/2026). Spécialité : pizzas.",
+      "telephone": "+39 0578 738702",
+      "site_web": "https://bisteccheriapizzeriagrifo.plateform.app/welcome",
+      "lien_fooding": "",
+      "localisation": {
+        "latitude": 43.1354621,
+        "longitude": 11.8623406
+      }
+    },
+    {
+      "nom": "d'artè",
+      "adresse": "Via Ricasoli, 36, 52100 Arezzo AR, Italie",
+      "cuisine": "Italienne",
+      "statut": "À tester",
+      "note": 5.0,
+      "commentaire": "Restaurant italien; excellent retour Google (5.0/5, 67 avis au 15/08/2026). Spécialité : cuisine italienne et spécialités locales.",
+      "telephone": "+39 0575 138 7688",
+      "site_web": "https://d-arte.it/",
+      "lien_fooding": "",
+      "localisation": {
+        "latitude": 43.466653199999996,
+        "longitude": 11.8830092
+      }
+    },
+    {
+      "nom": "Ristorante St. Gregory Tentazione Bistrot",
+      "adresse": "Via Fiorentina, 239/241, 52100 Arezzo AR, Italie",
+      "cuisine": "Italienne",
+      "statut": "À tester",
+      "note": 4.9,
+      "commentaire": "Restaurant italien; excellent retour Google (4.9/5, 171 avis au 15/08/2026). Spécialité : cuisine italienne et spécialités locales.",
+      "telephone": "+39 0575 042657",
+      "site_web": "https://www.stgregorybistrot.it/",
+      "lien_fooding": "",
+      "localisation": {
+        "latitude": 43.472045,
+        "longitude": 11.8556806
+      }
+    },
+    {
+      "nom": "Il Girone dei Golosi",
+      "adresse": "Via Arno, 15, 52100 Arezzo AR, Italie",
+      "cuisine": "Italienne",
+      "statut": "À tester",
+      "note": 4.9,
+      "commentaire": "Restaurant italien; excellent retour Google (4.9/5, 110 avis au 15/08/2026). Spécialité : cuisine italienne et spécialités locales.",
+      "telephone": "+39 349 456 8653",
+      "site_web": "",
+      "lien_fooding": "",
+      "localisation": {
+        "latitude": 43.4558284,
+        "longitude": 11.8729967
+      }
+    },
+    {
+      "nom": "Ristorante Aquavitae",
+      "adresse": "Via Pescaia, 6, 52100 Arezzo AR, Italie",
+      "cuisine": "Italienne",
+      "statut": "À tester",
+      "note": 4.8,
+      "commentaire": "Restaurant italien; excellent retour Google (4.8/5, 205 avis au 15/08/2026). Spécialité : cuisine italienne et spécialités locales.",
+      "telephone": "+39 0575 21199",
+      "site_web": "https://ristoranteaquavitae.it/",
+      "lien_fooding": "",
+      "localisation": {
+        "latitude": 43.4645763,
+        "longitude": 11.8835693
+      }
+    },
+    {
+      "nom": "Osteria I Bottega",
+      "adresse": "Via Fiorentina, 137, 52100 Arezzo AR, Italie",
+      "cuisine": "Italienne",
+      "statut": "À tester",
+      "note": 4.7,
+      "commentaire": "Restaurant italien; excellent retour Google (4.7/5, 716 avis au 15/08/2026). Spécialité : cuisine italienne et spécialités locales.",
+      "telephone": "+39 334 631 9709",
+      "site_web": "http://ibottegaarezzo.it/",
+      "lien_fooding": "",
+      "localisation": {
+        "latitude": 43.4708717,
+        "longitude": 11.862528399999999
+      }
+    },
+    {
+      "nom": "La Locanda di Ale",
+      "adresse": "Via Guglielmo Oberdan, 31, 52100 Arezzo AR, Italie",
+      "cuisine": "Italienne",
+      "statut": "À tester",
+      "note": 4.8,
+      "commentaire": "Restaurant italien; excellent retour Google (4.8/5, 146 avis au 15/08/2026). Spécialité : cuisine italienne et spécialités locales.",
+      "telephone": "+39 0575 452141",
+      "site_web": "https://lalocandadiale.it/",
+      "lien_fooding": "",
+      "localisation": {
+        "latitude": 43.4634317,
+        "longitude": 11.8824221
+      }
+    },
+    {
+      "nom": "Briganti Toscani “Alla Macchia”",
+      "adresse": "Via di Tolletta, 16, 52100 Arezzo AR, Italie",
+      "cuisine": "Italienne",
+      "statut": "À tester",
+      "note": 4.8,
+      "commentaire": "Restaurant italien; excellent retour Google (4.8/5, 136 avis au 15/08/2026). Spécialité : cuisine italienne et spécialités locales.",
+      "telephone": "+39 389 434 7736",
+      "site_web": "https://ilcovodeibriganti.it/briganti-toscani-alla-macchia-2",
+      "lien_fooding": "",
+      "localisation": {
+        "latitude": 43.4639527,
+        "longitude": 11.8796561
+      }
+    },
+    {
+      "nom": "Pinseria Romana Arezzo St. Gregory",
+      "adresse": "Via XXV Aprile, 36, 52100 Arezzo AR, Italie",
+      "cuisine": "Italienne",
+      "statut": "À tester",
+      "note": 4.8,
+      "commentaire": "Pizzeria; excellent retour Google (4.8/5, 109 avis au 15/08/2026). Spécialité : pizzas.",
+      "telephone": "+39 0575 166 9836",
+      "site_web": "http://pinseriastgregory.it/ordine-veloce",
+      "lien_fooding": "",
+      "localisation": {
+        "latitude": 43.4581088,
+        "longitude": 11.8808709
+      }
+    },
+    {
+      "nom": "Osteria Grande",
+      "adresse": "Piazza Grande, 28, 52100 Arezzo AR, Italie",
+      "cuisine": "Italienne",
+      "statut": "À tester",
+      "note": 4.7,
+      "commentaire": "Restaurant italien; excellent retour Google (4.7/5, 454 avis au 15/08/2026). Spécialité : cuisine italienne et spécialités locales.",
+      "telephone": "+39 348 691 0306",
+      "site_web": "http://www.osteriagrande.it/",
+      "lien_fooding": "",
+      "localisation": {
+        "latitude": 43.4645352,
+        "longitude": 11.8846318
+      }
+    },
+    {
+      "nom": "Antica Fonte",
+      "adresse": "Via Porta Buia, 18, 52100 Arezzo AR, Italie",
+      "cuisine": "Italienne",
+      "statut": "À tester",
+      "note": 4.6,
+      "commentaire": "Restaurant italien; excellent retour Google (4.6/5, 1771 avis au 15/08/2026). Spécialité : cuisine italienne et spécialités locales.",
+      "telephone": "+39 0575 28038",
+      "site_web": "https://antica-fonte.eatbu.com/?lang=it#contact",
+      "lien_fooding": "",
+      "localisation": {
+        "latitude": 43.4656656,
+        "longitude": 11.876973399999999
+      }
+    },
+    {
+      "nom": "Pizzeria Partenope",
+      "adresse": "Via Vittorio Veneto, 222, 52100 Arezzo AR, Italie",
+      "cuisine": "Italienne",
+      "statut": "À tester",
+      "note": 4.8,
+      "commentaire": "Restaurant italien; excellent retour Google (4.8/5, 85 avis au 15/08/2026). Spécialité : cuisine italienne et spécialités locales.",
+      "telephone": "+39 351 369 5151",
+      "site_web": "https://www.leggimenu.it/menu/pizzeria-partenope",
+      "lien_fooding": "",
+      "localisation": {
+        "latitude": 43.4531846,
+        "longitude": 11.868189899999999
+      }
+    },
+    {
+      "nom": "Trattoria Cavour 42",
+      "adresse": "Via Cavour, 42, 52100 Arezzo AR, Italie",
+      "cuisine": "Italienne",
+      "statut": "À tester",
+      "note": 4.6,
+      "commentaire": "Restaurant italien; excellent retour Google (4.6/5, 1371 avis au 15/08/2026). Spécialité : cuisine italienne et spécialités locales.",
+      "telephone": "+39 0575 20131",
+      "site_web": "http://www.trattoriacavour42.com/",
+      "lien_fooding": "",
+      "localisation": {
+        "latitude": 43.4652023,
+        "longitude": 11.8803614
+      }
+    },
+    {
+      "nom": "Osteria dalla Lola",
+      "adresse": "Via Giuseppe Mazzini, 26, 52100 Arezzo AR, Italie",
+      "cuisine": "Italienne",
+      "statut": "À tester",
+      "note": 4.7,
+      "commentaire": "Restaurant italien; excellent retour Google (4.7/5, 252 avis au 15/08/2026). Spécialité : cuisine italienne et spécialités locales.",
+      "telephone": "+39 349 310 0578",
+      "site_web": "",
+      "lien_fooding": "",
+      "localisation": {
+        "latitude": 43.463683599999996,
+        "longitude": 11.883034199999999
+      }
+    },
+    {
+      "nom": "in Pala! Pizza & Birra",
+      "adresse": "Via Benedetto Varchi, 31, 52100 Arezzo AR, Italie",
+      "cuisine": "Italienne",
+      "statut": "À tester",
+      "note": 4.8,
+      "commentaire": "Restaurant italien; excellent retour Google (4.8/5, 57 avis au 15/08/2026). Spécialité : cuisine italienne et spécialités locales.",
+      "telephone": "+39 328 136 0263",
+      "site_web": "",
+      "lien_fooding": "",
+      "localisation": {
+        "latitude": 43.467031299999995,
+        "longitude": 11.874731299999999
+      }
+    },
+    {
+      "nom": "Teorema del Gusto",
+      "adresse": "Via Dè Cenci, 17, 52100 Arezzo AR, Italie",
+      "cuisine": "Italienne",
+      "statut": "À tester",
+      "note": 4.6,
+      "commentaire": "Restaurant italien; excellent retour Google (4.6/5, 983 avis au 15/08/2026). Spécialité : cuisine italienne et spécialités locales.",
+      "telephone": "+39 0575 454249",
+      "site_web": "http://www.teoremadelgusto.it/",
+      "lien_fooding": "",
+      "localisation": {
+        "latitude": 43.4633541,
+        "longitude": 11.880049399999999
+      }
+    },
+    {
+      "nom": "Osteria 54",
+      "adresse": "Via della Madonna del Prato, 54, 52100 Arezzo AR, Italie",
+      "cuisine": "Italienne",
+      "statut": "À tester",
+      "note": 4.7,
+      "commentaire": "Restaurant italien; excellent retour Google (4.7/5, 208 avis au 15/08/2026). Spécialité : cuisine italienne et spécialités locales.",
+      "telephone": "+39 339 150 9922",
+      "site_web": "https://www.osteria54.it/",
+      "lien_fooding": "",
+      "localisation": {
+        "latitude": 43.463198,
+        "longitude": 11.879348
+      }
+    },
+    {
+      "nom": "Antica Osteria l'Agania",
+      "adresse": "Via Giuseppe Mazzini, 10, 52100 Arezzo AR, Italie",
+      "cuisine": "Italienne",
+      "statut": "À tester",
+      "note": 4.5,
+      "commentaire": "Restaurant italien; très bien noté sur Google (4.5/5, 3533 avis au 15/08/2026). Spécialité : cuisine italienne et spécialités locales.",
+      "telephone": "+39 0575 295381",
+      "site_web": "http://www.agania.com/",
+      "lien_fooding": "",
+      "localisation": {
+        "latitude": 43.4639984,
+        "longitude": 11.8825097
+      }
+    },
+    {
+      "nom": "Ristorante Vescovile, L'angolo di mare",
+      "adresse": "Via Vittorio Veneto, 14/a, 52100 Arezzo AR, Italie",
+      "cuisine": "Italienne",
+      "statut": "À tester",
+      "note": 4.7,
+      "commentaire": "Restaurant italien; excellent retour Google (4.7/5, 159 avis au 15/08/2026). Spécialité : cuisine italienne et spécialités locales.",
+      "telephone": "+39 353 481 2492",
+      "site_web": "",
+      "lien_fooding": "",
+      "localisation": {
+        "latitude": 43.458900799999995,
+        "longitude": 11.875282
+      }
+    },
+    {
+      "nom": "Osteria Da Giovanna",
+      "adresse": "Via Anconetana, 164, 52100 Arezzo AR, Italie",
+      "cuisine": "Italienne",
+      "statut": "À tester",
+      "note": 4.6,
+      "commentaire": "Restaurant italien; excellent retour Google (4.6/5, 656 avis au 15/08/2026). Spécialité : cuisine italienne et spécialités locales.",
+      "telephone": "+39 0575 360153",
+      "site_web": "http://www.dagiovanna.com/",
+      "lien_fooding": "",
+      "localisation": {
+        "latitude": 43.4499415,
+        "longitude": 11.914971099999999
+      }
+    },
+    {
+      "nom": "Verde Valentino",
+      "adresse": "Via Vittorio Veneto, 97, 52100 Arezzo AR, Italie",
+      "cuisine": "Italienne",
+      "statut": "À tester",
+      "note": 4.7,
+      "commentaire": "Restaurant italien; excellent retour Google (4.7/5, 152 avis au 15/08/2026). Spécialité : cuisine italienne et spécialités locales.",
+      "telephone": "+39 351 460 0666",
+      "site_web": "https://www.verdevalentino.it/",
+      "lien_fooding": "",
+      "localisation": {
+        "latitude": 43.458292,
+        "longitude": 11.8748157
+      }
+    },
+    {
+      "nom": "Mystic Arezzo senza glutine",
+      "adresse": "Via Margaritone, 35, 52100 Arezzo AR, Italie",
+      "cuisine": "Italienne",
+      "statut": "À tester",
+      "note": 4.8,
+      "commentaire": "Restaurant italien; excellent retour Google (4.8/5, 30 avis au 15/08/2026). Spécialité : cuisine italienne et spécialités locales.",
+      "telephone": "",
+      "site_web": "http://instagram.it/mystic_arezzosenzaglutine/",
+      "lien_fooding": "",
+      "localisation": {
+        "latitude": 43.4615611,
+        "longitude": 11.8802989
+      }
+    },
+    {
+      "nom": "Ristorante La Lancia D'Oro Arezzo",
+      "adresse": "Piazza Grande, 18, 52100 Arezzo AR, Italie",
+      "cuisine": "Italienne",
+      "statut": "À tester",
+      "note": 4.5,
+      "commentaire": "Restaurant italien; très bien noté sur Google (4.5/5, 2057 avis au 15/08/2026). Spécialité : cuisine italienne et spécialités locales.",
+      "telephone": "+39 0575 21033",
+      "site_web": "http://www.ristorantelanciadoro.it/",
+      "lien_fooding": "",
+      "localisation": {
+        "latitude": 43.4648288,
+        "longitude": 11.8846388
+      }
+    },
+    {
+      "nom": "Osteria la dm",
+      "adresse": "Via de' Redi, 14, 52100 Arezzo AR, Italie",
+      "cuisine": "Italienne",
+      "statut": "À tester",
+      "note": 4.8,
+      "commentaire": "Restaurant italien; excellent retour Google (4.8/5, 27 avis au 15/08/2026). Spécialité : cuisine italienne et spécialités locales.",
+      "telephone": "+39 0575 21921",
+      "site_web": "",
+      "lien_fooding": "",
+      "localisation": {
+        "latitude": 43.463985,
+        "longitude": 11.881089999999999
+      }
+    },
+    {
+      "nom": "Ristorante Logge Vasari",
+      "adresse": "Piazza Grande, 52100 Arezzo AR, Italie",
+      "cuisine": "Italienne",
+      "statut": "À tester",
+      "note": 4.5,
+      "commentaire": "Restaurant italien; très bien noté sur Google (4.5/5, 1889 avis au 15/08/2026). Spécialité : cuisine italienne et spécialités locales.",
+      "telephone": "+39 0575 300333",
+      "site_web": "https://www.loggevasari.it/",
+      "lien_fooding": "",
+      "localisation": {
+        "latitude": 43.465092899999995,
+        "longitude": 11.8844493
+      }
+    },
+    {
+      "nom": "Antico Forno La Pieve",
+      "adresse": "Corso Italia, 11, 52100 Arezzo AR, Italie",
+      "cuisine": "Italienne",
+      "statut": "À tester",
+      "note": 4.7,
+      "commentaire": "Pizzeria; excellent retour Google (4.7/5, 79 avis au 15/08/2026). Spécialité : pizzas.",
+      "telephone": "+39 329 942 0996",
+      "site_web": "https://anticofornolapieve.it/",
+      "lien_fooding": "",
+      "localisation": {
+        "latitude": 43.4647826,
+        "longitude": 11.8830545
+      }
+    },
+    {
+      "nom": "Briganti Toscani “La Tavernaccia”",
+      "adresse": "Via Cavour, 38-40, 52100 Arezzo AR, Italie",
+      "cuisine": "Italienne",
+      "statut": "À tester",
+      "note": 4.6,
+      "commentaire": "Restaurant italien; excellent retour Google (4.6/5, 308 avis au 15/08/2026). Spécialité : cuisine italienne et spécialités locales.",
+      "telephone": "+39 380 767 2553",
+      "site_web": "https://mymenuweb.com/it/restaurants/1007310/?utm_source=google_profile&utm_medium=google_profile&utm_campaign=admin",
+      "lien_fooding": "",
+      "localisation": {
+        "latitude": 43.4650192,
+        "longitude": 11.8806464
+      }
+    },
+    {
+      "nom": "Il Covo dei Briganti",
+      "adresse": "Via Guido Monaco, 9, 52100 Arezzo AR, Italie",
+      "cuisine": "Italienne",
+      "statut": "À tester",
+      "note": 4.5,
+      "commentaire": "Grill et restaurant de viandes; très bien noté sur Google (4.5/5, 1212 avis au 15/08/2026). Spécialité : viandes grillées.",
+      "telephone": "+39 380 869 2985",
+      "site_web": "https://www.ilcovodeibriganti.it/",
+      "lien_fooding": "",
+      "localisation": {
+        "latitude": 43.4645642,
+        "longitude": 11.8802168
+      }
+    },
+    {
+      "nom": "Essenza Dario e Anna - dal 1964",
+      "adresse": "Piazza Grande, 16, 52100 Arezzo AR, Italie",
+      "cuisine": "Italienne",
+      "statut": "À tester",
+      "note": 4.5,
+      "commentaire": "Restaurant italien; très bien noté sur Google (4.5/5, 1024 avis au 15/08/2026). Spécialité : cuisine italienne et spécialités locales.",
+      "telephone": "+39 340 106 6544",
+      "site_web": "http://www.darioeanna.it/",
+      "lien_fooding": "",
+      "localisation": {
+        "latitude": 43.4649151,
+        "longitude": 11.884514399999999
+      }
+    },
+    {
+      "nom": "Tortello Divino",
+      "adresse": "Via Cavour, 70, 52100 Arezzo AR, Italie",
+      "cuisine": "Italienne",
+      "statut": "À tester",
+      "note": 4.5,
+      "commentaire": "Restaurant italien; très bien noté sur Google (4.5/5, 660 avis au 15/08/2026). Spécialité : cuisine italienne et spécialités locales.",
+      "telephone": "+39 0575 300045",
+      "site_web": "https://www.tortellodivino.com/",
+      "lien_fooding": "",
+      "localisation": {
+        "latitude": 43.465724099999996,
+        "longitude": 11.8792627
+      }
+    },
+    {
+      "nom": "Ristorante LaPieve",
+      "adresse": "Corso Italia, 7, 52100 Arezzo AR, Italie",
+      "cuisine": "Italienne",
+      "statut": "À tester",
+      "note": 4.5,
+      "commentaire": "Restaurant italien; très bien noté sur Google (4.5/5, 457 avis au 15/08/2026). Spécialité : cuisine italienne et spécialités locales.",
+      "telephone": "+39 0575 148 1622",
+      "site_web": "",
+      "lien_fooding": "",
+      "localisation": {
+        "latitude": 43.4651341,
+        "longitude": 11.8834948
+      }
+    },
+    {
+      "nom": "Le Chiavi D'Oro ristorante",
+      "adresse": "Piazza S. Francesco, 7, 52100 Arezzo AR, Italie",
+      "cuisine": "Italienne",
+      "statut": "À tester",
+      "note": 4.5,
+      "commentaire": "Restaurant italien; très bien noté sur Google (4.5/5, 448 avis au 15/08/2026). Spécialité : cuisine italienne et spécialités locales.",
+      "telephone": "+39 0575 403313",
+      "site_web": "https://ristorantelechiavidoro.it/",
+      "lien_fooding": "",
+      "localisation": {
+        "latitude": 43.464832,
+        "longitude": 11.880515899999999
+      }
+    },
+    {
+      "nom": "Ristorante Ciò che Piace AREZZO",
+      "adresse": "Via S. Lorentino, 12, 52100 Arezzo AR, Italie",
+      "cuisine": "Italienne",
+      "statut": "À tester",
+      "note": 4.5,
+      "commentaire": "Restaurant italien; très bien noté sur Google (4.5/5, 264 avis au 15/08/2026). Spécialité : cuisine italienne et spécialités locales.",
+      "telephone": "+39 0575 371287",
+      "site_web": "",
+      "lien_fooding": "",
+      "localisation": {
+        "latitude": 43.468004799999996,
+        "longitude": 11.8779159
+      }
+    },
+    {
+      "nom": "'O Scugnizzo",
+      "adresse": "Via de' Redi, 9/11, 52100 Arezzo AR, Italie",
+      "cuisine": "Italienne",
+      "statut": "À tester",
+      "note": 4.4,
+      "commentaire": "Restaurant italien; très bien noté sur Google (4.4/5, 789 avis au 15/08/2026). Spécialité : cuisine italienne et spécialités locales.",
+      "telephone": "+39 0575 333300",
+      "site_web": "http://www.lo-scugnizzo.it/",
+      "lien_fooding": "",
+      "localisation": {
+        "latitude": 43.4638796,
+        "longitude": 11.880896199999999
+      }
+    },
+    {
+      "nom": "Trattoria Il Saraceno",
+      "adresse": "Via Giuseppe Mazzini, 6, 52100 Arezzo AR, Italie",
+      "cuisine": "Italienne",
+      "statut": "À tester",
+      "note": 4.3,
+      "commentaire": "Restaurant italien; très bien noté sur Google (4.3/5, 2335 avis au 15/08/2026). Spécialité : cuisine italienne et spécialités locales.",
+      "telephone": "+39 0575 27644",
+      "site_web": "http://www.ilsaraceno.eu/",
+      "lien_fooding": "",
+      "localisation": {
+        "latitude": 43.4640433,
+        "longitude": 11.8824072
+      }
+    },
+    {
+      "nom": "Gli Ostinati Pizza e Brace",
+      "adresse": "Via Francesco Crispi, 32, 52100 Arezzo AR, Italie",
+      "cuisine": "Italienne",
+      "statut": "À tester",
+      "note": 4.4,
+      "commentaire": "Restaurant italien; très bien noté sur Google (4.4/5, 415 avis au 15/08/2026). Spécialité : cuisine italienne et spécialités locales.",
+      "telephone": "+39 0575 352836",
+      "site_web": "",
+      "lien_fooding": "",
+      "localisation": {
+        "latitude": 43.461715,
+        "longitude": 11.8802168
+      }
+    },
+    {
+      "nom": "Quarto Bistrot",
+      "adresse": "Vicolo Campaccio, 2, 53100 Siena SI, Italie",
+      "cuisine": "Italienne",
+      "statut": "À tester",
+      "note": 5.0,
+      "commentaire": "Restaurant italien; excellent retour Google (5.0/5, 496 avis au 15/08/2026). Spécialité : cuisine italienne et spécialités locales.",
+      "telephone": "+39 366 125 3338",
+      "site_web": "https://instagram.com/quartobistrot",
+      "lien_fooding": "",
+      "localisation": {
+        "latitude": 43.320080399999995,
+        "longitude": 11.3286205
+      }
+    },
+    {
+      "nom": "Ristorante Campo Cedro",
+      "adresse": "Via Pian D'Ovile, 54, 53100 Siena SI, Italie",
+      "cuisine": "Italienne",
+      "statut": "À tester",
+      "note": 4.9,
+      "commentaire": "Restaurant italien; excellent retour Google (4.9/5, 1342 avis au 15/08/2026). Spécialité : cuisine italienne et spécialités locales.",
+      "telephone": "+39 0577 236027",
+      "site_web": "https://www.campocedro.com/",
+      "lien_fooding": "",
+      "localisation": {
+        "latitude": 43.3222289,
+        "longitude": 11.3305559
+      }
+    },
+    {
+      "nom": "Osteria San Martino",
+      "adresse": "Via S. Martino, 31, 53100 Siena SI, Italie",
+      "cuisine": "Italienne",
+      "statut": "À tester",
+      "note": 4.9,
+      "commentaire": "Restaurant italien; excellent retour Google (4.9/5, 408 avis au 15/08/2026). Spécialité : cuisine italienne et spécialités locales.",
+      "telephone": "+39 0577 574489",
+      "site_web": "https://www.osteriasanmartino.eu/",
+      "lien_fooding": "",
+      "localisation": {
+        "latitude": 43.317307799999995,
+        "longitude": 11.3355176
+      }
+    },
+    {
+      "nom": "Locanda dell'Oste",
+      "adresse": "Via Porta Giustizia, 6, 53100 Siena SI, Italie",
+      "cuisine": "Italienne",
+      "statut": "À tester",
+      "note": 4.8,
+      "commentaire": "Restaurant italien; excellent retour Google (4.8/5, 822 avis au 15/08/2026). Spécialité : cuisine italienne et spécialités locales.",
+      "telephone": "+39 0577 557980",
+      "site_web": "",
+      "lien_fooding": "",
+      "localisation": {
+        "latitude": 43.3166162,
+        "longitude": 11.3328905
+      }
+    },
+    {
+      "nom": "Osteria La Sosta di Violante - La corte di San Giorgio",
+      "adresse": "Via Pantaneto, 115, 53100 Siena SI, Italie",
+      "cuisine": "Italienne",
+      "statut": "À tester",
+      "note": 4.7,
+      "commentaire": "Restaurant italien; excellent retour Google (4.7/5, 2433 avis au 15/08/2026). Spécialité : cuisine italienne et spécialités locales.",
+      "telephone": "+39 0577 43774",
+      "site_web": "https://www.lasostadiviolante.it/",
+      "lien_fooding": "",
+      "localisation": {
+        "latitude": 43.3174485,
+        "longitude": 11.336345399999999
+      }
+    },
+    {
+      "nom": "Chianti & pizza by mister pizza",
+      "adresse": "Via delle Terme, 94, 53100 Siena SI, Italie",
+      "cuisine": "Italienne",
+      "statut": "À tester",
+      "note": 4.8,
+      "commentaire": "Restaurant italien; excellent retour Google (4.8/5, 449 avis au 15/08/2026). Spécialité : cuisine italienne et spécialités locales.",
+      "telephone": "+39 371 181 2854",
+      "site_web": "",
+      "lien_fooding": "",
+      "localisation": {
+        "latitude": 43.3207789,
+        "longitude": 11.329854
+      }
+    },
+    {
+      "nom": "Rusticamente Osteria",
+      "adresse": "Viale Camillo Benso di Cavour, 7, 53100 Siena SI, Italie",
+      "cuisine": "Italienne",
+      "statut": "À tester",
+      "note": 4.8,
+      "commentaire": "Restaurant italien; excellent retour Google (4.8/5, 402 avis au 15/08/2026). Spécialité : cuisine italienne et spécialités locales.",
+      "telephone": "+39 0577 301002",
+      "site_web": "https://www.rusticamenteosteria.it/",
+      "lien_fooding": "",
+      "localisation": {
+        "latitude": 43.329065899999996,
+        "longitude": 11.320926
+      }
+    },
+    {
+      "nom": "Osteria degli Svitati",
+      "adresse": "Via della Galluzza, 34, 53100 Siena SI, Italie",
+      "cuisine": "Italienne",
+      "statut": "À tester",
+      "note": 4.7,
+      "commentaire": "Restaurant italien; excellent retour Google (4.7/5, 1610 avis au 15/08/2026). Spécialité : cuisine italienne et spécialités locales.",
+      "telephone": "+39 0577 601755",
+      "site_web": "https://osteriadeglisvitati.business.site/?utm_source=gmb&utm_medium=referral",
+      "lien_fooding": "",
+      "localisation": {
+        "latitude": 43.31964,
+        "longitude": 11.32921
+      }
+    },
+    {
+      "nom": "Ristorante La Locanda dei Tintori Siena",
+      "adresse": "Via dei Pittori, 13, 53100 Siena SI, Italie",
+      "cuisine": "Italienne",
+      "statut": "À tester",
+      "note": 4.7,
+      "commentaire": "Restaurant italien; excellent retour Google (4.7/5, 1319 avis au 15/08/2026). Spécialité : cuisine italienne et spécialités locales.",
+      "telephone": "+39 0577 550225",
+      "site_web": "https://www.itintoridisiena.it/",
+      "lien_fooding": "",
+      "localisation": {
+        "latitude": 43.320125399999995,
+        "longitude": 11.3296894
+      }
+    },
+    {
+      "nom": "Pizzeria Le Principesse di Sirio Campolungo",
+      "adresse": "Via S. Pietro, 53, 53100 Siena SI, Italie",
+      "cuisine": "Italienne",
+      "statut": "À tester",
+      "note": 4.8,
+      "commentaire": "Pizzeria; excellent retour Google (4.8/5, 284 avis au 15/08/2026). Spécialité : pizzas.",
+      "telephone": "+39 393 650 5477",
+      "site_web": "",
+      "lien_fooding": "",
+      "localisation": {
+        "latitude": 43.314963,
+        "longitude": 11.330613
+      }
+    },
+    {
+      "nom": "La Taverna di San Giuseppe",
+      "adresse": "Via Giovanni Duprè, 132, 53100 Siena SI, Italie",
+      "cuisine": "Italienne",
+      "statut": "À tester",
+      "note": 4.6,
+      "commentaire": "Restaurant italien; excellent retour Google (4.6/5, 4895 avis au 15/08/2026). Spécialité : cuisine italienne et spécialités locales.",
+      "telephone": "+39 0577 42286",
+      "site_web": "http://tavernasangiuseppe.it/",
+      "lien_fooding": "",
+      "localisation": {
+        "latitude": 43.3153632,
+        "longitude": 11.3317216
+      }
+    },
+    {
+      "nom": "ORO DI SIENA | Ristorante",
+      "adresse": "Via Giuseppe Garibaldi, 61, 53100 Siena SI, Italie",
+      "cuisine": "Italienne",
+      "statut": "À tester",
+      "note": 4.7,
+      "commentaire": "Restaurant italien; excellent retour Google (4.7/5, 1090 avis au 15/08/2026). Spécialité : cuisine italienne et spécialités locales.",
+      "telephone": "+39 0577 282729",
+      "site_web": "",
+      "lien_fooding": "",
+      "localisation": {
+        "latitude": 43.324757999999996,
+        "longitude": 11.3313698
+      }
+    },
+    {
+      "nom": "Ristorante In Carrozza",
+      "adresse": "Vicolo delle Carrozze, 1, 53100 Siena SI, Italie",
+      "cuisine": "Italienne",
+      "statut": "À tester",
+      "note": 4.8,
+      "commentaire": "Restaurant italien; excellent retour Google (4.8/5, 233 avis au 15/08/2026). Spécialité : cuisine italienne et spécialités locales.",
+      "telephone": "+39 338 716 8252",
+      "site_web": "https://ristoranteincarrozza.com/",
+      "lien_fooding": "",
+      "localisation": {
+        "latitude": 43.3184255,
+        "longitude": 11.3283995
+      }
+    },
+    {
+      "nom": "Grotta Santa Caterina da Bagoga",
+      "adresse": "Via della Galluzza, 26, 53100 Siena SI, Italie",
+      "cuisine": "Italienne",
+      "statut": "À tester",
+      "note": 4.6,
+      "commentaire": "Restaurant italien; excellent retour Google (4.6/5, 2204 avis au 15/08/2026). Spécialité : cuisine italienne et spécialités locales.",
+      "telephone": "+39 0577 282208",
+      "site_web": "http://www.ristorantebagoga.it/",
+      "lien_fooding": "",
+      "localisation": {
+        "latitude": 43.3193711,
+        "longitude": 11.329525499999999
+      }
+    },
+    {
+      "nom": "Osteria Il Carroccio",
+      "adresse": "Casato di Sotto, 32, 53100 Siena SI, Italie",
+      "cuisine": "Italienne",
+      "statut": "À tester",
+      "note": 4.6,
+      "commentaire": "Restaurant italien; excellent retour Google (4.6/5, 1919 avis au 15/08/2026). Spécialité : cuisine italienne et spécialités locales.",
+      "telephone": "+39 0577 41165",
+      "site_web": "https://m.facebook.com/osteriailcarroccio16/",
+      "lien_fooding": "",
+      "localisation": {
+        "latitude": 43.317465399999996,
+        "longitude": 11.3314483
+      }
+    },
+    {
+      "nom": "La Piccola Ciaccineria",
+      "adresse": "Via S. Pietro, 52, 53100 Siena SI, Italie",
+      "cuisine": "Italienne",
+      "statut": "À tester",
+      "note": 4.7,
+      "commentaire": "Pizzeria; excellent retour Google (4.7/5, 438 avis au 15/08/2026). Spécialité : pizzas.",
+      "telephone": "+39 0577 151 3263",
+      "site_web": "http://lapiccolaciaccineria.altervista.org/",
+      "lien_fooding": "",
+      "localisation": {
+        "latitude": 43.3154922,
+        "longitude": 11.3304628
+      }
+    },
+    {
+      "nom": "Pizzeria Sotto Il Ponte",
+      "adresse": "Via Simone Martini, 68/70, 53100 Siena SI, Italie",
+      "cuisine": "Italienne",
+      "statut": "À tester",
+      "note": 4.7,
+      "commentaire": "Pizzeria; excellent retour Google (4.7/5, 426 avis au 15/08/2026). Spécialité : pizzas.",
+      "telephone": "+39 0577 270327",
+      "site_web": "https://pizzeriasottoilponte.it/",
+      "lien_fooding": "",
+      "localisation": {
+        "latitude": 43.325832999999996,
+        "longitude": 11.3338583
+      }
+    },
+    {
+      "nom": "IL Biondo Ristorante & Bistrot",
+      "adresse": "Vicolo di Rustichetto, 8, 53100 Siena SI, Italie",
+      "cuisine": "Italienne",
+      "statut": "À tester",
+      "note": 4.8,
+      "commentaire": "Restaurant italien; excellent retour Google (4.8/5, 84 avis au 15/08/2026). Spécialité : cuisine italienne et spécialités locales.",
+      "telephone": "+39 393 739 5493",
+      "site_web": "https://ristoranteilbiondo.it/it",
+      "lien_fooding": "",
+      "localisation": {
+        "latitude": 43.3215485,
+        "longitude": 11.3297361
+      }
+    },
+    {
+      "nom": "Osteria Nonna Gina",
+      "adresse": "Pian dei Mantellini, 2, 53100 Siena SI, Italie",
+      "cuisine": "Italienne",
+      "statut": "À tester",
+      "note": 4.6,
+      "commentaire": "Restaurant italien; excellent retour Google (4.6/5, 1337 avis au 15/08/2026). Spécialité : cuisine italienne et spécialités locales.",
+      "telephone": "+39 0577 287247",
+      "site_web": "",
+      "lien_fooding": "",
+      "localisation": {
+        "latitude": 43.3152778,
+        "longitude": 11.327499999999999
+      }
+    },
+    {
+      "nom": "La Verbena Ristorante Pizzeria",
+      "adresse": "Str. di Pescaia, 55, 53100 Siena SI, Italie",
+      "cuisine": "Italienne",
+      "statut": "À tester",
+      "note": 4.8,
+      "commentaire": "Restaurant italien; excellent retour Google (4.8/5, 65 avis au 15/08/2026). Spécialité : cuisine italienne et spécialités locales.",
+      "telephone": "+39 0577 579509",
+      "site_web": "http://ristorantelaverbena.com/",
+      "lien_fooding": "",
+      "localisation": {
+        "latitude": 43.313695599999996,
+        "longitude": 11.3178646
+      }
+    },
+    {
+      "nom": "Ristorante Tar-Tufo",
+      "adresse": "Via del Sole, 6/a, 53100 Siena SI, Italie",
+      "cuisine": "Italienne",
+      "statut": "À tester",
+      "note": 4.6,
+      "commentaire": "Restaurant italien; excellent retour Google (4.6/5, 961 avis au 15/08/2026). Spécialité : cuisine italienne et spécialités locales.",
+      "telephone": "+39 0577 284031",
+      "site_web": "https://www.tar-tufo.com/it/index.html",
+      "lien_fooding": "",
+      "localisation": {
+        "latitude": 43.3163476,
+        "longitude": 11.3347257
+      }
+    },
+    {
+      "nom": "Osteria Permalico",
+      "adresse": "Costa Larga, 4, 53100 Siena SI, Italie",
+      "cuisine": "Italienne",
+      "statut": "À tester",
+      "note": 4.5,
+      "commentaire": "Restaurant italien; très bien noté sur Google (4.5/5, 3281 avis au 15/08/2026). Spécialité : cuisine italienne et spécialités locales.",
+      "telephone": "+39 0577 41105",
+      "site_web": "https://www.permalico.it/",
+      "lien_fooding": "",
+      "localisation": {
+        "latitude": 43.316341699999995,
+        "longitude": 11.3301269
+      }
+    },
+    {
+      "nom": "Salefino Wine and Cuisine",
+      "adresse": "Via degli Umiliati, 1, 53100 Siena SI, Italie",
+      "cuisine": "Italienne",
+      "statut": "À tester",
+      "note": 4.6,
+      "commentaire": "Restaurant italien; excellent retour Google (4.6/5, 751 avis au 15/08/2026). Spécialité : cuisine italienne et spécialités locales.",
+      "telephone": "+39 0577 287224",
+      "site_web": "http://salefino-siena.com/",
+      "lien_fooding": "",
+      "localisation": {
+        "latitude": 43.3242014,
+        "longitude": 11.3282381
+      }
+    },
+    {
+      "nom": "Ristorante Casa Tua Siena",
+      "adresse": "Piazza Mercato, 34, 53100 Siena SI, Italie",
+      "cuisine": "Italienne",
+      "statut": "À tester",
+      "note": 4.6,
+      "commentaire": "Restaurant italien; excellent retour Google (4.6/5, 692 avis au 15/08/2026). Spécialité : cuisine italienne et spécialités locales.",
+      "telephone": "+39 329 772 6796",
+      "site_web": "",
+      "lien_fooding": "",
+      "localisation": {
+        "latitude": 43.3176059,
+        "longitude": 11.3327928
+      }
+    },
+    {
+      "nom": "Du Versi",
+      "adresse": "Via dei Rossi, 82, 53100 Siena SI, Italie",
+      "cuisine": "Italienne",
+      "statut": "À tester",
+      "note": 4.6,
+      "commentaire": "Restaurant italien; excellent retour Google (4.6/5, 671 avis au 15/08/2026). Spécialité : cuisine italienne et spécialités locales.",
+      "telephone": "+39 0577 270439",
+      "site_web": "https://m.facebook.com/DuversiSiena/",
+      "lien_fooding": "",
+      "localisation": {
+        "latitude": 43.3218239,
+        "longitude": 11.3326703
+      }
+    },
+    {
+      "nom": "Osteria Quattro Venti",
+      "adresse": "Via S. Pietro, 66, 53100 Siena SI, Italie",
+      "cuisine": "Italienne",
+      "statut": "À tester",
+      "note": 4.6,
+      "commentaire": "Restaurant italien; excellent retour Google (4.6/5, 609 avis au 15/08/2026). Spécialité : cuisine italienne et spécialités locales.",
+      "telephone": "+39 0577 223399",
+      "site_web": "https://osteriaquattroventi.it/",
+      "lien_fooding": "",
+      "localisation": {
+        "latitude": 43.315211399999995,
+        "longitude": 11.330387499999999
+      }
+    },
+    {
+      "nom": "Pizzeria La Strana Coppia",
+      "adresse": "Via Celso Cittadini, 6, 53100 Siena SI, Italie",
+      "cuisine": "Italienne",
+      "statut": "À tester",
+      "note": 4.7,
+      "commentaire": "Restaurant italien; excellent retour Google (4.7/5, 107 avis au 15/08/2026). Spécialité : cuisine italienne et spécialités locales.",
+      "telephone": "+39 0577 595197",
+      "site_web": "https://www.facebook.com/lastranacoppiasiena",
+      "lien_fooding": "",
+      "localisation": {
+        "latitude": 43.336157199999995,
+        "longitude": 11.3067957
+      }
+    },
+    {
+      "nom": "Osteria il Vinaio",
+      "adresse": "Via Camollia, 138, 53100 Siena SI, Italie",
+      "cuisine": "Italienne",
+      "statut": "À tester",
+      "note": 4.5,
+      "commentaire": "Restaurant italien; très bien noté sur Google (4.5/5, 1902 avis au 15/08/2026). Spécialité : cuisine italienne et spécialités locales.",
+      "telephone": "+39 0577 49615",
+      "site_web": "https://osteriailvinaio.it/",
+      "lien_fooding": "",
+      "localisation": {
+        "latitude": 43.3263113,
+        "longitude": 11.326414999999999
+      }
+    },
+    {
+      "nom": "Ristorante/pizzeria All'Orto de' Pecci",
+      "adresse": "Via Porta Giustizia, 39, 53100 Siena SI, Italie",
+      "cuisine": "Italienne",
+      "statut": "À tester",
+      "note": 4.5,
+      "commentaire": "Restaurant italien; très bien noté sur Google (4.5/5, 1696 avis au 15/08/2026). Spécialité : cuisine italienne et spécialités locales.",
+      "telephone": "+39 0577 222201",
+      "site_web": "http://www.lapropostacooperativasociale.it/",
+      "lien_fooding": "",
+      "localisation": {
+        "latitude": 43.3147625,
+        "longitude": 11.3352053
+      }
+    },
+    {
+      "nom": "Fischi per Fiaschi vinaio osteria",
+      "adresse": "Via S. Marco, 43, 53100 Siena SI, Italie",
+      "cuisine": "Italienne",
+      "statut": "À tester",
+      "note": 4.6,
+      "commentaire": "Restaurant italien; excellent retour Google (4.6/5, 401 avis au 15/08/2026). Spécialité : cuisine italienne et spécialités locales.",
+      "telephone": "+39 0577 280971",
+      "site_web": "http://www.facebook.com/FischiXFiaschi",
+      "lien_fooding": "",
+      "localisation": {
+        "latitude": 43.313167799999995,
+        "longitude": 11.327910099999999
+      }
+    },
+    {
+      "nom": "Pizzeria Alle Scalette - Pizzeria Siena",
+      "adresse": "Viale Curtatone, 18, 53100 Siena SI, Italie",
+      "cuisine": "Italienne",
+      "statut": "À tester",
+      "note": 4.5,
+      "commentaire": "Restaurant italien; très bien noté sur Google (4.5/5, 1464 avis au 15/08/2026). Spécialité : cuisine italienne et spécialités locales.",
+      "telephone": "+39 392 252 8009",
+      "site_web": "http://pizzeriaallescalette.it/",
+      "lien_fooding": "",
+      "localisation": {
+        "latitude": 43.3214046,
+        "longitude": 11.328207299999999
+      }
+    },
+    {
+      "nom": "Ristorante Gallo Nero",
+      "adresse": "Via del Porrione, 65-67, 53100 Siena SI, Italie",
+      "cuisine": "Italienne",
+      "statut": "À tester",
+      "note": 4.5,
+      "commentaire": "Restaurant italien; très bien noté sur Google (4.5/5, 1232 avis au 15/08/2026). Spécialité : cuisine italienne et spécialités locales.",
+      "telephone": "+39 0577 284356",
+      "site_web": "http://www.gallonero.it/",
+      "lien_fooding": "",
+      "localisation": {
+        "latitude": 43.3179455,
+        "longitude": 11.3343615
+      }
+    },
+    {
+      "nom": "Pizzeria La Veranda Siena",
+      "adresse": "Piazza Calabria, 20, 53100 Siena SI, Italie",
+      "cuisine": "Italienne",
+      "statut": "À tester",
+      "note": 4.5,
+      "commentaire": "Pizzeria; très bien noté sur Google (4.5/5, 916 avis au 15/08/2026). Spécialité : pizzas.",
+      "telephone": "+39 0577 52106",
+      "site_web": "http://pizzerialaveranda.it/",
+      "lien_fooding": "",
+      "localisation": {
+        "latitude": 43.3418955,
+        "longitude": 11.3124624
+      }
+    },
+    {
+      "nom": "La Napoletana 2.0",
+      "adresse": "Viale Sardegna, 37, 53100 Siena SI, Italie",
+      "cuisine": "Italienne",
+      "statut": "À tester",
+      "note": 4.5,
+      "commentaire": "Pizzeria; très bien noté sur Google (4.5/5, 834 avis au 15/08/2026). Spécialité : pizzas.",
+      "telephone": "+39 393 208 8820",
+      "site_web": "https://lanapoletana.net/",
+      "lien_fooding": "",
+      "localisation": {
+        "latitude": 43.3276348,
+        "longitude": 11.330209499999999
+      }
+    },
+    {
+      "nom": "L'Osteria dei Rossi",
+      "adresse": "Via dei Rossi, 79/81, 53100 Siena SI, Italie",
+      "cuisine": "Italienne",
+      "statut": "À tester",
+      "note": 4.5,
+      "commentaire": "Restaurant italien; très bien noté sur Google (4.5/5, 714 avis au 15/08/2026). Spécialité : cuisine italienne et spécialités locales.",
+      "telephone": "+39 0577 287592",
+      "site_web": "",
+      "lien_fooding": "",
+      "localisation": {
+        "latitude": 43.3217413,
+        "longitude": 11.332238499999999
+      }
+    },
+    {
+      "nom": "Ristorante Belvedere",
+      "adresse": "Località Bano 226, 52048 Monte San Savino AR, Italie",
+      "cuisine": "Italienne",
+      "statut": "À tester",
+      "note": 4.4,
+      "commentaire": "Cuisine toscane traditionnelle avec une belle vue sur la Valdichiana. Bien noté sur Google (4,4/5, environ 500 avis en août 2026). Spécialités : crostini toscans, ragù, tagliatelle, truffe et viandes.",
+      "telephone": "+39 0575 844262",
+      "site_web": "https://www.belvedereeventi.it/",
+      "lien_fooding": "",
+      "localisation": {
+        "latitude": 43.3223786,
+        "longitude": 11.6999628
+      }
+    }
+  ]
+}

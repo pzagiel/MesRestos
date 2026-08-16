@@ -6,6 +6,7 @@ struct RestaurantDetailView: View {
     let restaurant: Restaurant
     @State private var showingEditRestaurant = false
     @State private var showingNavigationOptions = false
+    @State private var showingRestaurantsMap = false
 
     private var coordinate: CLLocationCoordinate2D? {
         guard let latitude = restaurant.latitude, let longitude = restaurant.longitude else { return nil }
@@ -23,12 +24,28 @@ struct RestaurantDetailView: View {
         ScrollView {
             VStack(alignment: .leading, spacing: 22) {
                 if let coordinate {
-                    Map(initialPosition: mapPosition(for: coordinate)) {
-                        Marker(restaurant.name, coordinate: coordinate)
-                            .tint(.orange)
+                    Button {
+                        showingRestaurantsMap = true
+                    } label: {
+                        Map(initialPosition: mapPosition(for: coordinate)) {
+                            Marker(restaurant.name, coordinate: coordinate)
+                                .tint(.orange)
+                        }
+                        .allowsHitTesting(false)
+                        .overlay(alignment: .bottomTrailing) {
+                            Label("Voir sur la carte", systemImage: "map.fill")
+                                .font(.caption.bold())
+                                .foregroundStyle(.primary)
+                                .padding(.horizontal, 12)
+                                .padding(.vertical, 8)
+                                .background(.regularMaterial, in: Capsule())
+                                .padding(12)
+                        }
                     }
+                    .buttonStyle(.plain)
                     .frame(height: 260)
                     .clipShape(RoundedRectangle(cornerRadius: 20))
+                    .accessibilityLabel("Afficher \(restaurant.name) sur la carte des restaurants")
                 } else {
                     ContentUnavailableView {
                         Label("Carte indisponible", systemImage: "map")
@@ -133,6 +150,9 @@ struct RestaurantDetailView: View {
         }
         .sheet(isPresented: $showingEditRestaurant) {
             RestaurantFormView(restaurant: restaurant)
+        }
+        .navigationDestination(isPresented: $showingRestaurantsMap) {
+            RestaurantsMapView(focusedRestaurant: restaurant)
         }
         .confirmationDialog(
             "Choisir une application d’itinéraire",

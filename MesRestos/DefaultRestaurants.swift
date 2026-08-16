@@ -5,7 +5,7 @@ import SwiftData
 
 @MainActor
 enum DefaultRestaurants {
-    private static let seedKey = "hasSeededFoodingRestaurantsV11"
+    private static let seedKey = "hasSeededFoodingRestaurantsV12"
 
     private struct Seed {
         let name: String
@@ -15,8 +15,38 @@ enum DefaultRestaurants {
         var website: String = ""
         var foodingURL: String = ""
         var phone: String = ""
+        var rating: Double = 0
+        var status: String = "À tester"
         var latitude: Double? = nil
         var longitude: Double? = nil
+    }
+
+    private struct ItalianRestaurantDocument: Decodable {
+        let restaurants: [ItalianRestaurant]
+    }
+
+    private struct ItalianRestaurant: Decodable {
+        let nom: String
+        let adresse: String
+        let cuisine: String?
+        let statut: String?
+        let note: Double?
+        let commentaire: String?
+        let telephone: String?
+        let siteWeb: String?
+        let lienFooding: String?
+        let localisation: ItalianLocation?
+
+        enum CodingKeys: String, CodingKey {
+            case nom, adresse, cuisine, statut, note, commentaire, telephone, localisation
+            case siteWeb = "site_web"
+            case lienFooding = "lien_fooding"
+        }
+    }
+
+    private struct ItalianLocation: Decodable {
+        let latitude: Double?
+        let longitude: Double?
     }
 
     private static let curatedRestaurants = [
@@ -244,7 +274,36 @@ enum DefaultRestaurants {
         Seed(name: "Yoka Tomo", address: "Avenue Félix Marchal 26, 1030 Schaerbeek, Belgique", cuisine: "Asiatique", comment: "Sélection Le Fooding Bruxelles — à découvrir.", foodingURL: "https://lefooding.com/restaurants/yoka-tomo", latitude: 50.8522626, longitude: 4.3897966),
     ]
 
-    private static let restaurants = curatedRestaurants + foodingBrusselsRestaurants
+    private static var italianRestaurants: [Seed] {
+        guard let url = Bundle.main.url(
+            forResource: "Restaurants_Toscane_Complet",
+            withExtension: "json"
+        ),
+        let data = try? Data(contentsOf: url),
+        let document = try? JSONDecoder().decode(ItalianRestaurantDocument.self, from: data) else {
+            return []
+        }
+
+        return document.restaurants.map { restaurant in
+            Seed(
+                name: restaurant.nom,
+                address: restaurant.adresse,
+                cuisine: restaurant.cuisine ?? "Italienne",
+                comment: restaurant.commentaire ?? "",
+                website: restaurant.siteWeb ?? "",
+                foodingURL: restaurant.lienFooding ?? "",
+                phone: restaurant.telephone ?? "",
+                rating: min(max(restaurant.note ?? 0, 0), 5),
+                status: restaurant.statut == "Favori" ? "Favori" : "À tester",
+                latitude: restaurant.localisation?.latitude,
+                longitude: restaurant.localisation?.longitude
+            )
+        }
+    }
+
+    private static var restaurants: [Seed] {
+        curatedRestaurants + foodingBrusselsRestaurants + italianRestaurants
+    }
 
     static func insertIfNeeded(in modelContext: ModelContext) async {
         let existingRestaurants = (try? modelContext.fetch(FetchDescriptor<Restaurant>())) ?? []
@@ -271,12 +330,13 @@ enum DefaultRestaurants {
             let restaurant = Restaurant(
                 name: seed.name,
                 address: seed.address,
-                rating: 0,
+                rating: seed.rating,
                 cuisine: seed.cuisine,
                 comment: seed.comment,
                 website: seed.website,
                 foodingURL: seed.foodingURL,
-                phone: seed.phone
+                phone: seed.phone,
+                status: seed.status
             )
             modelContext.insert(restaurant)
             existingNames.insert(normalizedName)
