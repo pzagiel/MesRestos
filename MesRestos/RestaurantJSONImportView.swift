@@ -9,6 +9,7 @@ struct RestaurantImportCandidate: Identifiable {
     let name: String
     let address: String
     let city: String
+    let country: String
     let cuisine: String
     let status: String
     let isFavorite: Bool
@@ -54,6 +55,7 @@ enum RestaurantJSONImporter {
         let nom: String?
         let adresse: String?
         let ville: String?
+        let pays: String?
         let cuisine: String?
         let statut: String?
         let favori: Bool?
@@ -65,7 +67,7 @@ enum RestaurantJSONImporter {
         let localisation: RawLocation?
 
         enum CodingKeys: String, CodingKey {
-            case nom, adresse, ville, cuisine, statut, favori, note, commentaire, telephone, localisation
+            case nom, adresse, ville, pays, cuisine, statut, favori, note, commentaire, telephone, localisation
             case siteWeb = "site_web"
             case lienFooding = "lien_fooding"
         }
@@ -110,7 +112,13 @@ enum RestaurantJSONImporter {
         let name = clean(raw.nom)
         let address = clean(raw.adresse)
         let suppliedCity = clean(raw.ville)
-        let city = suppliedCity.isEmpty ? RestaurantCityResolver.city(from: address) : suppliedCity
+        let city = suppliedCity.isEmpty
+            ? RestaurantCityResolver.city(from: address)
+            : RestaurantCityResolver.canonicalCity(suppliedCity)
+        let suppliedCountry = clean(raw.pays)
+        let country = suppliedCountry.isEmpty
+            ? RestaurantCityResolver.country(from: address)
+            : RestaurantCityResolver.canonicalCountry(suppliedCountry)
 
         if name.isEmpty { issues.append("Le nom est obligatoire.") }
         if address.isEmpty { issues.append("L’adresse est obligatoire.") }
@@ -153,6 +161,7 @@ enum RestaurantJSONImporter {
             name: name,
             address: address,
             city: city,
+            country: country,
             cuisine: clean(raw.cuisine).isEmpty ? "Autre" : clean(raw.cuisine),
             status: status,
             isFavorite: raw.favori ?? legacyFavorite,
@@ -409,6 +418,7 @@ struct RestaurantJSONImportView: View {
                 name: candidate.name,
                 address: candidate.address,
                 city: candidate.city,
+                country: candidate.country,
                 rating: candidate.rating,
                 cuisine: candidate.cuisine,
                 comment: candidate.comment,
@@ -472,6 +482,7 @@ struct RestaurantJSONImportView: View {
           "nom": "Exemple Restaurant",
           "adresse": "Place du Châtelain 7, 1050 Ixelles, Belgique",
           "ville": "Ixelles",
+          "pays": "Belgique",
           "cuisine": "Italienne",
           "statut": "Aucun",
           "favori": false,

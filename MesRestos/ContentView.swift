@@ -18,6 +18,7 @@ struct ContentView: View {
     @Query(sort: \Restaurant.name) private var restaurants: [Restaurant]
 
     @State private var searchText = ""
+    @State private var selectedCountries: Set<String> = []
     @State private var selectedCities: Set<String> = []
     @State private var selectedGuides: Set<String> = []
     @State private var selectedTracking: Set<String> = []
@@ -43,15 +44,23 @@ struct ContentView: View {
     }
 
     private var cities: [String] {
-        Set(restaurants.map(\.city).filter { !$0.isEmpty }).sorted()
+        guard !selectedCountries.isEmpty else { return [] }
+        return Set(restaurants.filter { selectedCountries.contains($0.country) }
+            .map(\.city).filter { !$0.isEmpty }).sorted()
+    }
+
+    private var countries: [String] {
+        Set(restaurants.map(\.country).filter { !$0.isEmpty }).sorted()
     }
 
     private var activeFilterCount: Int {
-        selectedCities.count + selectedGuides.count + selectedTracking.count + selectedCuisines.count
+        selectedCountries.count + selectedCities.count + selectedGuides.count
+            + selectedTracking.count + selectedCuisines.count
     }
 
     private var filteredRestaurants: [Restaurant] {
         restaurants.filter { restaurant in
+            let matchesCountry = selectedCountries.isEmpty || selectedCountries.contains(restaurant.country)
             let matchesCity = selectedCities.isEmpty || selectedCities.contains(restaurant.city)
             let matchesCuisine = selectedCuisines.isEmpty || selectedCuisines.contains(restaurant.cuisine)
             let matchesGuide = selectedGuides.isEmpty
@@ -65,9 +74,11 @@ struct ContentView: View {
                 || containsSearchText(restaurant.name)
                 || containsSearchText(restaurant.address)
                 || containsSearchText(restaurant.city)
+                || containsSearchText(restaurant.country)
                 || containsSearchText(restaurant.cuisine)
                 || containsSearchText(restaurant.comment)
-            return matchesCity && matchesCuisine && matchesGuide && matchesTracking && matchesSearch
+            return matchesCountry && matchesCity && matchesCuisine && matchesGuide
+                && matchesTracking && matchesSearch
         }
     }
 
@@ -141,8 +152,10 @@ struct ContentView: View {
             }
             .sheet(isPresented: $showingFilters) {
                 RestaurantFiltersView(
+                    countries: countries,
                     cities: cities,
                     cuisines: cuisines,
+                    selectedCountries: $selectedCountries,
                     selectedCities: $selectedCities,
                     selectedGuides: $selectedGuides,
                     selectedTracking: $selectedTracking,
@@ -376,6 +389,7 @@ struct ContentView: View {
 
     private func clearFilters() {
         selectedCities.removeAll()
+        selectedCountries.removeAll()
         selectedGuides.removeAll()
         selectedTracking.removeAll()
         selectedCuisines.removeAll()
@@ -391,25 +405,41 @@ struct ContentView: View {
 private struct RestaurantFiltersView: View {
     @Environment(\.dismiss) private var dismiss
 
+    let countries: [String]
     let cities: [String]
     let cuisines: [String]
+    @Binding var selectedCountries: Set<String>
     @Binding var selectedCities: Set<String>
     @Binding var selectedGuides: Set<String>
     @Binding var selectedTracking: Set<String>
     @Binding var selectedCuisines: Set<String>
 
     private var activeFilterCount: Int {
-        selectedCities.count + selectedGuides.count + selectedTracking.count + selectedCuisines.count
+        selectedCountries.count + selectedCities.count + selectedGuides.count
+            + selectedTracking.count + selectedCuisines.count
     }
 
     var body: some View {
         NavigationStack {
             List {
                 FilterSection(
-                    title: "Ville",
-                    options: cities,
-                    selection: $selectedCities
+                    title: "Pays",
+                    options: countries,
+                    selection: $selectedCountries
                 )
+
+                if selectedCountries.isEmpty {
+                    Section("Ville") {
+                        Label("Choisissez d’abord un pays", systemImage: "globe.europe.africa")
+                            .foregroundStyle(.secondary)
+                    }
+                } else {
+                    FilterSection(
+                        title: "Ville",
+                        options: cities,
+                        selection: $selectedCities
+                    )
+                }
 
                 FilterSection(
                     title: "Guide",
@@ -435,6 +465,7 @@ private struct RestaurantFiltersView: View {
                 ToolbarItem(placement: .cancellationAction) {
                     if activeFilterCount > 0 {
                         Button("Tout effacer", role: .destructive) {
+                            selectedCountries.removeAll()
                             selectedCities.removeAll()
                             selectedGuides.removeAll()
                             selectedTracking.removeAll()
@@ -447,7 +478,7 @@ private struct RestaurantFiltersView: View {
                 }
             }
             .safeAreaInset(edge: .bottom) {
-                Text("Les choix d’une même rubrique s’additionnent. Les quatre rubriques se combinent entre elles.")
+                Text("Les choix d’une même rubrique s’additionnent. Les cinq rubriques se combinent entre elles.")
                     .font(.caption)
                     .foregroundStyle(.secondary)
                     .multilineTextAlignment(.center)
@@ -455,6 +486,9 @@ private struct RestaurantFiltersView: View {
                     .padding(.vertical, 10)
                     .frame(maxWidth: .infinity)
                     .background(.bar)
+            }
+            .onChange(of: selectedCountries) { _, _ in
+                selectedCities = selectedCities.intersection(Set(cities))
             }
         }
     }
@@ -519,37 +553,42 @@ private struct RestaurantRow: View {
     let restaurant: Restaurant
 
     var body: some View {
-        HStack(spacing: 10) {
+        HStack(alignment: .center, spacing: 10) {
             Image(systemName: "fork.knife")
-                .font(.caption)
+                .font(.system(size: 12, weight: .medium))
                 .foregroundStyle(.white)
                 .frame(width: 30, height: 30)
                 .background(.orange.gradient, in: RoundedRectangle(cornerRadius: 8))
 
             VStack(alignment: .leading, spacing: 3) {
                 Text(restaurant.name)
-                    .font(.headline)
+                    .font(.system(size: 17, weight: .semibold))
                     .lineLimit(1)
-                    .minimumScaleFactor(0.8)
-                    .layoutPriority(1)
+                    .truncationMode(.tail)
 
-                HStack(spacing: 12) {
+                HStack(spacing: 8) {
                     if restaurant.status == "À tester" {
-                        Label("À tester", systemImage: "bookmark")
+                        Image(systemName: "bookmark")
                             .foregroundStyle(.secondary)
+                            .accessibilityLabel("À tester")
                     }
 
                     if restaurant.isFavorite {
-                        Label("Favori", systemImage: "heart.fill")
+                        Image(systemName: "heart.fill")
                             .foregroundStyle(.pink)
+                            .accessibilityLabel("Favori")
                     }
 
                     if restaurant.rating == 0 {
                         Text("Non noté")
                             .foregroundStyle(.secondary)
                     } else {
-                        Label(ratingText, systemImage: "star.fill")
+                        HStack(spacing: 3) {
+                            Image(systemName: "star.fill")
+                            Text(ratingText)
+                        }
                             .foregroundStyle(.orange)
+                            .lineLimit(1)
                     }
 
                     if !restaurant.foodingURL.isEmpty {
@@ -565,12 +604,14 @@ private struct RestaurantRow: View {
                             .accessibilityLabel("Référencé par Le Fooding")
                     }
                 }
-                .font(.caption)
+                .font(.system(size: 12))
+                .frame(height: 18, alignment: .leading)
             }
+            .frame(maxWidth: .infinity, alignment: .leading)
 
-            Spacer(minLength: 0)
         }
-        .padding(.vertical, 3)
+        .frame(minHeight: 46)
+        .padding(.vertical, 2)
     }
 
     private var ratingText: String {

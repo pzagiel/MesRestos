@@ -12,6 +12,7 @@ struct RestaurantFormView: View {
     @State private var name: String
     @State private var address: String
     @State private var city: String
+    @State private var country: String
     @State private var rating: Double
     @State private var cuisine: String
     @State private var comment: String
@@ -45,6 +46,7 @@ struct RestaurantFormView: View {
         _name = State(initialValue: restaurant?.name ?? "")
         _address = State(initialValue: restaurant?.address ?? "")
         _city = State(initialValue: restaurant?.city ?? "")
+        _country = State(initialValue: restaurant?.country ?? "")
         _rating = State(initialValue: restaurant?.rating ?? 0)
         _cuisine = State(initialValue: restaurant?.cuisine ?? "Autre")
         _comment = State(initialValue: restaurant?.comment ?? "")
@@ -74,6 +76,7 @@ struct RestaurantFormView: View {
                     TextField("Adresse", text: $address, axis: .vertical)
                         .lineLimit(2...3)
                     TextField("Ville", text: $city)
+                    TextField("Pays", text: $country)
                     TextField("Site web (facultatif)", text: $website)
                         .keyboardType(.URL)
                         .textInputAutocapitalization(.never)
@@ -82,7 +85,7 @@ struct RestaurantFormView: View {
                         .keyboardType(.phonePad)
                 }
 
-                Section("Suivi") {
+                Section {
                     Toggle(isOn: $isToTry) {
                         Label("À tester", systemImage: "bookmark")
                     }
@@ -90,6 +93,10 @@ struct RestaurantFormView: View {
                         Label("Favori", systemImage: "heart.fill")
                     }
                     .tint(.pink)
+                } header: {
+                    Text("Suivi")
+                } footer: {
+                    Text("Ces deux choix sont indépendants et peuvent être activés ensemble.")
                 }
 
                 Section("Évaluation") {
@@ -151,7 +158,13 @@ struct RestaurantFormView: View {
         let cleanName = name.trimmingCharacters(in: .whitespacesAndNewlines)
         let cleanAddress = address.trimmingCharacters(in: .whitespacesAndNewlines)
         let cleanCity = city.trimmingCharacters(in: .whitespacesAndNewlines)
-        let resolvedCity = cleanCity.isEmpty ? RestaurantCityResolver.city(from: cleanAddress) : cleanCity
+        let resolvedCity = cleanCity.isEmpty
+            ? RestaurantCityResolver.city(from: cleanAddress)
+            : RestaurantCityResolver.canonicalCity(cleanCity)
+        let cleanCountry = country.trimmingCharacters(in: .whitespacesAndNewlines)
+        let resolvedCountry = cleanCountry.isEmpty
+            ? RestaurantCityResolver.country(from: cleanAddress)
+            : RestaurantCityResolver.canonicalCountry(cleanCountry)
         let cleanCuisine = cuisine.trimmingCharacters(in: .whitespacesAndNewlines)
         let cleanComment = comment.trimmingCharacters(in: .whitespacesAndNewlines)
         let cleanWebsite = normalizedWebsite(website)
@@ -162,6 +175,7 @@ struct RestaurantFormView: View {
             restaurant.name = cleanName
             restaurant.address = cleanAddress
             restaurant.city = resolvedCity
+            restaurant.country = resolvedCountry
             restaurant.rating = rating
             restaurant.cuisine = cleanCuisine
             restaurant.comment = cleanComment
@@ -177,6 +191,7 @@ struct RestaurantFormView: View {
                 name: cleanName,
                 address: cleanAddress,
                 city: resolvedCity,
+                country: resolvedCountry,
                 rating: rating,
                 cuisine: cleanCuisine,
                 comment: cleanComment,

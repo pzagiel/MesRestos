@@ -314,7 +314,7 @@ enum DefaultRestaurants {
         updateFoodingLinks(in: existingRestaurants)
         updateKnownPhones(in: existingRestaurants)
         migrateIndependentTracking(in: existingRestaurants)
-        populateMissingCities(in: existingRestaurants)
+        normalizeKnownLocations(in: existingRestaurants)
 
         guard !UserDefaults.standard.bool(forKey: seedKey) else {
             try? modelContext.save()
@@ -334,7 +334,12 @@ enum DefaultRestaurants {
             let restaurant = Restaurant(
                 name: seed.name,
                 address: seed.address,
-                city: RestaurantCityResolver.city(from: seed.address),
+                city: seed.foodingURL.isEmpty
+                    ? RestaurantCityResolver.city(from: seed.address)
+                    : "Bruxelles",
+                country: seed.foodingURL.isEmpty
+                    ? RestaurantCityResolver.country(from: seed.address)
+                    : "Belgique",
                 rating: seed.rating,
                 cuisine: seed.cuisine,
                 comment: seed.comment,
@@ -365,9 +370,32 @@ enum DefaultRestaurants {
         try? modelContext.save()
     }
 
-    private static func populateMissingCities(in restaurants: [Restaurant]) {
-        for restaurant in restaurants where restaurant.city.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
-            restaurant.city = RestaurantCityResolver.city(from: restaurant.address)
+    private static func normalizeKnownLocations(in restaurants: [Restaurant]) {
+        for restaurant in restaurants {
+            if foodingBrusselsRestaurants.contains(where: {
+                normalized($0.name) == normalized(restaurant.name)
+                    || normalized($0.address) == normalized(restaurant.address)
+            }) {
+                restaurant.city = "Bruxelles"
+                restaurant.country = "Belgique"
+            } else if let italianSeed = italianRestaurants.first(where: {
+                normalized($0.address) == normalized(restaurant.address)
+                    || normalized($0.name) == normalized(restaurant.name)
+            }) {
+                restaurant.city = RestaurantCityResolver.city(from: italianSeed.address)
+                restaurant.country = "Italie"
+            } else {
+                if restaurant.city.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
+                    restaurant.city = RestaurantCityResolver.city(from: restaurant.address)
+                } else {
+                    restaurant.city = RestaurantCityResolver.canonicalCity(restaurant.city)
+                }
+                if restaurant.country.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
+                    restaurant.country = RestaurantCityResolver.country(from: restaurant.address)
+                } else {
+                    restaurant.country = RestaurantCityResolver.canonicalCountry(restaurant.country)
+                }
+            }
         }
     }
 
