@@ -18,7 +18,11 @@ struct ContentView: View {
     @Query(sort: \Restaurant.name) private var restaurants: [Restaurant]
 
     @State private var searchText = ""
-    @State private var selectedCuisine = "Toutes"
+    @State private var selectedCities: Set<String> = []
+    @State private var selectedGuides: Set<String> = []
+    @State private var selectedTracking: Set<String> = []
+    @State private var selectedCuisines: Set<String> = []
+    @State private var showingFilters = false
     @State private var showingAddRestaurant = false
     @State private var importRequest: RestaurantImportRequest?
     @State private var fileImportError: String?
@@ -35,18 +39,35 @@ struct ContentView: View {
     @StateObject private var locationManager = LocationManager()
 
     private var cuisines: [String] {
-        ["Toutes"] + Set(restaurants.map(\.cuisine)).sorted()
+        Set(restaurants.map(\.cuisine).filter { !$0.isEmpty }).sorted()
+    }
+
+    private var cities: [String] {
+        Set(restaurants.map(\.city).filter { !$0.isEmpty }).sorted()
+    }
+
+    private var activeFilterCount: Int {
+        selectedCities.count + selectedGuides.count + selectedTracking.count + selectedCuisines.count
     }
 
     private var filteredRestaurants: [Restaurant] {
         restaurants.filter { restaurant in
-            let matchesCuisine = selectedCuisine == "Toutes" || restaurant.cuisine == selectedCuisine
+            let matchesCity = selectedCities.isEmpty || selectedCities.contains(restaurant.city)
+            let matchesCuisine = selectedCuisines.isEmpty || selectedCuisines.contains(restaurant.cuisine)
+            let matchesGuide = selectedGuides.isEmpty
+                || (selectedGuides.contains("Le Fooding") && !restaurant.foodingURL.isEmpty)
+            let matchesTracking = selectedTracking.isEmpty
+                || (selectedTracking.contains("À tester") && restaurant.status == "À tester")
+                || (selectedTracking.contains("Favoris") && restaurant.isFavorite)
+                || (selectedTracking.contains("Sans suivi")
+                    && restaurant.status != "À tester" && !restaurant.isFavorite)
             let matchesSearch = searchText.isEmpty
                 || containsSearchText(restaurant.name)
                 || containsSearchText(restaurant.address)
+                || containsSearchText(restaurant.city)
                 || containsSearchText(restaurant.cuisine)
                 || containsSearchText(restaurant.comment)
-            return matchesCuisine && matchesSearch
+            return matchesCity && matchesCuisine && matchesGuide && matchesTracking && matchesSearch
         }
     }
 
@@ -84,6 +105,8 @@ struct ContentView: View {
                         .padding(.horizontal)
                         .padding(.vertical, 8)
 
+                        filterBar
+
                         if viewMode == .list {
                             restaurantList
                         } else {
@@ -115,6 +138,16 @@ struct ContentView: View {
             }
             .sheet(isPresented: $showingAddRestaurant) {
                 RestaurantFormView()
+            }
+            .sheet(isPresented: $showingFilters) {
+                RestaurantFiltersView(
+                    cities: cities,
+                    cuisines: cuisines,
+                    selectedCities: $selectedCities,
+                    selectedGuides: $selectedGuides,
+                    selectedTracking: $selectedTracking,
+                    selectedCuisines: $selectedCuisines
+                )
             }
             .sheet(item: $importRequest) { request in
                 RestaurantJSONImportView(
@@ -194,7 +227,7 @@ struct ContentView: View {
         Map(position: $mapPosition) {
             UserAnnotation()
 
-            ForEach(restaurants) { restaurant in
+            ForEach(filteredRestaurants) { restaurant in
                 if let latitude = restaurant.latitude, let longitude = restaurant.longitude {
                     Annotation(
                         restaurant.name,
@@ -289,20 +322,6 @@ struct ContentView: View {
 
     private var restaurantList: some View {
         List {
-            Section {
-                ScrollView(.horizontal, showsIndicators: false) {
-                    HStack(spacing: 8) {
-                        ForEach(cuisines, id: \.self) { cuisine in
-                            Button(cuisine) { selectedCuisine = cuisine }
-                                .buttonStyle(.bordered)
-                                .tint(selectedCuisine == cuisine ? .orange : .secondary)
-                        }
-                    }
-                    .padding(.vertical, 2)
-                }
-                .listRowInsets(EdgeInsets(top: 8, leading: 16, bottom: 8, trailing: 0))
-            }
-
             Section("\(filteredRestaurants.count) adresse\(filteredRestaurants.count > 1 ? "s" : "")") {
                 ForEach(filteredRestaurants) { restaurant in
                     NavigationLink {
@@ -316,14 +335,168 @@ struct ContentView: View {
         }
         .overlay {
             if filteredRestaurants.isEmpty {
-                ContentUnavailableView.search(text: searchText)
+                ContentUnavailableView(
+                    "Aucun restaurant",
+                    systemImage: "line.3.horizontal.decrease.circle",
+                    description: Text("Modifiez la recherche ou les filtres sélectionnés.")
+                )
             }
         }
+    }
+
+    private var filterBar: some View {
+        HStack {
+            Button {
+                showingFilters = true
+            } label: {
+                Label(
+                    activeFilterCount == 0 ? "Filtres" : "Filtres (\(activeFilterCount))",
+                    systemImage: "line.3.horizontal.decrease"
+                )
+            }
+            .buttonStyle(.bordered)
+            .tint(activeFilterCount == 0 ? .secondary : .orange)
+
+            Spacer()
+
+            if activeFilterCount > 0 {
+                Text("\(filteredRestaurants.count) résultat\(filteredRestaurants.count > 1 ? "s" : "")")
+                    .font(.caption)
+                    .foregroundStyle(.secondary)
+
+                Button("Effacer") {
+                    clearFilters()
+                }
+                .font(.caption)
+            }
+        }
+        .padding(.horizontal)
+        .padding(.bottom, 8)
+    }
+
+    private func clearFilters() {
+        selectedCities.removeAll()
+        selectedGuides.removeAll()
+        selectedTracking.removeAll()
+        selectedCuisines.removeAll()
     }
 
     private func deleteRestaurants(at offsets: IndexSet) {
         for index in offsets {
             modelContext.delete(filteredRestaurants[index])
+        }
+    }
+}
+
+private struct RestaurantFiltersView: View {
+    @Environment(\.dismiss) private var dismiss
+
+    let cities: [String]
+    let cuisines: [String]
+    @Binding var selectedCities: Set<String>
+    @Binding var selectedGuides: Set<String>
+    @Binding var selectedTracking: Set<String>
+    @Binding var selectedCuisines: Set<String>
+
+    private var activeFilterCount: Int {
+        selectedCities.count + selectedGuides.count + selectedTracking.count + selectedCuisines.count
+    }
+
+    var body: some View {
+        NavigationStack {
+            List {
+                FilterSection(
+                    title: "Ville",
+                    options: cities,
+                    selection: $selectedCities
+                )
+
+                FilterSection(
+                    title: "Guide",
+                    options: ["Le Fooding"],
+                    selection: $selectedGuides
+                )
+
+                FilterSection(
+                    title: "Suivi",
+                    options: ["À tester", "Favoris", "Sans suivi"],
+                    selection: $selectedTracking
+                )
+
+                FilterSection(
+                    title: "Type de cuisine",
+                    options: cuisines,
+                    selection: $selectedCuisines
+                )
+            }
+            .navigationTitle("Filtrer les restaurants")
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                ToolbarItem(placement: .cancellationAction) {
+                    if activeFilterCount > 0 {
+                        Button("Tout effacer", role: .destructive) {
+                            selectedCities.removeAll()
+                            selectedGuides.removeAll()
+                            selectedTracking.removeAll()
+                            selectedCuisines.removeAll()
+                        }
+                    }
+                }
+                ToolbarItem(placement: .confirmationAction) {
+                    Button("Terminé") { dismiss() }
+                }
+            }
+            .safeAreaInset(edge: .bottom) {
+                Text("Les choix d’une même rubrique s’additionnent. Les quatre rubriques se combinent entre elles.")
+                    .font(.caption)
+                    .foregroundStyle(.secondary)
+                    .multilineTextAlignment(.center)
+                    .padding(.horizontal)
+                    .padding(.vertical, 10)
+                    .frame(maxWidth: .infinity)
+                    .background(.bar)
+            }
+        }
+    }
+}
+
+private struct FilterSection: View {
+    let title: String
+    let options: [String]
+    @Binding var selection: Set<String>
+
+    var body: some View {
+        Section {
+            ForEach(options, id: \.self) { option in
+                Button {
+                    if selection.contains(option) {
+                        selection.remove(option)
+                    } else {
+                        selection.insert(option)
+                    }
+                } label: {
+                    HStack {
+                        Text(option)
+                            .foregroundStyle(.primary)
+                        Spacer()
+                        if selection.contains(option) {
+                            Image(systemName: "checkmark.circle.fill")
+                                .foregroundStyle(.orange)
+                        }
+                    }
+                    .contentShape(Rectangle())
+                }
+                .buttonStyle(.plain)
+            }
+        } header: {
+            HStack {
+                Text(title)
+                Spacer()
+                if !selection.isEmpty {
+                    Text("\(selection.count) sélectionné\(selection.count > 1 ? "s" : "")")
+                        .textCase(nil)
+                }
+            }
         }
     }
 }

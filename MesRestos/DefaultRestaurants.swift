@@ -314,6 +314,7 @@ enum DefaultRestaurants {
         updateFoodingLinks(in: existingRestaurants)
         updateKnownPhones(in: existingRestaurants)
         migrateIndependentTracking(in: existingRestaurants)
+        populateMissingCities(in: existingRestaurants)
 
         guard !UserDefaults.standard.bool(forKey: seedKey) else {
             try? modelContext.save()
@@ -333,6 +334,7 @@ enum DefaultRestaurants {
             let restaurant = Restaurant(
                 name: seed.name,
                 address: seed.address,
+                city: RestaurantCityResolver.city(from: seed.address),
                 rating: seed.rating,
                 cuisine: seed.cuisine,
                 comment: seed.comment,
@@ -361,6 +363,12 @@ enum DefaultRestaurants {
         await findMissingPhones(in: allRestaurants.filter { curatedNames.contains(normalized($0.name)) })
 
         try? modelContext.save()
+    }
+
+    private static func populateMissingCities(in restaurants: [Restaurant]) {
+        for restaurant in restaurants where restaurant.city.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
+            restaurant.city = RestaurantCityResolver.city(from: restaurant.address)
+        }
     }
 
     private static func coordinates(for address: String) async -> CLLocationCoordinate2D? {

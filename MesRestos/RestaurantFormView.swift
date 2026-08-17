@@ -11,6 +11,7 @@ struct RestaurantFormView: View {
 
     @State private var name: String
     @State private var address: String
+    @State private var city: String
     @State private var rating: Double
     @State private var cuisine: String
     @State private var comment: String
@@ -43,6 +44,7 @@ struct RestaurantFormView: View {
         self.restaurant = restaurant
         _name = State(initialValue: restaurant?.name ?? "")
         _address = State(initialValue: restaurant?.address ?? "")
+        _city = State(initialValue: restaurant?.city ?? "")
         _rating = State(initialValue: restaurant?.rating ?? 0)
         _cuisine = State(initialValue: restaurant?.cuisine ?? "Autre")
         _comment = State(initialValue: restaurant?.comment ?? "")
@@ -71,6 +73,7 @@ struct RestaurantFormView: View {
                     .pickerStyle(.menu)
                     TextField("Adresse", text: $address, axis: .vertical)
                         .lineLimit(2...3)
+                    TextField("Ville", text: $city)
                     TextField("Site web (facultatif)", text: $website)
                         .keyboardType(.URL)
                         .textInputAutocapitalization(.never)
@@ -147,6 +150,8 @@ struct RestaurantFormView: View {
     private func save() {
         let cleanName = name.trimmingCharacters(in: .whitespacesAndNewlines)
         let cleanAddress = address.trimmingCharacters(in: .whitespacesAndNewlines)
+        let cleanCity = city.trimmingCharacters(in: .whitespacesAndNewlines)
+        let resolvedCity = cleanCity.isEmpty ? RestaurantCityResolver.city(from: cleanAddress) : cleanCity
         let cleanCuisine = cuisine.trimmingCharacters(in: .whitespacesAndNewlines)
         let cleanComment = comment.trimmingCharacters(in: .whitespacesAndNewlines)
         let cleanWebsite = normalizedWebsite(website)
@@ -156,6 +161,7 @@ struct RestaurantFormView: View {
         if let restaurant {
             restaurant.name = cleanName
             restaurant.address = cleanAddress
+            restaurant.city = resolvedCity
             restaurant.rating = rating
             restaurant.cuisine = cleanCuisine
             restaurant.comment = cleanComment
@@ -170,6 +176,7 @@ struct RestaurantFormView: View {
             let newRestaurant = Restaurant(
                 name: cleanName,
                 address: cleanAddress,
+                city: resolvedCity,
                 rating: rating,
                 cuisine: cleanCuisine,
                 comment: cleanComment,

@@ -8,6 +8,7 @@ struct RestaurantImportCandidate: Identifiable {
     let id = UUID()
     let name: String
     let address: String
+    let city: String
     let cuisine: String
     let status: String
     let isFavorite: Bool
@@ -52,6 +53,7 @@ enum RestaurantJSONImporter {
     private struct RawRestaurant: Decodable {
         let nom: String?
         let adresse: String?
+        let ville: String?
         let cuisine: String?
         let statut: String?
         let favori: Bool?
@@ -63,7 +65,7 @@ enum RestaurantJSONImporter {
         let localisation: RawLocation?
 
         enum CodingKeys: String, CodingKey {
-            case nom, adresse, cuisine, statut, favori, note, commentaire, telephone, localisation
+            case nom, adresse, ville, cuisine, statut, favori, note, commentaire, telephone, localisation
             case siteWeb = "site_web"
             case lienFooding = "lien_fooding"
         }
@@ -107,6 +109,8 @@ enum RestaurantJSONImporter {
         var issues: [String] = []
         let name = clean(raw.nom)
         let address = clean(raw.adresse)
+        let suppliedCity = clean(raw.ville)
+        let city = suppliedCity.isEmpty ? RestaurantCityResolver.city(from: address) : suppliedCity
 
         if name.isEmpty { issues.append("Le nom est obligatoire.") }
         if address.isEmpty { issues.append("L’adresse est obligatoire.") }
@@ -148,6 +152,7 @@ enum RestaurantJSONImporter {
         return RestaurantImportCandidate(
             name: name,
             address: address,
+            city: city,
             cuisine: clean(raw.cuisine).isEmpty ? "Autre" : clean(raw.cuisine),
             status: status,
             isFavorite: raw.favori ?? legacyFavorite,
@@ -403,6 +408,7 @@ struct RestaurantJSONImportView: View {
             let restaurant = Restaurant(
                 name: candidate.name,
                 address: candidate.address,
+                city: candidate.city,
                 rating: candidate.rating,
                 cuisine: candidate.cuisine,
                 comment: candidate.comment,
@@ -465,6 +471,7 @@ struct RestaurantJSONImportView: View {
         {
           "nom": "Exemple Restaurant",
           "adresse": "Place du Châtelain 7, 1050 Ixelles, Belgique",
+          "ville": "Ixelles",
           "cuisine": "Italienne",
           "statut": "Aucun",
           "favori": false,
