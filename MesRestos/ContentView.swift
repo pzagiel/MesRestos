@@ -346,45 +346,45 @@ private struct RestaurantRow: View {
     let restaurant: Restaurant
 
     var body: some View {
-        HStack(spacing: 14) {
+        HStack(spacing: 10) {
             Image(systemName: "fork.knife")
-                .font(.title3)
+                .font(.caption)
                 .foregroundStyle(.white)
-                .frame(width: 44, height: 44)
-                .background(.orange.gradient, in: RoundedRectangle(cornerRadius: 12))
+                .frame(width: 30, height: 30)
+                .background(.orange.gradient, in: RoundedRectangle(cornerRadius: 8))
 
-            VStack(alignment: .leading, spacing: 4) {
+            VStack(alignment: .leading, spacing: 3) {
                 Text(restaurant.name)
                     .font(.headline)
-                Text(restaurant.cuisine)
-                    .font(.subheadline)
-                    .foregroundStyle(.secondary)
-                Label(restaurant.address, systemImage: "mappin.and.ellipse")
-                    .font(.caption)
-                    .foregroundStyle(.secondary)
                     .lineLimit(1)
+                    .minimumScaleFactor(0.8)
+                    .layoutPriority(1)
+
+                HStack(spacing: 12) {
+                    Label(
+                        restaurant.status,
+                        systemImage: restaurant.status == "Favori" ? "heart.fill" : "bookmark"
+                    )
+                    .foregroundStyle(restaurant.status == "Favori" ? Color.pink : Color.secondary)
+
+                    if restaurant.rating == 0 {
+                        Text("Non noté")
+                            .foregroundStyle(.secondary)
+                    } else {
+                        Label(ratingText, systemImage: "star.fill")
+                            .foregroundStyle(.yellow)
+                    }
+                }
+                .font(.caption)
             }
 
-            Spacer()
-
-            if restaurant.status == "Favori" {
-                Image(systemName: "heart.fill")
-                    .foregroundStyle(.pink)
-                    .accessibilityLabel("Favori")
-            }
-
-            if restaurant.rating == 0 {
-                Text("À noter")
-                    .font(.caption.bold())
-                    .foregroundStyle(.secondary)
-            } else {
-                Label(restaurant.rating.formatted(.number.precision(.fractionLength(1))), systemImage: "star.fill")
-                    .font(.subheadline.bold())
-                    .foregroundStyle(.orange)
-                    .labelStyle(.titleAndIcon)
-            }
+            Spacer(minLength: 0)
         }
-        .padding(.vertical, 5)
+        .padding(.vertical, 3)
+    }
+
+    private var ratingText: String {
+        return "\(restaurant.rating.formatted(.number.precision(.fractionLength(1)))) / 5"
     }
 }
 
