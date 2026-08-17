@@ -16,7 +16,8 @@ struct RestaurantFormView: View {
     @State private var comment: String
     @State private var website: String
     @State private var phone: String
-    @State private var status: String
+    @State private var isToTry: Bool
+    @State private var isFavorite: Bool
 
     private static let commonCuisines = [
         "Belge",
@@ -42,12 +43,13 @@ struct RestaurantFormView: View {
         self.restaurant = restaurant
         _name = State(initialValue: restaurant?.name ?? "")
         _address = State(initialValue: restaurant?.address ?? "")
-        _rating = State(initialValue: restaurant?.rating ?? 3.0)
+        _rating = State(initialValue: restaurant?.rating ?? 0)
         _cuisine = State(initialValue: restaurant?.cuisine ?? "Autre")
         _comment = State(initialValue: restaurant?.comment ?? "")
         _website = State(initialValue: restaurant?.website ?? "")
         _phone = State(initialValue: restaurant?.phone ?? "")
-        _status = State(initialValue: restaurant?.status ?? "À tester")
+        _isToTry = State(initialValue: restaurant?.status == "À tester")
+        _isFavorite = State(initialValue: restaurant?.isFavorite ?? false)
     }
 
     private var canSave: Bool {
@@ -77,12 +79,14 @@ struct RestaurantFormView: View {
                         .keyboardType(.phonePad)
                 }
 
-                Section("Statut") {
-                    Picker("Statut", selection: $status) {
-                        Label("À tester", systemImage: "bookmark").tag("À tester")
-                        Label("Favori", systemImage: "heart.fill").tag("Favori")
+                Section("Suivi") {
+                    Toggle(isOn: $isToTry) {
+                        Label("À tester", systemImage: "bookmark")
                     }
-                    .pickerStyle(.segmented)
+                    Toggle(isOn: $isFavorite) {
+                        Label("Favori", systemImage: "heart.fill")
+                    }
+                    .tint(.pink)
                 }
 
                 Section("Évaluation") {
@@ -157,7 +161,8 @@ struct RestaurantFormView: View {
             restaurant.comment = cleanComment
             restaurant.website = cleanWebsite
             restaurant.phone = cleanPhone
-            restaurant.status = status
+            restaurant.status = isToTry ? "À tester" : "Aucun"
+            restaurant.isFavorite = isFavorite
             restaurant.latitude = nil
             restaurant.longitude = nil
             savedRestaurant = restaurant
@@ -170,7 +175,8 @@ struct RestaurantFormView: View {
                 comment: cleanComment,
                 website: cleanWebsite,
                 phone: cleanPhone,
-                status: status
+                status: isToTry ? "À tester" : "Aucun",
+                isFavorite: isFavorite
             )
             modelContext.insert(newRestaurant)
             savedRestaurant = newRestaurant

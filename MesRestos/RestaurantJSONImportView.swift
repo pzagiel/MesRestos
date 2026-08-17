@@ -10,6 +10,7 @@ struct RestaurantImportCandidate: Identifiable {
     let address: String
     let cuisine: String
     let status: String
+    let isFavorite: Bool
     let rating: Double
     let comment: String
     let phone: String
@@ -53,6 +54,7 @@ enum RestaurantJSONImporter {
         let adresse: String?
         let cuisine: String?
         let statut: String?
+        let favori: Bool?
         let note: Double?
         let commentaire: String?
         let telephone: String?
@@ -61,7 +63,7 @@ enum RestaurantJSONImporter {
         let localisation: RawLocation?
 
         enum CodingKeys: String, CodingKey {
-            case nom, adresse, cuisine, statut, note, commentaire, telephone, localisation
+            case nom, adresse, cuisine, statut, favori, note, commentaire, telephone, localisation
             case siteWeb = "site_web"
             case lienFooding = "lien_fooding"
         }
@@ -115,12 +117,14 @@ enum RestaurantJSONImporter {
         }
 
         let status: String
+        let legacyFavorite = folded(clean(raw.statut)) == "favori"
         switch folded(clean(raw.statut)) {
-        case "", "a tester": status = "À tester"
-        case "favori": status = "Favori"
+        case "", "aucun", "reference": status = "Aucun"
+        case "a tester": status = "À tester"
+        case "favori": status = "Aucun"
         default:
-            status = "À tester"
-            issues.append("Le statut doit être « À tester » ou « Favori ».")
+            status = "Aucun"
+            issues.append("Le statut doit être « Aucun » ou « À tester ».")
         }
 
         let website = validatedURL(raw.siteWeb, field: "site_web", issues: &issues)
@@ -146,6 +150,7 @@ enum RestaurantJSONImporter {
             address: address,
             cuisine: clean(raw.cuisine).isEmpty ? "Autre" : clean(raw.cuisine),
             status: status,
+            isFavorite: raw.favori ?? legacyFavorite,
             rating: (0...5).contains(rating) ? rating : 0,
             comment: clean(raw.commentaire),
             phone: clean(raw.telephone),
@@ -405,6 +410,7 @@ struct RestaurantJSONImportView: View {
                 foodingURL: candidate.foodingURL,
                 phone: candidate.phone,
                 status: candidate.status,
+                isFavorite: candidate.isFavorite,
                 latitude: candidate.latitude,
                 longitude: candidate.longitude
             )
@@ -460,7 +466,8 @@ struct RestaurantJSONImportView: View {
           "nom": "Exemple Restaurant",
           "adresse": "Place du Châtelain 7, 1050 Ixelles, Belgique",
           "cuisine": "Italienne",
-          "statut": "À tester",
+          "statut": "Aucun",
+          "favori": false,
           "note": 0,
           "commentaire": "À découvrir.",
           "telephone": "+32 2 000 00 00",

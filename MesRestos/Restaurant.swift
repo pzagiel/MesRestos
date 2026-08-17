@@ -11,7 +11,8 @@ final class Restaurant {
     var website: String = ""
     var foodingURL: String = ""
     var phone: String = ""
-    var status: String = "À tester"
+    var status: String = "Aucun"
+    var isFavorite: Bool = false
     var latitude: Double?
     var longitude: Double?
     var createdAt: Date
@@ -25,7 +26,8 @@ final class Restaurant {
         website: String = "",
         foodingURL: String = "",
         phone: String = "",
-        status: String = "À tester",
+        status: String = "Aucun",
+        isFavorite: Bool = false,
         latitude: Double? = nil,
         longitude: Double? = nil,
         createdAt: Date = .now
@@ -39,6 +41,7 @@ final class Restaurant {
         self.foodingURL = foodingURL
         self.phone = phone
         self.status = status
+        self.isFavorite = isFavorite
         self.latitude = latitude
         self.longitude = longitude
         self.createdAt = createdAt

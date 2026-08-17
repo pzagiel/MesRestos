@@ -16,7 +16,8 @@ enum DefaultRestaurants {
         var foodingURL: String = ""
         var phone: String = ""
         var rating: Double = 0
-        var status: String = "À tester"
+        var status: String = "Aucun"
+        var isFavorite: Bool = false
         var latitude: Double? = nil
         var longitude: Double? = nil
     }
@@ -294,7 +295,8 @@ enum DefaultRestaurants {
                 foodingURL: restaurant.lienFooding ?? "",
                 phone: restaurant.telephone ?? "",
                 rating: min(max(restaurant.note ?? 0, 0), 5),
-                status: restaurant.statut == "Favori" ? "Favori" : "À tester",
+                status: restaurant.statut == "À tester" ? "À tester" : "Aucun",
+                isFavorite: restaurant.statut == "Favori",
                 latitude: restaurant.localisation?.latitude,
                 longitude: restaurant.localisation?.longitude
             )
@@ -311,6 +313,7 @@ enum DefaultRestaurants {
         updateWebsites(in: existingRestaurants)
         updateFoodingLinks(in: existingRestaurants)
         updateKnownPhones(in: existingRestaurants)
+        migrateIndependentTracking(in: existingRestaurants)
 
         guard !UserDefaults.standard.bool(forKey: seedKey) else {
             try? modelContext.save()
@@ -336,7 +339,8 @@ enum DefaultRestaurants {
                 website: seed.website,
                 foodingURL: seed.foodingURL,
                 phone: seed.phone,
-                status: seed.status
+                status: seed.status,
+                isFavorite: seed.isFavorite
             )
             modelContext.insert(restaurant)
             existingNames.insert(normalizedName)
@@ -421,6 +425,22 @@ enum DefaultRestaurants {
                 restaurant.website = ""
             }
         }
+    }
+
+    private static func migrateIndependentTracking(in restaurants: [Restaurant]) {
+        let migrationKey = "didMigrateIndependentTrackingV1"
+        guard !UserDefaults.standard.bool(forKey: migrationKey) else { return }
+
+        for restaurant in restaurants {
+            if restaurant.status == "Favori" {
+                restaurant.isFavorite = true
+                restaurant.status = "Aucun"
+            } else if !restaurant.foodingURL.isEmpty, restaurant.status == "À tester" {
+                restaurant.status = "Aucun"
+            }
+        }
+
+        UserDefaults.standard.set(true, forKey: migrationKey)
     }
 
     private static func normalizeAsianCuisine(in restaurants: [Restaurant]) {

@@ -361,18 +361,35 @@ private struct RestaurantRow: View {
                     .layoutPriority(1)
 
                 HStack(spacing: 12) {
-                    Label(
-                        restaurant.status,
-                        systemImage: restaurant.status == "Favori" ? "heart.fill" : "bookmark"
-                    )
-                    .foregroundStyle(restaurant.status == "Favori" ? Color.pink : Color.secondary)
+                    if restaurant.status == "À tester" {
+                        Label("À tester", systemImage: "bookmark")
+                            .foregroundStyle(.secondary)
+                    }
+
+                    if restaurant.isFavorite {
+                        Label("Favori", systemImage: "heart.fill")
+                            .foregroundStyle(.pink)
+                    }
 
                     if restaurant.rating == 0 {
                         Text("Non noté")
                             .foregroundStyle(.secondary)
                     } else {
                         Label(ratingText, systemImage: "star.fill")
-                            .foregroundStyle(.yellow)
+                            .foregroundStyle(.orange)
+                    }
+
+                    if !restaurant.foodingURL.isEmpty {
+                        Text("Fooding")
+                            .font(.caption2.bold())
+                            .foregroundStyle(.white)
+                            .padding(.horizontal, 6)
+                            .padding(.vertical, 2)
+                            .background(
+                                Color(red: 0, green: 0.62, blue: 0.78),
+                                in: Capsule()
+                            )
+                            .accessibilityLabel("Référencé par Le Fooding")
                     }
                 }
                 .font(.caption)

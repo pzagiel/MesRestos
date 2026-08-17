@@ -91,11 +91,14 @@ struct RestaurantDetailView: View {
                     } else {
                         Label(restaurant.address, systemImage: "mappin.and.ellipse")
                     }
-                    Label(
-                        restaurant.status,
-                        systemImage: restaurant.status == "Favori" ? "heart.fill" : "bookmark"
-                    )
-                    .foregroundStyle(restaurant.status == "Favori" ? .pink : .secondary)
+                    if restaurant.status == "À tester" {
+                        Label("À tester", systemImage: "bookmark")
+                            .foregroundStyle(.secondary)
+                    }
+                    if restaurant.isFavorite {
+                        Label("Favori", systemImage: "heart.fill")
+                            .foregroundStyle(.pink)
+                    }
 
                     if let websiteURL = URL(string: restaurant.website), !restaurant.website.isEmpty {
                         Link(destination: websiteURL) {
