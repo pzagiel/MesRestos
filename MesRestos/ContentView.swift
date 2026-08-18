@@ -54,6 +54,24 @@ struct ContentView: View {
     @State private var hasCenteredOnUser = false
     @StateObject private var locationManager = LocationManager()
 
+    private static let countriesKey = "restaurantFilters.countries"
+    private static let citiesKey = "restaurantFilters.cities"
+    private static let guidesKey = "restaurantFilters.guides"
+    private static let trackingKey = "restaurantFilters.tracking"
+    private static let cuisinesKey = "restaurantFilters.cuisines"
+    private static let sortKey = "restaurantSort.option"
+
+    init() {
+        let defaults = UserDefaults.standard
+        _selectedCountries = State(initialValue: Set(defaults.stringArray(forKey: Self.countriesKey) ?? []))
+        _selectedCities = State(initialValue: Set(defaults.stringArray(forKey: Self.citiesKey) ?? []))
+        _selectedGuides = State(initialValue: Set(defaults.stringArray(forKey: Self.guidesKey) ?? []))
+        _selectedTracking = State(initialValue: Set(defaults.stringArray(forKey: Self.trackingKey) ?? []))
+        _selectedCuisines = State(initialValue: Set(defaults.stringArray(forKey: Self.cuisinesKey) ?? []))
+        let savedSort = defaults.string(forKey: Self.sortKey)
+        _sortOption = State(initialValue: RestaurantSortOption(rawValue: savedSort ?? "") ?? .name)
+    }
+
     private var cuisines: [String] {
         Set(restaurants.map(\.cuisine).filter { !$0.isEmpty }).sorted()
     }
@@ -71,6 +89,36 @@ struct ContentView: View {
     private var activeFilterCount: Int {
         selectedCountries.count + selectedCities.count + selectedGuides.count
             + selectedTracking.count + selectedCuisines.count
+    }
+
+    private var activeFilterSummary: String {
+        var parts: [String] = []
+        appendSummary(to: &parts, values: selectedCountries, pluralLabel: "pays")
+        appendSummary(to: &parts, values: selectedCities, pluralLabel: "villes")
+        appendSummary(to: &parts, values: selectedGuides, pluralLabel: "guides")
+        appendSummary(to: &parts, values: selectedTracking, pluralLabel: "suivis")
+        appendSummary(to: &parts, values: selectedCuisines, pluralLabel: "cuisines")
+        return parts.joined(separator: " · ")
+    }
+
+    private var preferenceSignature: String {
+        [
+            selectedCountries.sorted().joined(separator: "\u{1F}"),
+            selectedCities.sorted().joined(separator: "\u{1F}"),
+            selectedGuides.sorted().joined(separator: "\u{1F}"),
+            selectedTracking.sorted().joined(separator: "\u{1F}"),
+            selectedCuisines.sorted().joined(separator: "\u{1F}"),
+            sortOption.rawValue
+        ].joined(separator: "\u{1E}")
+    }
+
+    private func appendSummary(to parts: inout [String], values: Set<String>, pluralLabel: String) {
+        guard !values.isEmpty else { return }
+        if values.count == 1, let value = values.first {
+            parts.append(value)
+        } else {
+            parts.append("\(values.count) \(pluralLabel)")
+        }
     }
 
     private var filteredRestaurants: [Restaurant] {
@@ -286,6 +334,7 @@ struct ContentView: View {
                 guard viewMode == .map else { return }
                 focusMapOnSearchResult()
             }
+            .onChange(of: preferenceSignature) { _, _ in persistPreferences() }
             .onChange(of: locationManager.location) { _, location in
                 guard let location, !hasCenteredOnUser else { return }
                 hasCenteredOnUser = true
@@ -457,33 +506,55 @@ struct ContentView: View {
     }
 
     private var filterBar: some View {
-        HStack {
-            Button {
-                showingFilters = true
-            } label: {
-                Label(
-                    activeFilterCount == 0 ? "Filtres" : "Filtres (\(activeFilterCount))",
-                    systemImage: "line.3.horizontal.decrease"
-                )
-            }
-            .buttonStyle(.bordered)
-            .tint(activeFilterCount == 0 ? .secondary : .orange)
+        VStack(alignment: .leading, spacing: 5) {
+            HStack {
+                Button {
+                    showingFilters = true
+                } label: {
+                    Label(
+                        activeFilterCount == 0 ? "Filtres" : "Filtres (\(activeFilterCount))",
+                        systemImage: "line.3.horizontal.decrease"
+                    )
+                }
+                .buttonStyle(.bordered)
+                .tint(activeFilterCount == 0 ? .secondary : .orange)
 
-            Spacer()
+                Spacer()
+
+                if activeFilterCount > 0 {
+                    Text("\(filteredRestaurants.count) résultat\(filteredRestaurants.count > 1 ? "s" : "")")
+                        .font(.caption)
+                        .foregroundStyle(.secondary)
+
+                    Button("Effacer") {
+                        clearFilters()
+                    }
+                    .font(.caption)
+                }
+            }
 
             if activeFilterCount > 0 {
-                Text("\(filteredRestaurants.count) résultat\(filteredRestaurants.count > 1 ? "s" : "")")
-                    .font(.caption)
-                    .foregroundStyle(.secondary)
-
-                Button("Effacer") {
-                    clearFilters()
+                ScrollView(.horizontal, showsIndicators: false) {
+                    Text(activeFilterSummary)
+                        .font(.caption2)
+                        .foregroundStyle(.secondary)
+                        .lineLimit(1)
                 }
-                .font(.caption)
+                .accessibilityLabel("Filtres actifs : \(activeFilterSummary)")
             }
         }
         .padding(.horizontal)
         .padding(.bottom, 8)
+    }
+
+    private func persistPreferences() {
+        let defaults = UserDefaults.standard
+        defaults.set(selectedCountries.sorted(), forKey: Self.countriesKey)
+        defaults.set(selectedCities.sorted(), forKey: Self.citiesKey)
+        defaults.set(selectedGuides.sorted(), forKey: Self.guidesKey)
+        defaults.set(selectedTracking.sorted(), forKey: Self.trackingKey)
+        defaults.set(selectedCuisines.sorted(), forKey: Self.cuisinesKey)
+        defaults.set(sortOption.rawValue, forKey: Self.sortKey)
     }
 
     private func clearFilters() {
