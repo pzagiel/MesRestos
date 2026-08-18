@@ -104,13 +104,24 @@ struct ContentView: View {
                 let firstDistance = distance(to: first)
                 let secondDistance = distance(to: second)
                 switch (firstDistance, secondDistance) {
-                case let (first?, second?) where first != second:
-                    return first < second
+                case let (firstDistance?, secondDistance?):
+                    let firstBucket = displayedDistanceBucket(firstDistance)
+                    let secondBucket = displayedDistanceBucket(secondDistance)
+                    if firstBucket != secondBucket {
+                        return firstBucket < secondBucket
+                    }
+                    if first.rating != second.rating {
+                        return first.rating > second.rating
+                    }
+                    return compareNames(first, second)
                 case (_?, nil):
                     return true
                 case (nil, _?):
                     return false
                 default:
+                    if first.rating != second.rating {
+                        return first.rating > second.rating
+                    }
                     return compareNames(first, second)
                 }
             case .rating:
@@ -131,6 +142,16 @@ struct ContentView: View {
               let latitude = restaurant.latitude,
               let longitude = restaurant.longitude else { return nil }
         return userLocation.distance(from: CLLocation(latitude: latitude, longitude: longitude))
+    }
+
+    private func displayedDistanceBucket(_ distance: CLLocationDistance) -> CLLocationDistance {
+        if distance < 1_000 {
+            return (distance / 10).rounded() * 10
+        }
+        if distance < 10_000 {
+            return (distance / 100).rounded() * 100
+        }
+        return (distance / 1_000).rounded() * 1_000
     }
 
     private func containsSearchText(_ value: String) -> Bool {
