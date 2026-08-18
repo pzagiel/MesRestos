@@ -7,6 +7,20 @@ private enum RestaurantViewMode: String, CaseIterable {
     case map = "Carte"
 }
 
+private enum RestaurantSortOption: String, CaseIterable {
+    case name = "Nom"
+    case distance = "Distance"
+    case rating = "Note"
+
+    var systemImage: String {
+        switch self {
+        case .name: "textformat.abc"
+        case .distance: "location"
+        case .rating: "star"
+        }
+    }
+}
+
 private struct RestaurantImportRequest: Identifiable {
     let id = UUID()
     let jsonText: String
@@ -28,6 +42,7 @@ struct ContentView: View {
     @State private var importRequest: RestaurantImportRequest?
     @State private var fileImportError: String?
     @State private var viewMode: RestaurantViewMode = .list
+    @State private var sortOption: RestaurantSortOption = .name
     @State private var mapPosition: MapCameraPosition = .region(MKCoordinateRegion(
         center: CLLocationCoordinate2D(latitude: 50.8503, longitude: 4.3517),
         span: MKCoordinateSpan(latitudeDelta: 0.12, longitudeDelta: 0.12)
@@ -59,7 +74,7 @@ struct ContentView: View {
     }
 
     private var filteredRestaurants: [Restaurant] {
-        restaurants.filter { restaurant in
+        let matchingRestaurants = restaurants.filter { restaurant in
             let matchesCountry = selectedCountries.isEmpty || selectedCountries.contains(restaurant.country)
             let matchesCity = selectedCities.isEmpty || selectedCities.contains(restaurant.city)
             let matchesCuisine = selectedCuisines.isEmpty || selectedCuisines.contains(restaurant.cuisine)
@@ -80,6 +95,42 @@ struct ContentView: View {
             return matchesCountry && matchesCity && matchesCuisine && matchesGuide
                 && matchesTracking && matchesSearch
         }
+
+        return matchingRestaurants.sorted { first, second in
+            switch sortOption {
+            case .name:
+                return compareNames(first, second)
+            case .distance:
+                let firstDistance = distance(to: first)
+                let secondDistance = distance(to: second)
+                switch (firstDistance, secondDistance) {
+                case let (first?, second?) where first != second:
+                    return first < second
+                case (_?, nil):
+                    return true
+                case (nil, _?):
+                    return false
+                default:
+                    return compareNames(first, second)
+                }
+            case .rating:
+                if first.rating != second.rating {
+                    return first.rating > second.rating
+                }
+                return compareNames(first, second)
+            }
+        }
+    }
+
+    private func compareNames(_ first: Restaurant, _ second: Restaurant) -> Bool {
+        first.name.localizedStandardCompare(second.name) == .orderedAscending
+    }
+
+    private func distance(to restaurant: Restaurant) -> CLLocationDistance? {
+        guard let userLocation = locationManager.location,
+              let latitude = restaurant.latitude,
+              let longitude = restaurant.longitude else { return nil }
+        return userLocation.distance(from: CLLocation(latitude: latitude, longitude: longitude))
     }
 
     private func containsSearchText(_ value: String) -> Bool {
@@ -131,6 +182,29 @@ struct ContentView: View {
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
                     Menu {
+                        ForEach(RestaurantSortOption.allCases, id: \.self) { option in
+                            Button {
+                                sortOption = option
+                            } label: {
+                                Label(option.rawValue, systemImage: option.systemImage)
+                                if sortOption == option {
+                                    Image(systemName: "checkmark")
+                                }
+                            }
+                        }
+                    } label: {
+                        HStack(spacing: 4) {
+                            Image(systemName: "arrow.up.arrow.down")
+                            Text(sortOption.rawValue)
+                                .font(.caption)
+                        }
+                    }
+                    .accessibilityLabel("Tri actuel : \(sortOption.rawValue)")
+                    .accessibilityHint("Modifie l’ordre des restaurants")
+                }
+
+                ToolbarItem(placement: .topBarTrailing) {
+                    Menu {
                         Button {
                             showingAddRestaurant = true
                         } label: {
@@ -179,6 +253,7 @@ struct ContentView: View {
             }
             .task {
                 await DefaultRestaurants.insertIfNeeded(in: modelContext)
+                locationManager.requestLocation()
             }
             .onChange(of: viewMode) { _, mode in
                 if mode == .map {
@@ -340,7 +415,10 @@ struct ContentView: View {
                     NavigationLink {
                         RestaurantDetailView(restaurant: restaurant)
                     } label: {
-                        RestaurantRow(restaurant: restaurant)
+                        RestaurantRow(
+                            restaurant: restaurant,
+                            userLocation: locationManager.location
+                        )
                     }
                 }
                 .onDelete(perform: deleteRestaurants)
@@ -551,6 +629,7 @@ private enum RestaurantDocumentError: LocalizedError {
 
 private struct RestaurantRow: View {
     let restaurant: Restaurant
+    let userLocation: CLLocation?
 
     var body: some View {
         HStack(alignment: .center, spacing: 10) {
@@ -603,6 +682,16 @@ private struct RestaurantRow: View {
                             )
                             .accessibilityLabel("Référencé par Le Fooding")
                     }
+
+                    if let distanceText {
+                        HStack(spacing: 3) {
+                            Image(systemName: "location.fill")
+                            Text(distanceText)
+                        }
+                        .foregroundStyle(.secondary)
+                        .lineLimit(1)
+                        .accessibilityLabel("À \(distanceText)")
+                    }
                 }
                 .font(.system(size: 12))
                 .frame(height: 18, alignment: .leading)
@@ -616,6 +705,24 @@ private struct RestaurantRow: View {
 
     private var ratingText: String {
         return "\(restaurant.rating.formatted(.number.precision(.fractionLength(1)))) / 5"
+    }
+
+    private var distanceText: String? {
+        guard let userLocation,
+              let latitude = restaurant.latitude,
+              let longitude = restaurant.longitude else { return nil }
+
+        let restaurantLocation = CLLocation(latitude: latitude, longitude: longitude)
+        let distance = userLocation.distance(from: restaurantLocation)
+        guard distance.isFinite, distance >= 0 else { return nil }
+
+        if distance < 1_000 {
+            let roundedMeters = (distance / 10).rounded() * 10
+            return "\(Int(roundedMeters)) m"
+        }
+
+        let kilometers = distance / 1_000
+        return kilometers.formatted(.number.precision(.fractionLength(kilometers < 10 ? 1 : 0))) + " km"
     }
 }
 
