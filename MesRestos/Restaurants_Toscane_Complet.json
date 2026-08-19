@@ -2520,6 +2520,17 @@
         "latitude": 43.3223786,
         "longitude": 11.6999628
       }
+    },
+    {
+      "nom": "La Vecchia Taverna di Bacco",
+      "adresse": "Via di Beccheria, 9, 53100 Siena SI, Italie",
+      "cuisine": "Italienne",
+      "statut": "Aucun",
+      "note": 4.0,
+      "commentaire": "Testé le 19/08/2026 près de la Piazza del Campo : très bon et raffiné. Excellentes fleurs de courgette farcies à la ricotta avec truffe fraîche (20 €). Virginie a pris une parmigiana de melanzane, également très bonne. Note publique indicative : 4,0/5 sur Tripadvisor en août 2026.",
+      "telephone": "+39 348 795 7176",
+      "site_web": "https://baccoasiena.it/",
+      "lien_fooding": ""
     }
   ]
 }

@@ -39,6 +39,7 @@ struct ContentView: View {
     @State private var selectedCuisines: Set<String> = []
     @State private var showingFilters = false
     @State private var showingAddRestaurant = false
+    @State private var showingPreferences = false
     @State private var importRequest: RestaurantImportRequest?
     @State private var fileImportError: String?
     @State private var viewMode: RestaurantViewMode = .list
@@ -289,6 +290,14 @@ struct ContentView: View {
                         Label("Ajouter", systemImage: "plus")
                     }
                 }
+
+                ToolbarItem(placement: .topBarLeading) {
+                    Button {
+                        showingPreferences = true
+                    } label: {
+                        Label("Préférences", systemImage: "gearshape")
+                    }
+                }
             }
             .sheet(isPresented: $showingAddRestaurant) {
                 RestaurantFormView()
@@ -304,6 +313,9 @@ struct ContentView: View {
                     selectedTracking: $selectedTracking,
                     selectedCuisines: $selectedCuisines
                 )
+            }
+            .sheet(isPresented: $showingPreferences) {
+                PreferencesView()
             }
             .sheet(item: $importRequest) { request in
                 RestaurantJSONImportView(

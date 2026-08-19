@@ -5,7 +5,7 @@ import SwiftData
 
 @MainActor
 enum DefaultRestaurants {
-    private static let seedKey = "hasSeededFoodingRestaurantsV12"
+    private static let seedKey = "hasSeededFoodingRestaurantsV13"
 
     private struct Seed {
         let name: String
