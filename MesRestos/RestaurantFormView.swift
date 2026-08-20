@@ -101,7 +101,7 @@ struct RestaurantFormView: View {
 
                 Section("Évaluation") {
                     HStack {
-                        Slider(value: $rating, in: 0...5, step: 0.5)
+                        Slider(value: $rating, in: 0...5, step: 0.1)
                         Text("\(rating, specifier: "%.1f") / 5")
                             .monospacedDigit()
                             .foregroundStyle(.orange)
