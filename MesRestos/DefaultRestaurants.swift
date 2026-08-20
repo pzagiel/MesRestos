@@ -315,6 +315,7 @@ enum DefaultRestaurants {
         updateKnownPhones(in: existingRestaurants)
         migrateIndependentTracking(in: existingRestaurants)
         normalizeKnownLocations(in: existingRestaurants)
+        updateGenericItalianComments(in: existingRestaurants)
 
         let cloudSeedKey = "\(seedKey).iCloud"
         let cloudDefaults = NSUbiquitousKeyValueStore.default
@@ -492,6 +493,30 @@ enum DefaultRestaurants {
         }
 
         UserDefaults.standard.set(true, forKey: migrationKey)
+    }
+
+    private static func updateGenericItalianComments(in existingRestaurants: [Restaurant]) {
+        let enrichedComments = Dictionary(
+            italianRestaurants.map { seed in
+                ("\(normalized(seed.name))|\(normalized(seed.address))", seed.comment)
+            },
+            uniquingKeysWith: { first, _ in first }
+        )
+
+        for restaurant in existingRestaurants where isReplaceableItalianSeedComment(restaurant.comment) {
+            let key = "\(normalized(restaurant.name))|\(normalized(restaurant.address))"
+            guard let enrichedComment = enrichedComments[key],
+                  !isReplaceableItalianSeedComment(enrichedComment),
+                  !enrichedComment.isEmpty else { continue }
+            restaurant.comment = enrichedComment
+        }
+    }
+
+    private static func isReplaceableItalianSeedComment(_ comment: String) -> Bool {
+        let normalizedComment = normalized(comment)
+        return normalizedComment.hasPrefix("restaurant italien;")
+            || normalizedComment.hasPrefix("pizzeria;")
+            || normalizedComment.hasPrefix("grill et restaurant;")
     }
 
     private static func normalizeAsianCuisine(in restaurants: [Restaurant]) {
