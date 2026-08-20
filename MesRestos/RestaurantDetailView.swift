@@ -1,12 +1,71 @@
 import SwiftUI
+import SwiftData
 import MapKit
 import UIKit
 
+struct RestaurantDetailPagerView: View {
+    let restaurants: [Restaurant]
+    let initialRestaurant: Restaurant
+
+    @State private var selectedIndex: Int
+    @State private var focusedRestaurantForMap: Restaurant
+    @State private var showingRestaurantsMap = false
+    @State private var showingEditRestaurant = false
+
+    init(restaurants: [Restaurant], initialRestaurant: Restaurant) {
+        self.restaurants = restaurants
+        self.initialRestaurant = initialRestaurant
+        _selectedIndex = State(initialValue: restaurants.firstIndex {
+            $0.persistentModelID == initialRestaurant.persistentModelID
+        } ?? 0)
+        _focusedRestaurantForMap = State(initialValue: initialRestaurant)
+    }
+
+    var body: some View {
+        TabView(selection: $selectedIndex) {
+            ForEach(Array(restaurants.enumerated()), id: \.element.persistentModelID) { index, restaurant in
+                RestaurantDetailView(
+                    restaurant: restaurant,
+                    loadsMap: abs(index - selectedIndex) <= 1
+                ) {
+                    focusedRestaurantForMap = restaurants[index]
+                    showingRestaurantsMap = true
+                }
+                    .tag(index)
+            }
+        }
+        .tabViewStyle(.page(indexDisplayMode: .never))
+        .navigationDestination(isPresented: $showingRestaurantsMap) {
+            RestaurantsMapView(focusedRestaurant: focusedRestaurantForMap)
+        }
+        .toolbar {
+            Button("Modifier") { showingEditRestaurant = true }
+        }
+        .sheet(isPresented: $showingEditRestaurant) {
+            if restaurants.indices.contains(selectedIndex) {
+                RestaurantFormView(restaurant: restaurants[selectedIndex])
+            }
+        }
+        .overlay(alignment: .top) {
+            if restaurants.count > 1 {
+                Text("\(selectedIndex + 1) sur \(restaurants.count)")
+                    .font(.caption.weight(.semibold))
+                    .foregroundStyle(.secondary)
+                    .padding(.horizontal, 10)
+                    .padding(.vertical, 5)
+                    .background(.regularMaterial, in: Capsule())
+                    .padding(.top, 6)
+                    .allowsHitTesting(false)
+            }
+        }
+    }
+}
+
 struct RestaurantDetailView: View {
     let restaurant: Restaurant
-    @State private var showingEditRestaurant = false
+    let loadsMap: Bool
+    let showOnRestaurantsMap: () -> Void
     @State private var showingNavigationOptions = false
-    @State private var showingRestaurantsMap = false
 
     private var coordinate: CLLocationCoordinate2D? {
         guard let latitude = restaurant.latitude, let longitude = restaurant.longitude else { return nil }
@@ -25,13 +84,24 @@ struct RestaurantDetailView: View {
             VStack(alignment: .leading, spacing: 22) {
                 if let coordinate {
                     Button {
-                        showingRestaurantsMap = true
+                        showOnRestaurantsMap()
                     } label: {
-                        Map(initialPosition: mapPosition(for: coordinate)) {
-                            Marker(restaurant.name, coordinate: coordinate)
-                                .tint(.orange)
+                        Group {
+                            if loadsMap {
+                                Map(initialPosition: mapPosition(for: coordinate)) {
+                                    Marker(restaurant.name, coordinate: coordinate)
+                                        .tint(.orange)
+                                }
+                                .allowsHitTesting(false)
+                            } else {
+                                ZStack {
+                                    Color.secondary.opacity(0.08)
+                                    Image(systemName: "map")
+                                        .font(.largeTitle)
+                                        .foregroundStyle(.secondary)
+                                }
+                            }
                         }
-                        .allowsHitTesting(false)
                         .overlay(alignment: .bottomTrailing) {
                             Label("Voir sur la carte", systemImage: "map.fill")
                                 .font(.caption.bold())
@@ -148,15 +218,6 @@ struct RestaurantDetailView: View {
             .padding()
         }
         .navigationBarTitleDisplayMode(.inline)
-        .toolbar {
-            Button("Modifier") { showingEditRestaurant = true }
-        }
-        .sheet(isPresented: $showingEditRestaurant) {
-            RestaurantFormView(restaurant: restaurant)
-        }
-        .navigationDestination(isPresented: $showingRestaurantsMap) {
-            RestaurantsMapView(focusedRestaurant: restaurant)
-        }
         .confirmationDialog(
             "Choisir une application d’itinéraire",
             isPresented: $showingNavigationOptions,

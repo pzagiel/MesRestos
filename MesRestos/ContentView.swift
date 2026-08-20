@@ -404,7 +404,10 @@ struct ContentView: View {
                         coordinate: CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
                     ) {
                         NavigationLink {
-                            RestaurantDetailView(restaurant: restaurant)
+                            RestaurantDetailPagerView(
+                                restaurants: filteredRestaurants,
+                                initialRestaurant: restaurant
+                            )
                         } label: {
                             Image(systemName: "fork.knife")
                                 .font(.caption.bold())
@@ -495,7 +498,10 @@ struct ContentView: View {
             Section("\(filteredRestaurants.count) adresse\(filteredRestaurants.count > 1 ? "s" : "")") {
                 ForEach(filteredRestaurants) { restaurant in
                     NavigationLink {
-                        RestaurantDetailView(restaurant: restaurant)
+                        RestaurantDetailPagerView(
+                            restaurants: filteredRestaurants,
+                            initialRestaurant: restaurant
+                        )
                     } label: {
                         RestaurantRow(
                             restaurant: restaurant,

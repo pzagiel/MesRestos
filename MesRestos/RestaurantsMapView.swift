@@ -9,6 +9,8 @@ struct RestaurantsMapView: View {
 
     @State private var mapPosition: MapCameraPosition
     @State private var visibleMapRegion: MKCoordinateRegion
+    @State private var selectedRestaurant: Restaurant
+    @State private var showingRestaurantDetail = false
 
     init(focusedRestaurant: Restaurant) {
         self.focusedRestaurant = focusedRestaurant
@@ -23,6 +25,7 @@ struct RestaurantsMapView: View {
         )
         _mapPosition = State(initialValue: .region(region))
         _visibleMapRegion = State(initialValue: region)
+        _selectedRestaurant = State(initialValue: focusedRestaurant)
     }
 
     var body: some View {
@@ -36,8 +39,9 @@ struct RestaurantsMapView: View {
                         restaurant.name,
                         coordinate: CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
                     ) {
-                        NavigationLink {
-                            RestaurantDetailView(restaurant: restaurant)
+                        Button {
+                            selectedRestaurant = restaurant
+                            showingRestaurantDetail = true
                         } label: {
                             Image(systemName: "fork.knife")
                                 .font(isFocused ? .body.bold() : .caption.bold())
@@ -55,6 +59,7 @@ struct RestaurantsMapView: View {
                                 )
                                 .shadow(radius: isFocused ? 6 : 3, y: 2)
                         }
+                        .buttonStyle(.plain)
                         .zIndex(isFocused ? 1 : 0)
                         .accessibilityLabel(restaurant.name)
                     }
@@ -63,6 +68,12 @@ struct RestaurantsMapView: View {
         }
         .navigationTitle(focusedRestaurant.name)
         .navigationBarTitleDisplayMode(.inline)
+        .navigationDestination(isPresented: $showingRestaurantDetail) {
+            RestaurantDetailPagerView(
+                restaurants: detailRestaurants,
+                initialRestaurant: selectedRestaurant
+            )
+        }
         .mapControls {
             MapUserLocationButton()
             MapCompass()
@@ -103,6 +114,12 @@ struct RestaurantsMapView: View {
                 return !firstIsFocused
             }
             return first.name.localizedCaseInsensitiveCompare(second.name) == .orderedAscending
+        }
+    }
+
+    private var detailRestaurants: [Restaurant] {
+        restaurants.sorted {
+            $0.name.localizedCaseInsensitiveCompare($1.name) == .orderedAscending
         }
     }
 
