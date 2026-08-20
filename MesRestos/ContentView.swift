@@ -502,6 +502,9 @@ struct ContentView: View {
                             userLocation: locationManager.location
                         )
                     }
+                    .listRowInsets(
+                        EdgeInsets(top: 6, leading: 16, bottom: 6, trailing: 16)
+                    )
                 }
                 .onDelete(perform: deleteRestaurants)
             }
@@ -736,14 +739,14 @@ private struct RestaurantRow: View {
     let userLocation: CLLocation?
 
     var body: some View {
-        HStack(alignment: .center, spacing: 10) {
+        HStack(alignment: .center, spacing: 8) {
             Image(systemName: "fork.knife")
                 .font(.system(size: 12, weight: .medium))
                 .foregroundStyle(.white)
-                .frame(width: 30, height: 30)
-                .background(.orange.gradient, in: RoundedRectangle(cornerRadius: 8))
+                .frame(width: 28, height: 28)
+                .background(.orange.gradient, in: RoundedRectangle(cornerRadius: 7))
 
-            VStack(alignment: .leading, spacing: 3) {
+            VStack(alignment: .leading, spacing: 2) {
                 Text(restaurant.name)
                     .font(.system(size: 17, weight: .semibold))
                     .lineLimit(1)
@@ -798,13 +801,12 @@ private struct RestaurantRow: View {
                     }
                 }
                 .font(.system(size: 12))
-                .frame(height: 18, alignment: .leading)
+                .frame(height: 17, alignment: .leading)
             }
             .frame(maxWidth: .infinity, alignment: .leading)
 
         }
-        .frame(minHeight: 46)
-        .padding(.vertical, 2)
+        .frame(minHeight: 44)
     }
 
     private var ratingText: String {
