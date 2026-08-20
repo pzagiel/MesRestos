@@ -316,11 +316,26 @@ enum DefaultRestaurants {
         migrateIndependentTracking(in: existingRestaurants)
         normalizeKnownLocations(in: existingRestaurants)
 
-        guard !UserDefaults.standard.bool(forKey: seedKey) else {
+        let cloudSeedKey = "\(seedKey).iCloud"
+        let cloudDefaults = NSUbiquitousKeyValueStore.default
+        cloudDefaults.synchronize()
+
+        if UserDefaults.standard.bool(forKey: seedKey) {
+            cloudDefaults.set(true, forKey: cloudSeedKey)
+            cloudDefaults.synchronize()
             try? modelContext.save()
             return
         }
+
+        guard !cloudDefaults.bool(forKey: cloudSeedKey) else {
+            UserDefaults.standard.set(true, forKey: seedKey)
+            try? modelContext.save()
+            return
+        }
+
         UserDefaults.standard.set(true, forKey: seedKey)
+        cloudDefaults.set(true, forKey: cloudSeedKey)
+        cloudDefaults.synchronize()
 
         var existingNames = Set(existingRestaurants.map { normalized($0.name) })
         var existingAddresses = Set(existingRestaurants.map { normalized($0.address) })

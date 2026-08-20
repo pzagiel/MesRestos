@@ -1,0 +1,61 @@
+{
+  "version": 1,
+  "restaurants": [
+    {
+      "nom": "Osteria La Mossa",
+      "adresse": "Piazza del Campo 29, 53100 Siena SI, Italie",
+      "ville": "Siena",
+      "pays": "Italie",
+      "cuisine": "Italienne",
+      "statut": "À tester",
+      "favori": false,
+      "note": 0,
+      "commentaire": "Osteria toscane directement sur la Piazza del Campo. Cuisine italienne, méditerranéenne et siennoise; bonne réputation pour les pâtes, les viandes et les spécialités locales. Terrasse avec vue sur la place.",
+      "telephone": "+39 0577 40989",
+      "site_web": "https://www.tripadvisor.com/Restaurant_Review-g187902-d1749280-Reviews-Osteria_La_Mossa-Siena_Tuscany.html",
+      "lien_fooding": ""
+    },
+    {
+      "nom": "Il Bandierino",
+      "adresse": "Piazza del Campo 66, 53100 Siena SI, Italie",
+      "ville": "Siena",
+      "pays": "Italie",
+      "cuisine": "Italienne",
+      "statut": "À tester",
+      "favori": false,
+      "note": 0,
+      "commentaire": "Restaurant emblématique de la Piazza del Campo. Cuisine siennoise et toscane, vins locaux, pâtes, viandes et pizzas; emplacement privilégié pour profiter de l'ambiance de la place.",
+      "telephone": "+39 0577 282217",
+      "site_web": "https://ilbandierinosiena.com/",
+      "lien_fooding": ""
+    },
+    {
+      "nom": "Costa I726",
+      "adresse": "Piazza del Campo 39-40, 53100 Siena SI, Italie",
+      "ville": "Siena",
+      "pays": "Italie",
+      "cuisine": "Italienne",
+      "statut": "À tester",
+      "favori": false,
+      "note": 0,
+      "commentaire": "Restaurant-pizzeria avec terrasse panoramique directement sur la Piazza del Campo. Spécialité de pizzas napolitaines, complétées par des plats italiens et toscans.",
+      "telephone": "+39 0577 892045",
+      "site_web": "https://ristorantepizzeriacostasiena.it/i726/",
+      "lien_fooding": ""
+    },
+    {
+      "nom": "La Vecchia Taverna di Bacco",
+      "adresse": "Via di Beccheria, 9, 53100 Siena SI, Italie",
+      "ville": "Siena",
+      "pays": "Italie",
+      "cuisine": "Italienne",
+      "statut": "Aucun",
+      "favori": false,
+      "note": 4.0,
+      "commentaire": "Testé le 19/08/2026 à quelques pas de la Piazza del Campo : très bonne surprise, cuisine fine et très bien exécutée. Fleurs de courgette farcies à la ricotta avec truffe fraîche râpée à table (20 €), plus raffinées que la moyenne. Virginie a choisi une parmigiana di melanzane : aubergine extrêmement fondante, sans être trop grasse, également très réussie. Note publique indicative : 4,0/5 sur Tripadvisor en août 2026.",
+      "telephone": "+39 348 795 7176",
+      "site_web": "https://baccoasiena.it/",
+      "lien_fooding": ""
+    }
+  ]
+}

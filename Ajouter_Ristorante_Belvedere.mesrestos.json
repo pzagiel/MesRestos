@@ -1,0 +1,20 @@
+{
+  "version": 1,
+  "restaurants": [
+    {
+      "nom": "Ristorante Belvedere",
+      "adresse": "Località Bano 226, 52048 Monte San Savino AR, Italie",
+      "cuisine": "Italienne",
+      "statut": "À tester",
+      "note": 4.4,
+      "commentaire": "Cuisine toscane traditionnelle avec une belle vue sur la Valdichiana. Bien noté sur Google (4,4/5, environ 500 avis en août 2026). Spécialités : crostini toscans, ragù, tagliatelle, truffe et viandes.",
+      "telephone": "+39 0575 844262",
+      "site_web": "https://www.belvedereeventi.it/",
+      "lien_fooding": "",
+      "localisation": {
+        "latitude": 43.3223786,
+        "longitude": 11.6999628
+      }
+    }
+  ]
+}
